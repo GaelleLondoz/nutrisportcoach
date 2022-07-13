@@ -1,0 +1,157 @@
+{
+  ".svelte-kit/build/index.js": {
+    "file": "index.js",
+    "src": ".svelte-kit/build/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ],
+    "dynamicImports": [
+      "src/hooks.js"
+    ]
+  },
+  "src/routes/todos/index.js": {
+    "file": "entries/endpoints/todos/index.js",
+    "src": "src/routes/todos/index.js",
+    "isEntry": true
+  },
+  "src/routes/__layout.svelte": {
+    "file": "entries/pages/__layout.svelte.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js",
+      "_Header-27331545.js"
+    ],
+    "css": [
+      "immutable/assets/entries/pages/__layout.svelte-2750fc48.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ]
+  },
+  "src/routes/about.svelte": {
+    "file": "entries/pages/about.svelte.js",
+    "src": "src/routes/about.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ],
+    "css": [
+      "immutable/assets/entries/pages/about.svelte-7b1aeeb4.css"
+    ]
+  },
+  "src/routes/contact/index.svelte": {
+    "file": "entries/pages/contact/index.svelte.js",
+    "src": "src/routes/contact/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ]
+  },
+  "src/routes/histoire/index.svelte": {
+    "file": "entries/pages/histoire/index.svelte.js",
+    "src": "src/routes/histoire/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "entries/pages/index.svelte.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js",
+      "_HTML-15b647e7.js",
+      "_Header-27331545.js"
+    ],
+    "css": [
+      "immutable/assets/entries/pages/index.svelte-98dbc48e.css"
+    ]
+  },
+  "src/routes/philosophie/index.svelte": {
+    "file": "entries/pages/philosophie/index.svelte.js",
+    "src": "src/routes/philosophie/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js",
+      "_HTML-15b647e7.js",
+      "_Header-27331545.js"
+    ],
+    "css": [
+      "immutable/assets/entries/pages/philosophie/index.svelte-587f5b93.css"
+    ]
+  },
+  "src/routes/programs/nutrition.svelte": {
+    "file": "entries/pages/programs/nutrition.svelte.js",
+    "src": "src/routes/programs/nutrition.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ]
+  },
+  "src/routes/programs/philosophie.svelte": {
+    "file": "entries/pages/programs/philosophie.svelte.js",
+    "src": "src/routes/programs/philosophie.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ]
+  },
+  "src/routes/programs/sport.svelte": {
+    "file": "entries/pages/programs/sport.svelte.js",
+    "src": "src/routes/programs/sport.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ]
+  },
+  "src/routes/programs/vie.svelte": {
+    "file": "entries/pages/programs/vie.svelte.js",
+    "src": "src/routes/programs/vie.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ]
+  },
+  "src/routes/todos/index.svelte": {
+    "file": "entries/pages/todos/index.svelte.js",
+    "src": "src/routes/todos/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-4688debc.js"
+    ],
+    "css": [
+      "immutable/assets/entries/pages/todos/index.svelte-ff4870ed.css"
+    ]
+  },
+  "_index-4688debc.js": {
+    "file": "immutable/chunks/index-4688debc.js"
+  },
+  "_Header-27331545.js": {
+    "file": "immutable/chunks/Header-27331545.js",
+    "imports": [
+      "_index-4688debc.js"
+    ],
+    "css": [
+      "immutable/assets/Header-b797947d.css"
+    ]
+  },
+  "_HTML-15b647e7.js": {
+    "file": "immutable/chunks/HTML-15b647e7.js",
+    "imports": [
+      "_index-4688debc.js"
+    ]
+  },
+  "src/hooks.js": {
+    "file": "immutable/chunks/hooks-c6cde00f.js",
+    "src": "src/hooks.js",
+    "isDynamicEntry": true
+  }
+}
