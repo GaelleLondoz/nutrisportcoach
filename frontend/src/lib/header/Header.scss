@@ -1,0 +1,70 @@
+nav {
+  padding-top: 7.5rem;
+
+  aside {
+    left: -100%;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .open {
+    left: 0;
+  }
+
+  .logo {
+    max-height: 7.68rem;
+    max-width: 100%;
+  }
+
+  ul {
+    li {
+      a {
+        color: $black;
+        font-size: 2.5rem;
+        line-height: 3.3rem;
+        letter-spacing: 0.063rem;
+      }
+
+      &.active {
+        a {
+          color: $ui-green-0;
+        }
+      }
+      hr {
+        display: none;
+      }
+    }
+  }
+
+  @include md {
+    ul {
+      gap: 6rem;
+      li {
+        a {
+          font-size: 2.5rem;
+          line-height: 3.3rem;
+          letter-spacing: 0.063rem;
+          transition: all ease-in-out 0.4s;
+        }
+
+        &.active,
+        &:hover {
+          a {
+            color: $ui-green-0;
+          }
+
+          hr {
+            width: 100%;
+          }
+        }
+
+        hr {
+          display: block;
+          transition: all ease-in-out 0.4s;
+          border-bottom: solid 0.2rem $ui-green-0;
+          border-radius: 1rem;
+          width: 0;
+        }
+      }
+    }
+  }
+}

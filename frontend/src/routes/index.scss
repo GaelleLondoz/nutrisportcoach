@@ -1,0 +1,44 @@
+:global(body) {
+  background-color: rgba($ui-green-0, 0.12);
+  overflow: hidden;
+}
+
+section {
+  height: calc(100vh - var(--headerHeigth));
+
+  h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-bottom: 3rem;
+
+    :global(span) {
+      color: $ui-green-0;
+    }
+  }
+
+  a {
+    background-color: $ui-green-0;
+    border-radius: 1rem;
+    padding: 0.8rem 2.3rem;
+    font-size: 1.5rem;
+  }
+
+  @include md {
+    h1 {
+      font-size: 5.5rem;
+      line-height: 8rem;
+      margin-bottom: 8rem;
+    }
+
+    a {
+      border-radius: 1.5rem;
+      padding: 0.5rem 3.2rem;
+      font-size: 2.5rem;
+      transition: all ease-in-out 0.4s;
+
+      &:hover {
+        background-color: darken($ui-green-0, 10%);
+      }
+    }
+  }
+}

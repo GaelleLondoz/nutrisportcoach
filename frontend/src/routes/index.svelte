@@ -1,61 +1,51 @@
 <script context="module">
-	export const prerender = true;
+  export const prerender = true;
+
+  export const load = async ({ fetch, params }) => {
+    const res = await fetch(`http://localhost:1337/api/homepage`);
+    if (res.ok) {
+      const { data } = await res.json();
+      return {
+        props: { data },
+      };
+    }
+  };
 </script>
 
 <script>
-	import Counter from '$lib/Counter.svelte';
+  import { fly } from "svelte/transition";
+
+  import HTML from "$lib/HTML/HTML.svelte";
+  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
+
+  export let data = null;
+
+  const { title, buttonText, buttonLink, metaTitle, metaDescription } =
+    data?.attributes;
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+  <title>{metaTitle}</title>
+  <meta name="description" content={metaDescription} />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</span>
+{#if data}
+  <section
+    in:fly={{ x: -200, duration: 750 }}
+    class="container flex justify-end md:justify-start md:items-center"
+    style={`--headerHeigth: ${$mainHeaderHeight}px`}
+  >
+    <div class="content flex flex-col items-end md:items-start justify-center">
+      <h1 class="font-bold text-right md:text-left"><HTML text={title} /></h1>
+      <div>
+        <a class="text-white" sveltekit:prefetch href={buttonLink}
+          >{buttonText}</a
+        >
+      </div>
+    </div>
+  </section>
+{/if}
 
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+<style lang="scss">
+  @import "./index.scss";
 </style>

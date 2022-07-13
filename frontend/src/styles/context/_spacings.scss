@@ -1,0 +1,31 @@
+// dont use those in props declaration
+// default to usual spacings OR alias them in well named local variables in the component style file
+$spacing: $unit;
+$padding: $spacing;
+$margin: $spacing;
+//
+
+// use for spacings, margins and paddings only
+// $spacing = $unit = 1.6rem = 16px
+$spacing-xxsmall: $spacing * $coef-xxsmall; // 4px
+$spacing-xsmall: $spacing * $coef-xsmall; // 8px
+$spacing-small: $spacing * $coef-small; // 12px
+$spacing-default: $spacing; // 16px
+$spacing-big: $spacing * $coef-big; // 24px
+$spacing-xbig: $spacing * $coef-xbig; // 32px
+
+// $margin = $unit = 1.6rem = 16px
+$margin-xxsmall: $margin * $coef-xxsmall; // 4px
+$margin-xsmall: $margin * $coef-xsmall; // 8px
+$margin-small: $margin * $coef-small; // 12px
+$margin-default: $margin; // 16px
+$margin-big: $margin * $coef-big; // 24px
+$margin-xbig: $margin * $coef-xbig; // 32px
+
+// $padding = $unit = 1.6rem = 16px
+$padding-xxsmall: $padding * $coef-xxsmall; // 4px
+$padding-xsmall: $padding * $coef-xsmall; // 8px
+$padding-small: $padding * $coef-small; // 12px
+$padding-default: $padding; // 16px
+$padding-big: $padding * $coef-big; // 24px
+$padding-xbig: $padding * $coef-xbig; // 32px
