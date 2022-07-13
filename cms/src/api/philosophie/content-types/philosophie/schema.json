@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "philosophies",
+  "info": {
+    "singularName": "philosophie",
+    "pluralName": "philosophies",
+    "displayName": "philosophie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "programs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::program.program"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    }
+  }
+}
