@@ -3,7 +3,7 @@
 
   export const load = async ({ fetch, params }) => {
     const res = await fetch(
-      `http://localhost:1337/api/philosophie?populate=deep`
+      `https://nutrisportcoach.herokuapp.com/api/philosophie?populate=deep`
     );
     if (res.ok) {
       const { data } = await res.json();
@@ -44,8 +44,8 @@
             >
               <img
                 alt={program.attributes.image.data.attributes.alternativeText}
-                src="http://localhost:1337{program.attributes.image.data
-                  .attributes.url}"
+                src="https://nutrisportcoach.herokuapp.com{program.attributes
+                  .image.data.attributes.url}"
               />
               <span>{program.attributes.title}</span>
             </div>
