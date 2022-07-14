@@ -44,8 +44,7 @@
             >
               <img
                 alt={program.attributes.image.data.attributes.alternativeText}
-                src="https://nutrisportcoach.herokuapp.com{program.attributes
-                  .image.data.attributes.url}"
+                src={program.attributes.image.data.attributes.url}
               />
               <span>{program.attributes.title}</span>
             </div>

@@ -26,11 +26,7 @@
   <header bind:offsetHeight={$dynamicOffsetHeight}>
     <nav class="container md:flex md:justify-between md:items-center">
       <div>
-        <img
-          class="logo"
-          src="http://localhost:1337{logo.data.attributes.url}"
-          alt="logo"
-        />
+        <img class="logo" src={logo.data.attributes.url} alt="logo" />
       </div>
       <!-- 
       <div on:click={() => (open = !open)}>
