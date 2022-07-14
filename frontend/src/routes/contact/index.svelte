@@ -2,7 +2,13 @@
   export const prerender = true;
 </script>
 
-<form name="contact" method="post" netlify netlify-honeypot="bot-field">
+<form
+  name="contact"
+  method="post"
+  netlify
+  netlify-honeypot="bot-field"
+  data-netlify="true"
+>
   <input type="hidden" name="form-name" value="contact" />
   <input type="text" name="bot-field" />
   <p>
