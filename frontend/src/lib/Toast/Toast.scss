@@ -1,0 +1,28 @@
+.toast {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.4rem;
+  border-radius: 1.2rem;
+  background: $white;
+  padding: 2rem 3.5rem 2rem 2.5rem;
+  box-shadow: 0 0.6rem 2rem -0.5rem rgba($black, 0.1);
+  overflow: hidden;
+
+  .toast-content {
+    display: flex;
+    align-items: center;
+  }
+
+  :global(.close) {
+    position: absolute;
+    top: 1.4rem;
+    right: 1.4rem;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+
+    &:hover {
+      color: $ui-green-0;
+    }
+  }
+}
