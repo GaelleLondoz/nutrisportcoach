@@ -15,6 +15,7 @@
 </script>
 
 <script>
+  import { onMount } from "svelte";
   import HTML from "$lib/HTML/HTML.svelte";
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
 
@@ -22,6 +23,11 @@
 
   const { title, description, metaTitle, metaDescription, programs } =
     data?.attributes;
+
+  onMount(() => {
+    const body = document.querySelector("body");
+    body.id = "philosophy";
+  });
 </script>
 
 <svelte:head>

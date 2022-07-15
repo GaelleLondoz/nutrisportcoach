@@ -1,6 +1,7 @@
 <script>
   import { fly } from "svelte/transition";
   import { Icon, X } from "svelte-hero-icons";
+  import Portal from "svelte-portal";
 
   export const open = () => {
     active = true;
@@ -19,14 +20,19 @@
 </script>
 
 {#if active}
-  <div class="toast" transition:fly={{ x: -200, duration: 400 }}>
-    <div class="toast-content">
-      <slot />
+  <Portal target="body">
+    <div
+      class="toast absolute bg-white overflow-hidden"
+      transition:fly={{ x: -200, duration: 400 }}
+    >
+      <div class="toast-content flex items-center">
+        <slot />
+      </div>
+      <span class="absolute cursor-pointer close" on:click={close}>
+        <Icon src={X} size="16" />
+      </span>
     </div>
-    <span on:click={close}>
-      <Icon src={X} size="16" class="close" />
-    </span>
-  </div>
+  </Portal>
 {/if}
 
 <style lang="scss">

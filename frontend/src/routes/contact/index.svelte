@@ -3,6 +3,7 @@
 </script>
 
 <script>
+  import { onMount } from "svelte";
   import Toast from "$lib/Toast/Toast.svelte";
   import { Icon, CheckCircle, XCircle, X } from "svelte-hero-icons";
 
@@ -27,7 +28,17 @@
         formSentSuccess = false;
       });
   };
+
+  onMount(() => {
+    const body = document.querySelector("body");
+    body.id = "history";
+  });
 </script>
+
+<svelte:head>
+  <title>{metaTitle}</title>
+  <meta name="description" content={metaDescription} />
+</svelte:head>
 
 <section class="container">
   <div />
