@@ -37,6 +37,13 @@ section {
             &:focus {
               border-bottom: solid 1px $black;
             }
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active {
+              transition: background-color 600000s 0s, color 600000s 0s;
+            }
           }
 
           &.label--message {

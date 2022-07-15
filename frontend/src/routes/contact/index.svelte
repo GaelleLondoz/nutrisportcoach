@@ -20,6 +20,7 @@
       .then(() => {
         toast.open();
         formSentSuccess = true;
+        form.reset();
       })
       .catch(() => {
         toast.open();
