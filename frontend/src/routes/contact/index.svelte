@@ -45,8 +45,11 @@
     >
       <div class="form__inputs">
         <input type="hidden" name="form-name" value="contact" />
-        <!-- <input type="text" name="bot-field" /> -->
-
+        <p class="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
         <label
           >Nom <sup>*</sup><input
             type="text"
