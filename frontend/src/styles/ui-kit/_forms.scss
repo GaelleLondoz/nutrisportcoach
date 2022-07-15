@@ -1,0 +1,83 @@
+form {
+  .form__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7rem;
+
+    label {
+      font-weight: 500;
+      font-size: 2rem;
+
+      span,
+      sup {
+        text-transform: initial;
+        font-size: 1.5rem;
+        color: $ui-green-0;
+      }
+
+      input {
+        width: 100%;
+        border-bottom: solid 1px #989191;
+        background-color: transparent;
+
+        &:focus {
+          border-bottom: solid 1px $black;
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          transition: background-color 600000s 0s, color 600000s 0s;
+        }
+      }
+
+      &.label--message {
+        grid-column: 1 / span 2;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 2rem 1.8rem;
+        height: 14.5rem;
+        background-color: rgba(221, 215, 215, 0.4);
+        border-radius: 22px;
+      }
+
+      input,
+      textarea {
+        display: block;
+        margin-top: 1.5rem;
+        color: $black;
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        &::placeholder {
+          color: #989191;
+        }
+
+        &:focus {
+          outline: none;
+          &::placeholder {
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+  button {
+    color: $white;
+    background-color: $ui-green-0;
+    border-radius: 1.5rem;
+    padding: 0.5rem 3.2rem;
+    font-size: 2.5rem;
+    width: max-content;
+    line-height: 3rem;
+    transition: all ease-in-out 0.4s;
+    margin: 3.5rem 0;
+
+    &:hover {
+      background-color: darken($ui-green-0, 10%);
+    }
+  }
+}

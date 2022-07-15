@@ -1,16 +1,34 @@
 <script context="module">
   export const prerender = true;
+
+  export const load = async ({ fetch, params }) => {
+    const res = await fetch(
+      `https://nutrisportcoach.herokuapp.com/api/contact`
+    );
+    if (res.ok) {
+      const { data } = await res.json();
+      return {
+        props: { data },
+      };
+    }
+  };
 </script>
 
 <script>
   import { onMount } from "svelte";
   import Toast from "$lib/Toast/Toast.svelte";
-  import { Icon, CheckCircle, XCircle, X } from "svelte-hero-icons";
+  import Input from "$lib/Form/Input/Input.svelte";
+  import Textarea from "$lib/Form/Textarea/Textarea.svelte";
+  import { Icon, CheckCircle, XCircle } from "svelte-hero-icons";
 
   let form = null;
   let toast = null;
   let formSentSuccess = false;
+  export let data;
 
+  const formComponents = { Input, Textarea };
+
+  const { title, metaTitle, metaDescription, inputs } = data?.attributes;
   const handleSubmit = () => {
     let formData = new FormData(form);
     fetch("/", {
@@ -31,8 +49,10 @@
 
   onMount(() => {
     const body = document.querySelector("body");
-    body.id = "history";
+    body.id = "contact";
   });
+
+  $: console.log(inputs);
 </script>
 
 <svelte:head>
@@ -43,7 +63,7 @@
 <section class="container">
   <div />
   <div class="form__container">
-    <h1>Formulaire de contact</h1>
+    <h1>{title}</h1>
 
     <form
       name="contact"
@@ -61,49 +81,18 @@
             Don’t fill this out if you’re human: <input name="bot-field" />
           </label>
         </p>
-        <label
-          >Nom <sup>*</sup><input
-            type="text"
-            name="first-name"
-            placeholder="Entrez votre nom"
-            required
-          /></label
-        >
-
-        <label
-          >Prénom <sup>*</sup><input
-            type="text"
-            name="last-name"
-            placeholder="Entrez votre prénom"
-            required
-          /></label
-        >
-
-        <label
-          >E-mail <sup>*</sup><input
-            type="email"
-            name="email"
-            placeholder="Entrez votre e-mail"
-            required
-          /></label
-        >
-
-        <label
-          >Téléphone <span>*</span><input
-            type="tel"
-            name="phone"
-            placeholder="Entrez votre numéro de téléphone"
-            required
-          /></label
-        >
-
-        <label class="label--message"
-          >Message <span>(Facultatif)</span><textarea
-            name="message"
-            placeholder="Entrez votre message…"
-          /></label
-        >
+        {#if inputs}
+          {#each inputs as input}
+            <svelte:component
+              this={formComponents[input.tag]}
+              label={input.label}
+              required={input.required}
+              attributes={input.attributes}
+            />
+          {/each}
+        {/if}
       </div>
+
       <button type="submit">Envoyer</button>
     </form>
   </div>

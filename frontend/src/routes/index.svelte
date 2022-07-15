@@ -22,10 +22,10 @@
   import { onMount } from "svelte";
 
   export let data = null;
-  let mounted = false;
 
   const { title, buttonText, buttonLink, metaTitle, metaDescription } =
     data?.attributes;
+
   onMount(() => {
     const body = document.querySelector("body");
     body.id = "homepage";
