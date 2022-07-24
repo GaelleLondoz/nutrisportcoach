@@ -12,7 +12,7 @@
 
   let data = null;
 
-  $: menu = data?.data?.attributes?.menu;
+  $: menu = data?.data?.attributes?.items;
   $: logo = data?.data?.attributes?.logo;
 
   const loadMenuData = async () => {
@@ -26,7 +26,9 @@
   <header bind:offsetHeight={$dynamicOffsetHeight}>
     <nav class="container md:flex md:justify-between md:items-center">
       <div>
-        <img class="logo" src={logo.data.attributes.url} alt="logo" />
+        <a sveltekit:prefetch href="/" class="no-underline"
+          ><img class="logo" src={logo.data.attributes.url} alt="logo" /></a
+        >
       </div>
       <!-- 
       <div on:click={() => (open = !open)}>
@@ -38,11 +40,9 @@
         class:open
       > -->
       <ul class="md:flex p-0 list-none">
-        {#each menu as menuItems}
-          <li class:active={$page.url.pathname === menuItems.link}>
-            <a sveltekit:prefetch href={menuItems.link} class="no-underline"
-              >{menuItems.name}</a
-            >
+        {#each menu as { label, page: { data: { attributes: { url } } } }}
+          <li class:active={$page.url.pathname === url}>
+            <a sveltekit:prefetch href={url} class="no-underline">{label}</a>
             <hr />
           </li>
         {/each}

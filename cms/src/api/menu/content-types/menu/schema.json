@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "menu": {
-      "type": "json"
-    },
     "logo": {
       "type": "media",
       "multiple": false,
@@ -25,6 +22,11 @@
         "videos",
         "audios"
       ]
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.element"
     }
   }
 }
