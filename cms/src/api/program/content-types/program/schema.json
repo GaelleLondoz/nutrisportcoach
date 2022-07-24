@@ -4,7 +4,8 @@
   "info": {
     "singularName": "program",
     "pluralName": "programs",
-    "displayName": "programs"
+    "displayName": "Programmes",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,14 +16,15 @@
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "buttonText": {
       "type": "string"
@@ -37,6 +39,12 @@
     },
     "background": {
       "type": "string"
+    },
+    "test": {
+      "type": "dynamiczone",
+      "components": [
+        "text.text-block"
+      ]
     }
   }
 }

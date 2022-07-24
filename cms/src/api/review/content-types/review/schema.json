@@ -4,7 +4,8 @@
   "info": {
     "singularName": "review",
     "pluralName": "reviews",
-    "displayName": "Reviews"
+    "displayName": "Témoignages",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,12 @@
       "type": "text"
     },
     "rating": {
+      "type": "integer"
+    },
+    "visible": {
+      "type": "boolean"
+    },
+    "order": {
       "type": "integer"
     }
   }

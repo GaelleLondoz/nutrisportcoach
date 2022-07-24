@@ -4,7 +4,7 @@
   "info": {
     "singularName": "menu",
     "pluralName": "menus",
-    "displayName": "menu",
+    "displayName": "Menu",
     "description": ""
   },
   "options": {
@@ -16,14 +16,15 @@
       "type": "json"
     },
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
