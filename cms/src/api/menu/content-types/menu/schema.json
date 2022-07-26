@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "logo": {
+    "logoBig": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -27,6 +27,17 @@
       "type": "component",
       "repeatable": true,
       "component": "menu.element"
+    },
+    "logoSmall": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
