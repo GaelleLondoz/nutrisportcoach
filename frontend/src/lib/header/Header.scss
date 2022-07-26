@@ -1,6 +1,10 @@
-nav {
-  padding-top: 7.5rem;
+header {
+  height: 7.5rem;
+  box-shadow: -0.2rem 0.5rem 0.6rem rgba($ui-gray-7, 0.16);
+  background-color: $ui-gray-0;
+}
 
+nav {
   aside {
     left: -100%;
     transition: left 0.3s ease-in-out;
@@ -11,16 +15,15 @@ nav {
   }
 
   .logo {
-    width: 34.5rem;
-    max-width: 100%;
+    max-height: 100%;
   }
 
   ul {
     li {
       a {
         color: $black;
-        font-size: 2.5rem;
-        line-height: 3.3rem;
+        font-size: 2rem;
+        line-height: 2.7rem;
         letter-spacing: 0.063rem;
       }
 
@@ -29,20 +32,16 @@ nav {
           color: $ui-green-0;
         }
       }
-      hr {
-        display: none;
-      }
     }
   }
 
   @include md {
     ul {
-      gap: 6rem;
+      gap: 9rem;
       li {
         a {
           font-size: 2.5rem;
-          line-height: 3.3rem;
-          letter-spacing: 0.063rem;
+          line-height: 2.5rem;
           transition: all ease-in-out 0.4s;
         }
 
@@ -50,10 +49,6 @@ nav {
         &:hover {
           a {
             color: $ui-green-0;
-          }
-
-          hr {
-            width: 100%;
           }
         }
 

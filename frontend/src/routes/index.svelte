@@ -15,11 +15,12 @@
 </script>
 
 <script>
+  import { onMount } from "svelte";
   import { fly } from "svelte/transition";
 
   import HTML from "$lib/HTML/HTML.svelte";
+
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
-  import { onMount } from "svelte";
 
   export let data = null;
 

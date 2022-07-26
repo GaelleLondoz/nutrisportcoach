@@ -13,7 +13,7 @@
   let data = null;
 
   $: menu = data?.data?.attributes?.items;
-  $: logo = data?.data?.attributes?.logo;
+  $: logo = data?.data?.attributes?.logoBig;
 
   const loadMenuData = async () => {
     data = await getMenuData();
@@ -23,35 +23,23 @@
 </script>
 
 {#if data}
-  <header bind:offsetHeight={$dynamicOffsetHeight}>
+  <header
+    bind:offsetHeight={$dynamicOffsetHeight}
+    class="md:flex md:items-center"
+  >
     <nav class="container md:flex md:justify-between md:items-center">
       <div>
         <a sveltekit:prefetch href="/" class="no-underline"
           ><img class="logo" src={logo.data.attributes.url} alt="logo" /></a
         >
       </div>
-      <!-- 
-      <div on:click={() => (open = !open)}>
-        <Icon src={MenuAlt2} solid size="32" />
-      </div> -->
-
-      <!-- <aside
-        class="absolute w-80 h-full bg-gray-200 border-r-2 shadow-lg"
-        class:open
-      > -->
       <ul class="md:flex p-0 list-none">
         {#each menu as { label, page: { data: { attributes: { url } } } }}
           <li class:active={$page.url.pathname === url}>
             <a sveltekit:prefetch href={url} class="no-underline">{label}</a>
-            <hr />
           </li>
         {/each}
       </ul>
-
-      <!-- <div on:click={() => (open = !open)}> -->
-      <!-- <Icon src={X} solid size="32" />
-      </div> -->
-      <!-- </aside> -->
     </nav>
   </header>
 {/if}
