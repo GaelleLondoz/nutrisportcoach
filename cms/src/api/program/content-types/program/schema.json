@@ -39,10 +39,6 @@
     },
     "background": {
       "type": "string"
-    },
-    "test": {
-      "type": "dynamiczone",
-      "components": []
     }
   }
 }

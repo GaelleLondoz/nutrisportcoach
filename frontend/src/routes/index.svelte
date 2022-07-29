@@ -2,9 +2,7 @@
   export const prerender = true;
 
   export const load = async ({ fetch, params }) => {
-    const res = await fetch(
-      `https://nutrisportcoach.herokuapp.com/api/homepage`
-    );
+    const res = await fetch(`http://localhost:1337/api/homepage?populate=deep`);
     if (res.ok) {
       const { data } = await res.json();
       return {
@@ -24,7 +22,7 @@
 
   export let data = null;
 
-  const { title, buttonText, buttonLink, metaTitle, metaDescription } =
+  const { title, description, button, metaTitle, metaDescription } =
     data?.attributes;
 
   onMount(() => {
@@ -45,10 +43,13 @@
     style={`--headerHeigth: ${$mainHeaderHeight}px`}
   >
     <div class="content flex flex-col items-end md:items-start justify-center">
-      <h1 class="font-bold text-right md:text-left"><HTML text={title} /></h1>
+      <HTML text={title} />
+      <p>{description}</p>
       <div>
-        <a class="text-white" sveltekit:prefetch href={buttonLink}
-          >{buttonText}</a
+        <a
+          class="text-white"
+          sveltekit:prefetch
+          href={button.url.data.attributes.url}>{button.text}</a
         >
       </div>
     </div>

@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "richtext"
-    },
     "metaTitle": {
       "type": "string"
     },
@@ -29,6 +26,9 @@
       "repeatable": false,
       "component": "button.button",
       "required": false
+    },
+    "title": {
+      "type": "richtext"
     }
   }
 }

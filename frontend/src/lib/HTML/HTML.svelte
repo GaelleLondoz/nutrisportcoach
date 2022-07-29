@@ -1,6 +1,6 @@
 <script>
-  import sanitizeHtml from 'sanitize-html';
-  import { ALLOWED, RESTRICTED } from './HTML.conf';
+  import sanitizeHtml from "sanitize-html";
+  import { OPTIONS } from "./HTML.conf";
 
   /** The html string you want to render */
   export let text;
@@ -23,11 +23,14 @@
   export let options = {};
 
   // We use the default's lib and we softly overide it with our conf
-  const OPTIONS = {
-    allowedTags: (sanitizeHtml?.defaults?.allowedTags || [])
-      .concat(ALLOWED)
-      .filter((tag) => !RESTRICTED.includes(tag)),
-  };
+  // const OPTIONS = {
+  //   allowedTags: (sanitizeHtml?.defaults?.allowedTags || [])
+  //     .concat(ALLOWED)
+  //     .filter((tag) => !RESTRICTED.includes(tag)),
+  //   allowedAttributes: (sanitizeHtml?.defaults?.allowedAttributes || [])
+  //     .concat(ATTRIBUTES)
+  //     .filter((attribute) => !RESTRICTED.includes(attribute)),
+  // };
 </script>
 
 <!--
@@ -42,4 +45,7 @@ Usage:
 -->
 <!-- We are safe to use svelte @html here -->
 <!-- eslint-disable-next-line @ota-meshi/svelte/no-at-html-tags -->
-{@html sanitizeHtml(text, removeTags ? { NO_TAGS } : { ...OPTIONS, ...options })}
+{@html sanitizeHtml(
+  text,
+  removeTags ? { NO_TAGS } : { ...OPTIONS, ...options }
+)}
