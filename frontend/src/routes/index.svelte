@@ -2,7 +2,9 @@
   export const prerender = true;
 
   export const load = async ({ fetch, params }) => {
-    const res = await fetch(`http://localhost:1337/api/homepage?populate=deep`);
+    const res = await fetch(
+      `https://nutrisportcoach.herokuapp.com/api/homepage?populate=deep`
+    );
     if (res.ok) {
       const { data } = await res.json();
       return {

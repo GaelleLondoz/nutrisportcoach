@@ -1,3 +1,5 @@
+const styles = require("./styles.js");
+
 module.exports = ({ env }) => ({
   upload: {
     config: {
@@ -30,6 +32,9 @@ module.exports = ({ env }) => ({
   ckeditor: {
     enabled: true,
     config: {
+      plugin: {
+        styles: styles(),
+      },
       editor: {
         removePlugins: ["Markdown"],
         toolbar: {
