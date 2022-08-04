@@ -5,8 +5,12 @@
 
 <script>
   import { page } from "$app/stores";
+  import { breakpoint } from "$stores/store-breakpoint";
   import { getMenuData } from "./index.js";
   import { onMount } from "svelte";
+  import { fly, fade } from "svelte/transition";
+
+  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
 
   let body = undefined;
   let data = null;
@@ -35,33 +39,38 @@
 
 {#if data}
   <header
+    in:fade={{ duration: 500 }}
     bind:offsetHeight={$dynamicOffsetHeight}
     class="md:flex md:items-center relative z-20"
   >
     <nav class="nav container md:flex md:justify-between md:items-center">
-      <input
-        class="checkbox"
-        type="checkbox"
-        name=""
-        id=""
-        bind:checked
-        on:click={() => {
-          toggleOpen();
-        }}
-      />
-      <div
-        class="nav__background"
-        on:click={() => {
-          toggleOpen();
-        }}
-      />
+      {#if smallViewport}
+        <input
+          class="checkbox"
+          type="checkbox"
+          name=""
+          id=""
+          bind:checked
+          on:click={() => {
+            toggleOpen();
+          }}
+        />
+        <div
+          class="nav__background"
+          on:click={() => {
+            toggleOpen();
+          }}
+        />
+      {/if}
 
       <div class="nav__header">
-        <div class="hamburger-lines">
-          <span class="line line1" />
-          <span class="line line2" />
-          <span class="line line3" />
-        </div>
+        {#if smallViewport}
+          <div class="hamburger-lines">
+            <span class="line line1" />
+            <span class="line line2" />
+            <span class="line line3" />
+          </div>
+        {/if}
 
         <a sveltekit:prefetch href="/" class="no-underline"
           ><img
@@ -72,33 +81,53 @@
         >
       </div>
 
-      <div class="menu-items">
-        <a
-          sveltekit:prefetch
-          href="/"
-          on:click={() => {
-            toggleOpen();
-          }}
-          class="no-underline"
-          ><img
-            class="logo logo--small"
-            src={logo.logoSmall.data.attributes.url}
-            alt="logo"
-          /></a
-        >
-        <ul class="md:flex p-0 list-none">
-          {#each menu as { label, page: { data: { attributes: { url } } } }}
-            <li
-              class:active={$page.url.pathname === url}
-              on:click={() => {
-                toggleOpen();
-              }}
-            >
-              <a sveltekit:prefetch href={url} class="no-underline">{label}</a>
-            </li>
-          {/each}
-        </ul>
-      </div>
+      {#if !smallViewport}
+        <div class="menu-items--desktop">
+          <ul class="md:flex p-0 list-none">
+            {#each menu as { label, page: { data: { attributes: { url } } } }}
+              <li
+                class:active={$page.url.pathname.includes(url)}
+                on:click={() => {
+                  toggleOpen();
+                }}
+              >
+                <a sveltekit:prefetch href={url} class="no-underline">{label}</a
+                >
+              </li>
+            {/each}
+          </ul>
+        </div>
+      {:else}
+        <div class="menu-items--mobile">
+          <a
+            sveltekit:prefetch
+            href="/"
+            on:click={() => {
+              toggleOpen();
+            }}
+            class="no-underline"
+            ><img
+              class="logo logo--small"
+              src={logo.logoSmall.data.attributes.url}
+              alt="logo"
+            /></a
+          >
+
+          <ul class="md:flex p-0 list-none">
+            {#each menu as { label, page: { data: { attributes: { url } } } }}
+              <li
+                class:active={$page.url.pathname === url}
+                on:click={() => {
+                  toggleOpen();
+                }}
+              >
+                <a sveltekit:prefetch href={url} class="no-underline">{label}</a
+                >
+              </li>
+            {/each}
+          </ul>
+        </div>
+      {/if}
     </nav>
   </header>
 {/if}

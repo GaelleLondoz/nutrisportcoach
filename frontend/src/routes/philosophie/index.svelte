@@ -3,7 +3,7 @@
 
   export const load = async ({ fetch, params }) => {
     const res = await fetch(
-      `https://nutrisportcoach.herokuapp.com/api/philosophie?populate=deep`
+      `http://localhost:1337/api/philosophie?populate=deep`
     );
     if (res.ok) {
       const { data } = await res.json();
@@ -15,6 +15,7 @@
 </script>
 
 <script>
+  import { fly, fade } from "svelte/transition";
   import { onMount } from "svelte";
   import HTML from "$lib/HTML/HTML.svelte";
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
@@ -37,28 +38,36 @@
 
 {#if data}
   <section class="container" style={`--headerHeigth: ${$mainHeaderHeight}px`}>
-    <div class="content flex flex-col items-end md:items-start justify-center">
-      <h1 class="font-bold text-right md:text-left"><HTML text={title} /></h1>
-      <p><HTML text={description} /></p>
+    <div class="content flex flex-col  ">
+      <h1 class="font-bold  ">{@html title}</h1>
+      <p>{@html description}</p>
 
       <div class="programs">
-        {#each programs.data as program}
+        {#each programs as program}
           <div class="program">
-            <div
-              class="program__card"
-              style={`--background: ${program.attributes.background}`}
-            >
-              <img
-                alt={program.attributes.image.data.attributes.alternativeText}
-                src={program.attributes.image.data.attributes.url}
-              />
-              <span>{program.attributes.title}</span>
+            <div class="program__card">
+              <picture in:fade={{ duration: 500 }}>
+                <source
+                  srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_225/{program
+                    ?.image?.data?.attributes?.hash}"
+                  media="(min-width: 768px)"
+                />
+
+                <img
+                  src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_150/{program
+                    ?.image?.data?.attributes?.hash}"
+                  alt={program?.image?.data?.attributes?.alternativeText}
+                />
+              </picture>
+
+              <span>{program.title}</span>
             </div>
+
             <a
               class="btn-more"
               sveltekit:prefetch
-              href="/programs/{program.attributes.buttonLink}"
-              >{program.attributes.buttonText}</a
+              href={program?.button?.url?.data?.attributes?.url}
+              >{program.button.text}</a
             >
           </div>
         {/each}

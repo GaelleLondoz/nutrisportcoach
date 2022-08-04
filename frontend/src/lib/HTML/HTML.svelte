@@ -1,5 +1,5 @@
 <script>
-  import sanitizeHtml from "sanitize-html";
+  // import sanitizeHtml from "sanitize-html";
   import { OPTIONS } from "./HTML.conf";
 
   /** The html string you want to render */
@@ -45,7 +45,7 @@ Usage:
 -->
 <!-- We are safe to use svelte @html here -->
 <!-- eslint-disable-next-line @ota-meshi/svelte/no-at-html-tags -->
-{@html sanitizeHtml(
+<!-- {@html sanitizeHtml(
   text,
   removeTags ? { NO_TAGS } : { ...OPTIONS, ...options }
-)}
+)} -->

@@ -1,29 +1,63 @@
 .container {
-  padding-top: 10rem;
-  max-height: calc(100vh - var(--headerHeigth));
+  @include sm-md {
+    margin: 7rem auto;
+  }
+  @include lg {
+    margin: 10rem auto;
+  }
+}
+.content {
+  height: 100%;
 }
 
 h1 {
-  font-size: 5rem;
-  line-height: 9rem;
+  @include sm-md {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  font-size: 3rem;
+  line-height: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
 }
 
 p {
-  font-size: 2.5rem;
-  line-height: 3.3rem;
-  max-width: 87.6rem;
-  letter-spacing: 0.63px;
-  margin-bottom: 5rem;
+  @include sm-md {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  max-width: 70rem;
 }
 
 .programs {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
-  gap: 14rem;
+
+  margin-top: 14rem;
+
+  @include sm-md {
+    margin-top: 5rem;
+    row-gap: 5rem;
+  }
 
   .program {
-    width: 100%;
+    @include sm {
+      width: calc(100% / 1);
+    }
+
+    @include md {
+      width: calc(100% / 2);
+    }
+
+    @include lg {
+      width: calc(100% / 3);
+    }
+
     display: flex;
     flex-direction: column;
 
@@ -35,45 +69,24 @@ p {
       flex-direction: column;
       align-items: center;
 
-      border-radius: 16px;
-      box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.04);
-      overflow: hidden;
-      padding: 9rem 0;
-      height: 100%;
-      border: 1px solid #ffffffb0;
-
       span {
-        margin-top: 6rem;
-        font-size: 3rem;
-        font-weight: medium;
-      }
-      img {
-        max-width: 16rem;
-      }
-
-      &:after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        opacity: 0.38;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: var(--background);
+        margin-top: 3.2rem;
+        font-size: 2.5rem;
+        font-weight: 500;
       }
     }
 
     .btn-more {
-      background-color: #e0dddd;
+      background-color: #726e6e4e;
       color: white;
       border-radius: 15px;
       padding: 15px 21px;
-      margin: 2rem 0;
+      margin: 3.2rem 0;
       font-size: 15px;
       transition: all ease-in-out 0.4s;
 
       &:hover {
-        background-color: darken(#e0dddd, 10%);
+        background-color: #77c0c5;
       }
     }
   }

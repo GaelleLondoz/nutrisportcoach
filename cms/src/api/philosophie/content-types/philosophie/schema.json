@@ -4,7 +4,7 @@
   "info": {
     "singularName": "philosophie",
     "pluralName": "philosophies",
-    "displayName": "philosophie",
+    "displayName": "Philosophie",
     "description": ""
   },
   "options": {
@@ -18,16 +18,17 @@
     "description": {
       "type": "text"
     },
-    "programs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::program.program"
-    },
     "metaTitle": {
       "type": "string"
     },
     "metaDescription": {
       "type": "text"
+    },
+    "programs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "programs.program",
+      "max": 3
     }
   }
 }

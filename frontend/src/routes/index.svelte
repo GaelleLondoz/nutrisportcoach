@@ -14,13 +14,19 @@
 
 <script>
   import { onMount } from "svelte";
-  import { fly } from "svelte/transition";
+  import { fly, fade } from "svelte/transition";
+  import { lazyLoad } from "../utils/lazyload";
 
   import HTML from "$lib/HTML/HTML.svelte";
+  import { breakpoint } from "$stores/store-breakpoint";
+
+  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
 
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
 
   export let data = null;
+
+  let animate = false;
 
   const {
     title,
@@ -30,11 +36,16 @@
     metaDescription,
     imageTop,
     imageBottom,
+    imageTopMobile,
+    imageBottomMobile,
   } = data?.attributes;
 
   onMount(() => {
     const body = document.querySelector("body");
     body.id = "homepage";
+    setTimeout(() => {
+      animate = true;
+    }, 500);
   });
 </script>
 
@@ -43,19 +54,30 @@
   <meta name="description" content={metaDescription} />
 </svelte:head>
 
-{#if data}
-  <img
-    src={imageTop.data.attributes.url}
-    alt="haltere"
-    class="absolute top-0 right-0 image-t-r"
-  />
+{#if data && animate && $mainHeaderHeight}
+  <picture in:fade={{ duration: 500 }}>
+    <source
+      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageTop
+        ?.data?.attributes?.hash}"
+      media="(min-width: 768px)"
+    />
+
+    <img
+      style={`--headerHeigth: ${$mainHeaderHeight}px`}
+      src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageTop
+        ?.data?.attributes?.hash}"
+      alt={imageTop?.data?.attributes?.alternativeText}
+      class="absolute top-0  right-0 image-t-r"
+    />
+  </picture>
+
   <section
-    in:fly={{ x: -200, duration: 750 }}
-    class="container relative z-10 flex justify-end md:justify-start md:items-center"
+    in:fly={{ x: -200, duration: 500 }}
+    class="container relative z-10 flex justify-start md:items-center"
     style={`--headerHeigth: ${$mainHeaderHeight}px`}
   >
-    <div class="content flex flex-col items-end md:items-start justify-center">
-      <HTML text={title} />
+    <div class="content flex flex-col items-start justify-center">
+      {@html title}
       <p>{description}</p>
       <div>
         <a
@@ -66,11 +88,21 @@
       </div>
     </div>
   </section>
-  <img
-    src={imageBottom.data.attributes.url}
-    alt="food"
-    class="absolute bottom-0 left-0 image-b-l"
-  />
+
+  <picture in:fade={{ duration: 500 }}>
+    <source
+      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageBottom
+        ?.data?.attributes?.hash}"
+      media="(min-width: 768px)"
+    />
+
+    <img
+      src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageBottom
+        ?.data?.attributes?.hash}"
+      alt={imageBottom?.data?.attributes?.alternativeText}
+      class="absolute bottom-0 left-0  image-b-l"
+    />
+  </picture>
 {/if}
 
 <style lang="scss">

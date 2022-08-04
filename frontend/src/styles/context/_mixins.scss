@@ -1,4 +1,10 @@
 @mixin sm {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin sm-md {
   @media (max-width: 1024px) {
     @content;
   }

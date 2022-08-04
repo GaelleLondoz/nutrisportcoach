@@ -1,14 +1,38 @@
 :global(body#homepage) {
   background-color: rgba($ui-green-0, 0.12);
-  // overflow: hidden;
 }
 
 .image-b-l {
-  height: 60vh;
+  max-width: 100vw;
+  max-height: 60vh;
+  transition: all 0.4s ease-in-out;
+
+  @include md {
+    max-width: 70vw;
+  }
+
+  @include lg {
+    height: 60vh;
+    max-width: unset;
+  }
 }
 
 .image-t-r {
-  height: 90vh;
+  width: auto;
+  max-width: 100%;
+  max-height: 50vh;
+  transition: all 0.4s ease-in-out;
+
+  @include md {
+    height: 60vh;
+    max-height: 60vh;
+  }
+
+  @include lg {
+    width: auto;
+    height: 90vh;
+    max-height: 90vh;
+  }
 }
 
 section {
@@ -16,14 +40,17 @@ section {
 
   :global(h1) {
     font-size: 2rem;
-    line-height: 3rem;
-    margin-bottom: 3rem;
+    line-height: 2.5rem;
+    margin-bottom: 2rem;
     font-family: $font-stack-regular;
     font-weight: bold;
+  }
 
-    // :global(span) {
-    //   color: $ui-green-0;
-    // }
+  p {
+    margin: 0 0 5rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    max-width: 25rem;
   }
 
   a {
@@ -52,8 +79,10 @@ section {
       font-size: 2.5rem;
       transition: all ease-in-out 0.4s;
 
-      &:hover {
-        background-color: darken($ui-green-0, 10%);
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: darken($ui-green-0, 10%);
+        }
       }
     }
   }
