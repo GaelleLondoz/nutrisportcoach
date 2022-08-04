@@ -3,7 +3,7 @@
 
   export const load = async ({ fetch, params }) => {
     const res = await fetch(
-      `http://localhost:1337/api/philosophie?populate=deep`
+      "https://nutrisportcoach.herokuapp.com/api/philosophie?populate=deep"
     );
     if (res.ok) {
       const { data } = await res.json();
