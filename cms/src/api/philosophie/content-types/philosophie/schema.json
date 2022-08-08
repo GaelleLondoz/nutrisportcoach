@@ -29,6 +29,11 @@
       "repeatable": true,
       "component": "programs.program",
       "max": 3
+    },
+    "tabs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu-item-with-image.menu-item-with-image"
     }
   }
 }

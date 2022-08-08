@@ -51,8 +51,6 @@
     const body = document.querySelector("body");
     body.id = "contact";
   });
-
-  $: console.log(inputs);
 </script>
 
 <svelte:head>

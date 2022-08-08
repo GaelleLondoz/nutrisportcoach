@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "a_propos",
+  "info": {
+    "singularName": "a-propo",
+    "pluralName": "a-propos",
+    "displayName": "APropos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tabs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.element"
+    }
+  }
+}

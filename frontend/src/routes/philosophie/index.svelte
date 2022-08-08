@@ -1,16 +1,53 @@
 <script context="module">
   export const prerender = true;
+  import { request, gql } from "graphql-request";
 
-  export const load = async ({ fetch, params }) => {
-    const res = await fetch(
-      "https://nutrisportcoach.herokuapp.com/api/philosophie?populate=deep"
+  export const load = async () => {
+    const query = gql`
+      {
+        philosophie {
+          data {
+            attributes {
+              title
+              description
+              metaTitle
+              metaDescription
+              programs {
+                image {
+                  data {
+                    attributes {
+                      hash
+                      alternativeText
+                    }
+                  }
+                }
+                title
+                button {
+                  text
+                  url {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    const res = await request(
+      "https://nutrisportcoach.herokuapp.com/graphql/",
+      query
     );
-    if (res.ok) {
-      const { data } = await res.json();
-      return {
-        props: { data },
-      };
-    }
+
+    const { data } = await res.philosophie;
+    return {
+      props: { data },
+    };
   };
 </script>
 

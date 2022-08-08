@@ -18,14 +18,11 @@
     "lastName": {
       "type": "string"
     },
-    "review": {
-      "type": "text"
+    "comment": {
+      "type": "richtext"
     },
     "rating": {
       "type": "integer"
-    },
-    "visible": {
-      "type": "boolean"
     },
     "order": {
       "type": "integer"

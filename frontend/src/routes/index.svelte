@@ -1,32 +1,88 @@
 <script context="module">
   export const prerender = true;
+  import { request, gql } from "graphql-request";
 
-  export const load = async ({ fetch, params }) => {
-    const res = await fetch(
-      "https://nutrisportcoach.herokuapp.com/api/homepage?populate=deep"
+  export const load = async () => {
+    const query = gql`
+      {
+        homepage {
+          data {
+            attributes {
+              title
+              description
+              button {
+                text
+                url {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+              metaTitle
+              metaDescription
+              imageTop {
+                data {
+                  attributes {
+                    hash
+                    alternativeText
+                  }
+                }
+              }
+              imageTopMobile {
+                data {
+                  attributes {
+                    hash
+                    alternativeText
+                  }
+                }
+              }
+              imageBottom {
+                data {
+                  attributes {
+                    hash
+                    alternativeText
+                  }
+                }
+              }
+              imageBottomMobile {
+                data {
+                  attributes {
+                    hash
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    const res = await request(
+      "https://nutrisportcoach.herokuapp.com/graphql",
+      query
     );
-    if (res.ok) {
-      const { data } = await res.json();
-      return {
-        props: { data },
-      };
-    }
+
+    const { data } = await res.homepage;
+    return {
+      props: { data },
+    };
   };
 </script>
 
 <script>
   import { onMount } from "svelte";
   import { fly, fade } from "svelte/transition";
-  import { lazyLoad } from "../utils/lazyload";
 
   import HTML from "$lib/HTML/HTML.svelte";
   import { breakpoint } from "$stores/store-breakpoint";
 
   $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
 
-  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
-
   export let data = null;
+  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
 
   let animate = false;
 

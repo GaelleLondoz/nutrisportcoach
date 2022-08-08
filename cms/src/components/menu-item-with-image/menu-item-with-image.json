@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_menu_item_with_image_menu_item_with_images",
+  "info": {
+    "displayName": "MenuItemWithImage"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "url": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.element"
+    }
+  }
+}

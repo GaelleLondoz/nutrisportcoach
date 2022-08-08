@@ -1,5 +1,7 @@
 :global(body#homepage) {
   background-color: rgba($ui-green-0, 0.12);
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .image-b-l {

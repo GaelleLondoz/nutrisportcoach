@@ -86,10 +86,9 @@
           <ul class="md:flex p-0 list-none">
             {#each menu as { label, page: { data: { attributes: { url } } } }}
               <li
-                class:active={$page.url.pathname.includes(url)}
-                on:click={() => {
-                  toggleOpen();
-                }}
+                class:active={!$page.url.pathname.includes("/a-propos")
+                  ? $page.url.pathname.includes(url)
+                  : url.includes("/a-propos")}
               >
                 <a sveltekit:prefetch href={url} class="no-underline">{label}</a
                 >
@@ -116,7 +115,7 @@
           <ul class="md:flex p-0 list-none">
             {#each menu as { label, page: { data: { attributes: { url } } } }}
               <li
-                class:active={$page.url.pathname === url}
+                class:active={$page.url.pathname.includes(url)}
                 on:click={() => {
                   toggleOpen();
                 }}
