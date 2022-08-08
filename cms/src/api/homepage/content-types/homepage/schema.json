@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "metaTitle": {
-      "type": "string"
-    },
-    "metaDescription": {
-      "type": "string"
-    },
     "description": {
       "type": "text"
     },
@@ -73,6 +67,11 @@
         "videos",
         "audios"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

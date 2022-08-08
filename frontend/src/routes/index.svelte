@@ -8,6 +8,10 @@
         homepage {
           data {
             attributes {
+              seo {
+                metaTitle
+                metaDescription
+              }
               title
               description
               button {
@@ -20,8 +24,7 @@
                   }
                 }
               }
-              metaTitle
-              metaDescription
+
               imageTop {
                 data {
                   attributes {
@@ -82,7 +85,10 @@
   $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
 
   export let data = null;
-  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
+  import Header, {
+    dynamicOffsetHeight as mainHeaderHeight,
+  } from "$lib/header/Header.svelte";
+  import Head from "$lib/Head/Head.svelte";
 
   let animate = false;
 
@@ -90,8 +96,7 @@
     title,
     description,
     button,
-    metaTitle,
-    metaDescription,
+    seo,
     imageTop,
     imageBottom,
     imageTopMobile,
@@ -108,8 +113,7 @@
 </script>
 
 <svelte:head>
-  <title>{metaTitle}</title>
-  <meta name="description" content={metaDescription} />
+  <Head metaTitle={seo?.metaTitle} metaDescription={seo?.metaDescription} />
 </svelte:head>
 
 {#if data && animate && $mainHeaderHeight}

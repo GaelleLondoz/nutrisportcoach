@@ -4,7 +4,8 @@
   "info": {
     "singularName": "histoire",
     "pluralName": "histoires",
-    "displayName": "Histoire"
+    "displayName": "Histoire",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,12 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "metaTitle": {
+      "type": "string"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "mission",
     "pluralName": "missions",
-    "displayName": "Mission"
+    "displayName": "Mission",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,12 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
     }
   }
 }

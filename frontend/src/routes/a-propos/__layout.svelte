@@ -1,20 +1,21 @@
-<script>
+<script context="module">
+  export const prerender = true;
+
   import { request, gql } from "graphql-request";
-  import TabsList from "$lib/Tabs/TabsList.svelte";
 
-  let data = null;
-
-  const query = gql`
-    {
-      aPropo {
-        data {
-          attributes {
-            tabs {
-              label
-              page {
-                data {
-                  attributes {
-                    url
+  export const load = async () => {
+    const query = gql`
+      {
+        about {
+          data {
+            attributes {
+              tabs {
+                label
+                page {
+                  data {
+                    attributes {
+                      url
+                    }
                   }
                 }
               }
@@ -22,13 +23,22 @@
           }
         }
       }
-    }
-  `;
+    `;
 
-  request("http://localhost:1337/graphql/", query).then(
-    (res) => (data = res.aPropo.data.attributes.tabs)
-  );
+    const res = await request("http://localhost:1337/graphql/", query);
+
+    const { data } = await res.about;
+    return {
+      props: { data },
+    };
+  };
 </script>
 
-<TabsList {data} />
+<script>
+  import TabsList from "$lib/Tabs/TabsList.svelte";
+
+  export let data = null;
+</script>
+
+<TabsList data={data?.attributes?.tabs} />
 <slot />

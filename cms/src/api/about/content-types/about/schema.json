@@ -1,10 +1,11 @@
 {
   "kind": "singleType",
-  "collectionName": "a_propos",
+  "collectionName": "abouts",
   "info": {
-    "singularName": "a-propo",
-    "pluralName": "a-propos",
-    "displayName": "APropos"
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

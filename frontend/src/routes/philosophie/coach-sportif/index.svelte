@@ -1,14 +1,30 @@
 <script context="module">
   export const prerender = true;
 
-  export const load = async ({ fetch, params }) => {
-    const res = await fetch("http://localhost:1337/api/sport?populate=deep");
-    if (res.ok) {
-      const { data } = await res.json();
-      return {
-        props: { data },
-      };
-    }
+  import { request, gql } from "graphql-request";
+
+  export const load = async () => {
+    const query = gql`
+      {
+        sport {
+          data {
+            attributes {
+              title
+              description
+              metaTitle
+              metaDescription
+            }
+          }
+        }
+      }
+    `;
+
+    const res = await request("http://localhost:1337/graphql/", query);
+
+    const { data } = await res.sport;
+    return {
+      props: { data },
+    };
   };
 </script>
 
