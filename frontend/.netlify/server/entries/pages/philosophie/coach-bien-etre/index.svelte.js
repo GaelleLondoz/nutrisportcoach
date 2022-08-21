@@ -26,13 +26,11 @@ var import_index_699220d6 = require("../../../../_app/immutable/chunks/index-699
 var import_api_fcbaa1f6 = require("../../../../_app/immutable/chunks/api-fcbaa1f6.js");
 var import_graphqlQuery = require("../../../endpoints/philosophie/coach-bien-etre/graphqlQuery.js");
 var import_Head_64983968 = require("../../../../_app/immutable/chunks/Head-64983968.js");
-var import_HTML_7385adc6 = require("../../../../_app/immutable/chunks/HTML-7385adc6.js");
-var import_graphql_request = require("graphql-request");
 var import_dompurify = require("dompurify");
-const Tree = "/_app/immutable/assets/arbre-84b55dbb.png";
+var import_graphql_request = require("graphql-request");
 const index_svelte_svelte_type_style_lang = "";
 const css = {
-  code: '@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Poppins:wght@400;600&display=swap");.svelte-1hnwvqc.svelte-1hnwvqc,.svelte-1hnwvqc.svelte-1hnwvqc::after,.svelte-1hnwvqc.svelte-1hnwvqc::before{box-sizing:border-box}.container.svelte-1hnwvqc.svelte-1hnwvqc{padding-right:1.6rem;padding-left:1.6rem;max-width:141.6rem;margin-right:auto;margin-left:auto}@media(max-width: 1024px){}@media(min-width: 1024px){}@media(max-width: 1024px){}@media(min-width: 1024px){}@media(max-width: 1024px){#bien-etre .tabs-items ul li:nth-child(2){order:1}}.container.svelte-1hnwvqc.svelte-1hnwvqc{position:relative;z-index:10}@media(max-width: 1024px){.container.svelte-1hnwvqc.svelte-1hnwvqc{margin:0 auto}}@media(min-width: 1024px){.container.svelte-1hnwvqc.svelte-1hnwvqc{margin:10rem auto;align-items:center;display:flex}}.container.svelte-1hnwvqc .content.svelte-1hnwvqc{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;max-width:85rem}.container.svelte-1hnwvqc .content h1.svelte-1hnwvqc{font-weight:500;font-size:2.4rem;line-height:3rem;margin-bottom:3rem;max-width:65rem}@media(min-width: 1024px){.container.svelte-1hnwvqc .content h1.svelte-1hnwvqc{font-size:3rem;line-height:5rem;margin-bottom:6.5rem}}.container.svelte-1hnwvqc .content.svelte-1hnwvqc p{font-size:1.8rem;line-height:2rem;margin-bottom:1.5rem;max-width:75rem}@media(max-width: 1024px){.image--tree.svelte-1hnwvqc.svelte-1hnwvqc{max-width:20.3rem;margin:5rem auto}}@media(min-width: 1024px){.image--tree.svelte-1hnwvqc.svelte-1hnwvqc{position:absolute;top:5%;right:0;max-width:65.3rem;width:30vw}}',
+  code: '@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Poppins:wght@400;600&display=swap");.svelte-72juaz.svelte-72juaz,.svelte-72juaz.svelte-72juaz::after,.svelte-72juaz.svelte-72juaz::before{box-sizing:border-box}.container.svelte-72juaz.svelte-72juaz{padding-right:1.6rem;padding-left:1.6rem;max-width:141.6rem;margin-right:auto;margin-left:auto}@media(max-width: 768px){}@media(min-width: 768px){}@media(min-width: 1024px){}@media(max-width: 1024px){}@media(min-width: 1024px){}@media(max-width: 768px){}@media(min-width: 768px){}@media(max-width: 1024px){}@media(min-width: 1024px){}@media(max-width: 1024px){#bien-etre .tabs-items ul li:nth-child(2){order:1}}.container.svelte-72juaz.svelte-72juaz{position:relative;z-index:10}@media(max-width: 1024px){.container.svelte-72juaz.svelte-72juaz{margin:0 auto}}@media(min-width: 1024px){.container.svelte-72juaz.svelte-72juaz{margin:10rem auto;align-items:center;display:flex}}.container.svelte-72juaz .content.svelte-72juaz{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;max-width:85rem}.container.svelte-72juaz .content h1.svelte-72juaz{max-width:65rem}@media(max-width: 1024px){.container.svelte-72juaz .content h1.svelte-72juaz{font-size:2.4rem;line-height:3rem;margin-bottom:3rem;font-weight:bold}}@media(min-width: 1024px){.container.svelte-72juaz .content h1.svelte-72juaz{font-size:3rem;line-height:4rem;margin-bottom:5.5rem;font-weight:500}}.container.svelte-72juaz .content.svelte-72juaz p{font-size:1.8rem;line-height:2rem;margin-bottom:1.5rem;max-width:75rem}@media(max-width: 1024px){.image--tree.svelte-72juaz.svelte-72juaz{max-width:20.3rem;margin:5rem auto}}@media(min-width: 1024px){.image--tree.svelte-72juaz.svelte-72juaz{position:absolute;top:5%;right:0;max-width:65.3rem;width:30vw}}',
   map: null
 };
 const prerender = true;
@@ -42,14 +40,10 @@ const load = async () => {
 };
 const Coach_bien_etre = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
   let { data = null } = $$props;
-  let mounted = false;
   const { seo: { metaTitle, metaDescription }, title, description } = data == null ? void 0 : data.attributes;
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
     $$bindings.data(data);
   $$result.css.add(css);
-  return `${data && mounted ? `${(0, import_index_699220d6.v)(import_Head_64983968.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
-  <section class="${"container svelte-1hnwvqc"}"><div class="${"content svelte-1hnwvqc"}"><h1 class="${"svelte-1hnwvqc"}">${(0, import_index_699220d6.d)(title)}</h1>
-      ${(0, import_index_699220d6.v)(import_HTML_7385adc6.H, "HTML").$$render($$result, { text: description }, {}, {})}</div>
-
-    <img${(0, import_index_699220d6.b)("src", Tree, 0)} alt="${""}" class="${"image image--tree svelte-1hnwvqc"}"></section>` : ``}`;
+  return `${data ? `${(0, import_index_699220d6.v)(import_Head_64983968.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
+  ${``}` : ``}`;
 });

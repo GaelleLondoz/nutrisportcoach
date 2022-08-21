@@ -31,7 +31,7 @@ const manifest = {
   assets: /* @__PURE__ */ new Set(["apple-touch-icon.png", "favicon-16x16.png", "favicon-32x32.png", "robots.txt"]),
   mimeTypes: { ".png": "image/png", ".txt": "text/plain" },
   _: {
-    entry: { "file": "_app/immutable/start-5fa1edcc.js", "imports": ["_app/immutable/start-5fa1edcc.js", "_app/immutable/chunks/index-23490812.js", "_app/immutable/chunks/index-124a935a.js"], "stylesheets": [] },
+    entry: { "file": "_app/immutable/start-ed90a521.js", "imports": ["_app/immutable/start-ed90a521.js", "_app/immutable/chunks/index-fd4d87c7.js", "_app/immutable/chunks/index-f0acbaff.js"], "stylesheets": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
@@ -198,6 +198,14 @@ const manifest = {
         shadow: null,
         a: [0, 13],
         b: [1]
+      },
+      {
+        type: "endpoint",
+        id: "temoignages/creation/graphqlQuery",
+        pattern: /^\/temoignages\/creation\/graphqlQuery\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/temoignages/creation/graphqlQuery.js")))
       },
       {
         type: "endpoint",

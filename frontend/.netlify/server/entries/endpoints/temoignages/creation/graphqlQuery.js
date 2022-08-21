@@ -1,8 +1,6 @@
-var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -16,21 +14,26 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  H: () => HTML
+  query: () => query
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("./index-699220d6.js");
-var import_dompurify = __toESM(require("dompurify"));
-const HTML = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
-  let { text } = $$props;
-  if ($$props.text === void 0 && $$bindings.text && text !== void 0)
-    $$bindings.text(text);
-  return `<!-- HTML_TAG_START -->${import_dompurify.default.sanitize(text)}<!-- HTML_TAG_END -->`;
-});
+var import_graphql_request = require("graphql-request");
+const query = import_graphql_request.gql`
+  {
+    reviewsPageCreation {
+      data {
+        attributes {
+          title
+          seo {
+            metaTitle
+            metaDescription
+          }
+          terms
+        }
+      }
+    }
+  }
+`;

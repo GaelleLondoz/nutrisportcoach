@@ -32,6 +32,6 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/philosophie/index.svelte.js"));
 const index = 11;
-const file = "_app/immutable/pages/philosophie/index.svelte-cefcbbc5.js";
-const imports = ["_app/immutable/pages/philosophie/index.svelte-cefcbbc5.js", "_app/immutable/chunks/index-23490812.js", "_app/immutable/chunks/api-72f5aeeb.js", "_app/immutable/chunks/index-52da8fb8.js", "_app/immutable/chunks/index-581d6be2.js", "_app/immutable/chunks/store-breakpoint-cd70237a.js", "_app/immutable/chunks/index-124a935a.js", "_app/immutable/chunks/Head-f60d22aa.js"];
-const stylesheets = ["_app/immutable/assets/index-2cf8efb2.css", "_app/immutable/assets/Header-3cc40a78.css"];
+const file = "_app/immutable/pages/philosophie/index.svelte-e06b3b92.js";
+const imports = ["_app/immutable/pages/philosophie/index.svelte-e06b3b92.js", "_app/immutable/chunks/index-fd4d87c7.js", "_app/immutable/chunks/api-72f5aeeb.js", "_app/immutable/chunks/index-52da8fb8.js", "_app/immutable/chunks/index-45c08dd0.js", "_app/immutable/chunks/Head-1dd2068e.js"];
+const stylesheets = ["_app/immutable/assets/index-eb8dae3b.css"];

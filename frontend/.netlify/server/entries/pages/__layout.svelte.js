@@ -21,7 +21,7 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_699220d6 = require("../../_app/immutable/chunks/index-699220d6.js");
-var import_Header_f8c29f20 = require("../../_app/immutable/chunks/Header-f8c29f20.js");
+var import_Header_c4517c71 = require("../../_app/immutable/chunks/Header-c4517c71.js");
 var import_store_breakpoint_f870d4ad = require("../../_app/immutable/chunks/store-breakpoint-f870d4ad.js");
 var import_stores_760db7b6 = require("../../_app/immutable/chunks/stores-760db7b6.js");
 const app = "";
@@ -33,10 +33,10 @@ const css = {
 };
 const _layout = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
   let $mainHeaderHeight, $$unsubscribe_mainHeaderHeight;
-  $$unsubscribe_mainHeaderHeight = (0, import_index_699220d6.a)(import_Header_f8c29f20.d, (value) => $mainHeaderHeight = value);
+  $$unsubscribe_mainHeaderHeight = (0, import_index_699220d6.a)(import_Header_c4517c71.d, (value) => $mainHeaderHeight = value);
   $$result.css.add(css);
   $$unsubscribe_mainHeaderHeight();
-  return `${(0, import_index_699220d6.v)(import_Header_f8c29f20.H, "Header").$$render($$result, {}, {}, {})}
+  return `${(0, import_index_699220d6.v)(import_Header_c4517c71.H, "Header").$$render($$result, {}, {}, {})}
 
 <main${(0, import_index_699220d6.b)("style", `--headerHeigth: ${$mainHeaderHeight}px`, 0)} class="${"svelte-1nhlp06"}">${slots.default ? slots.default({}) : ``}
 </main>`;
