@@ -20,9 +20,9 @@ __export(stdin_exports, {
   p: () => page
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("./index-699220d6.js");
+var import_index_a7d28e02 = require("./index-a7d28e02.js");
 const getStores = () => {
-  const stores = (0, import_index_699220d6.g)("__svelte__");
+  const stores = (0, import_index_a7d28e02.g)("__svelte__");
   return {
     page: {
       subscribe: stores.page.subscribe

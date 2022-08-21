@@ -22,10 +22,10 @@ __export(stdin_exports, {
   prerender: () => prerender
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("../../../_app/immutable/chunks/index-699220d6.js");
+var import_index_a7d28e02 = require("../../../_app/immutable/chunks/index-a7d28e02.js");
 var import_api_fcbaa1f6 = require("../../../_app/immutable/chunks/api-fcbaa1f6.js");
 var import_graphqlQuery = require("../../endpoints/philosophie/graphqlQuery.js");
-var import_Head_64983968 = require("../../../_app/immutable/chunks/Head-64983968.js");
+var import_Head_0f940379 = require("../../../_app/immutable/chunks/Head-0f940379.js");
 var import_graphql_request = require("graphql-request");
 const index_svelte_svelte_type_style_lang = "";
 const css = {
@@ -37,12 +37,12 @@ const load = async () => {
   const { philosophie: { data } } = await (0, import_api_fcbaa1f6.g)(import_graphqlQuery.query, "http://localhost:1337/graphql/");
   return { props: { data } };
 };
-const Philosophie = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+const Philosophie = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   let { data = null } = $$props;
   const { seo: { metaTitle, metaDescription }, title, description, programs } = data == null ? void 0 : data.attributes;
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
     $$bindings.data(data);
   $$result.css.add(css);
-  return `${data ? `${(0, import_index_699220d6.v)(import_Head_64983968.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
+  return `${data ? `${(0, import_index_a7d28e02.v)(import_Head_0f940379.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
   ${``}` : ``}`;
 });

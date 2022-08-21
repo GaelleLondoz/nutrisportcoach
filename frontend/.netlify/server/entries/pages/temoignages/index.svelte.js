@@ -22,17 +22,17 @@ __export(stdin_exports, {
   prerender: () => prerender
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("../../../_app/immutable/chunks/index-699220d6.js");
+var import_index_a7d28e02 = require("../../../_app/immutable/chunks/index-a7d28e02.js");
 var import_api_fcbaa1f6 = require("../../../_app/immutable/chunks/api-fcbaa1f6.js");
 var import_graphqlQuery = require("../../endpoints/temoignages/graphqlQuery.js");
-var import_Header_c4517c71 = require("../../../_app/immutable/chunks/Header-c4517c71.js");
-var import_Head_64983968 = require("../../../_app/immutable/chunks/Head-64983968.js");
+var import_Header_dd5f05da = require("../../../_app/immutable/chunks/Header-dd5f05da.js");
+var import_Head_0f940379 = require("../../../_app/immutable/chunks/Head-0f940379.js");
 var import_ssr_window = require("ssr-window");
 var import_dom7 = require("dom7");
 var import_dompurify = require("dompurify");
 var import_graphql_request = require("graphql-request");
-var import_store_breakpoint_f870d4ad = require("../../../_app/immutable/chunks/store-breakpoint-f870d4ad.js");
-var import_stores_760db7b6 = require("../../../_app/immutable/chunks/stores-760db7b6.js");
+var import_store_breakpoint_bdbf653d = require("../../../_app/immutable/chunks/store-breakpoint-bdbf653d.js");
+var import_stores_20da12b8 = require("../../../_app/immutable/chunks/stores-20da12b8.js");
 const swiper_min = "";
 const pagination_min = "";
 const Filters_svelte_svelte_type_style_lang = "";
@@ -3408,9 +3408,9 @@ const load = async () => {
   const data = await (0, import_api_fcbaa1f6.g)(import_graphqlQuery.query, "http://localhost:1337/graphql/");
   return { props: { data } };
 };
-const Temoignages = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+const Temoignages = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   let $$unsubscribe_mainHeaderHeight;
-  $$unsubscribe_mainHeaderHeight = (0, import_index_699220d6.a)(import_Header_c4517c71.d, (value) => value);
+  $$unsubscribe_mainHeaderHeight = (0, import_index_a7d28e02.a)(import_Header_dd5f05da.d, (value) => value);
   let { data = null } = $$props;
   let { reviewsPage: { data: { attributes: { seo: { metaTitle, metaDescription }, title, button: { text: buttonText, url: { data: { attributes: { url: buttonUrl } } } } } } }, reviews: { data: reviews } } = data;
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
@@ -3420,7 +3420,7 @@ const Temoignages = (0, import_index_699220d6.c)(($$result, $$props, $$bindings,
   let $$rendered;
   do {
     $$settled = true;
-    $$rendered = `${data ? `${(0, import_index_699220d6.v)(import_Head_64983968.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
+    $$rendered = `${data ? `${(0, import_index_a7d28e02.v)(import_Head_0f940379.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
   ${``}` : ``}`;
   } while (!$$settled);
   $$unsubscribe_mainHeaderHeight();

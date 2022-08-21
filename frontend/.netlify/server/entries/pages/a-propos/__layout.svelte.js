@@ -22,11 +22,11 @@ __export(stdin_exports, {
   prerender: () => prerender
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("../../../_app/immutable/chunks/index-699220d6.js");
+var import_index_a7d28e02 = require("../../../_app/immutable/chunks/index-a7d28e02.js");
 var import_graphql_request = require("graphql-request");
-var import_TabsList_726c30c4 = require("../../../_app/immutable/chunks/TabsList-726c30c4.js");
-var import_stores_760db7b6 = require("../../../_app/immutable/chunks/stores-760db7b6.js");
-var import_store_breakpoint_f870d4ad = require("../../../_app/immutable/chunks/store-breakpoint-f870d4ad.js");
+var import_TabsList_434ddc77 = require("../../../_app/immutable/chunks/TabsList-434ddc77.js");
+var import_stores_20da12b8 = require("../../../_app/immutable/chunks/stores-20da12b8.js");
+var import_store_breakpoint_bdbf653d = require("../../../_app/immutable/chunks/store-breakpoint-bdbf653d.js");
 const prerender = true;
 const load = async () => {
   const query = import_graphql_request.gql`
@@ -53,11 +53,11 @@ const load = async () => {
   const { data } = await res.about;
   return { props: { data } };
 };
-const _layout = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+const _layout = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   var _a;
   let { data = null } = $$props;
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
     $$bindings.data(data);
-  return `${(0, import_index_699220d6.v)(import_TabsList_726c30c4.T, "TabsList").$$render($$result, { data: (_a = data == null ? void 0 : data.attributes) == null ? void 0 : _a.tabs }, {}, {})}
+  return `${(0, import_index_a7d28e02.v)(import_TabsList_434ddc77.T, "TabsList").$$render($$result, { data: (_a = data == null ? void 0 : data.attributes) == null ? void 0 : _a.tabs }, {}, {})}
 ${slots.default ? slots.default({}) : ``}`;
 });

@@ -20,14 +20,14 @@ __export(stdin_exports, {
   default: () => _layout
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("../../../_app/immutable/chunks/index-699220d6.js");
-var import_stores_760db7b6 = require("../../../_app/immutable/chunks/stores-760db7b6.js");
-var import_TabsList_726c30c4 = require("../../../_app/immutable/chunks/TabsList-726c30c4.js");
+var import_index_a7d28e02 = require("../../../_app/immutable/chunks/index-a7d28e02.js");
+var import_stores_20da12b8 = require("../../../_app/immutable/chunks/stores-20da12b8.js");
+var import_TabsList_434ddc77 = require("../../../_app/immutable/chunks/TabsList-434ddc77.js");
 var import_graphql_request = require("graphql-request");
-var import_store_breakpoint_f870d4ad = require("../../../_app/immutable/chunks/store-breakpoint-f870d4ad.js");
-const _layout = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+var import_store_breakpoint_bdbf653d = require("../../../_app/immutable/chunks/store-breakpoint-bdbf653d.js");
+const _layout = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   let $page, $$unsubscribe_page;
-  $$unsubscribe_page = (0, import_index_699220d6.a)(import_stores_760db7b6.p, (value) => $page = value);
+  $$unsubscribe_page = (0, import_index_a7d28e02.a)(import_stores_20da12b8.p, (value) => $page = value);
   let data = null;
   const query = import_graphql_request.gql`
     {
@@ -61,6 +61,6 @@ const _layout = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slo
   `;
   (0, import_graphql_request.request)("http://localhost:1337/graphql/", query).then((res) => data = res.philosophie.data.attributes.tabs);
   $$unsubscribe_page();
-  return `${$page.url.pathname !== "/philosophie" ? `${(0, import_index_699220d6.v)(import_TabsList_726c30c4.T, "TabsList").$$render($$result, { data, tabsWithImages: true }, {}, {})}
+  return `${$page.url.pathname !== "/philosophie" ? `${(0, import_index_a7d28e02.v)(import_TabsList_434ddc77.T, "TabsList").$$render($$result, { data, tabsWithImages: true }, {}, {})}
   ${slots.default ? slots.default({}) : ``}` : `${slots.default ? slots.default({}) : ``}`}`;
 });

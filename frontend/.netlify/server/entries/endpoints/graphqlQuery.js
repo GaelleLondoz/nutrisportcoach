@@ -23,6 +23,38 @@ module.exports = __toCommonJS(stdin_exports);
 var import_graphql_request = require("graphql-request");
 const query = import_graphql_request.gql`
   {
+    menu {
+      data {
+        attributes {
+          items {
+            label
+            page {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+          logoBig {
+            data {
+              attributes {
+                hash
+                alternativeText
+              }
+            }
+          }
+          logoSmall {
+            data {
+              attributes {
+                hash
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
     homepage {
       data {
         attributes {

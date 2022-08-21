@@ -20,13 +20,13 @@ __export(stdin_exports, {
   H: () => Head
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("./index-699220d6.js");
-const Head = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_a7d28e02 = require("./index-a7d28e02.js");
+const Head = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   let { metaTitle = "" } = $$props;
   let { metaDescription = "" } = $$props;
   if ($$props.metaTitle === void 0 && $$bindings.metaTitle && metaTitle !== void 0)
     $$bindings.metaTitle(metaTitle);
   if ($$props.metaDescription === void 0 && $$bindings.metaDescription && metaDescription !== void 0)
     $$bindings.metaDescription(metaDescription);
-  return `${$$result.head += `${$$result.title = `<title>${(0, import_index_699220d6.d)(metaTitle)}</title>`, ""}<meta name="${"description"}"${(0, import_index_699220d6.b)("content", metaDescription, 0)} data-svelte="svelte-nygp0t">`, ""}`;
+  return `${$$result.head += `${$$result.title = `<title>${(0, import_index_a7d28e02.e)(metaTitle)}</title>`, ""}<meta name="${"description"}"${(0, import_index_a7d28e02.b)("content", metaDescription, 0)} data-svelte="svelte-nygp0t">`, ""}`;
 });

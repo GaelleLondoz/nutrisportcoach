@@ -22,19 +22,19 @@ __export(stdin_exports, {
   prerender: () => prerender
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("../../../_app/immutable/chunks/index-699220d6.js");
+var import_index_a7d28e02 = require("../../../_app/immutable/chunks/index-a7d28e02.js");
 var import_api_fcbaa1f6 = require("../../../_app/immutable/chunks/api-fcbaa1f6.js");
 var import_graphqlQuery = require("../../endpoints/contact/graphqlQuery.js");
-var import_Header_c4517c71 = require("../../../_app/immutable/chunks/Header-c4517c71.js");
+var import_Header_dd5f05da = require("../../../_app/immutable/chunks/Header-dd5f05da.js");
 var import_heroicons = require("@steeze-ui/heroicons");
-var import_Head_64983968 = require("../../../_app/immutable/chunks/Head-64983968.js");
+var import_Head_0f940379 = require("../../../_app/immutable/chunks/Head-0f940379.js");
 var import_graphql_request = require("graphql-request");
-var import_store_breakpoint_f870d4ad = require("../../../_app/immutable/chunks/store-breakpoint-f870d4ad.js");
-var import_stores_760db7b6 = require("../../../_app/immutable/chunks/stores-760db7b6.js");
-const Icon = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+var import_store_breakpoint_bdbf653d = require("../../../_app/immutable/chunks/store-breakpoint-bdbf653d.js");
+var import_stores_20da12b8 = require("../../../_app/immutable/chunks/stores-20da12b8.js");
+const Icon = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   var _a;
   let icon;
-  let $$restProps = (0, import_index_699220d6.h)($$props, ["src", "size", "solid"]);
+  let $$restProps = (0, import_index_a7d28e02.h)($$props, ["src", "size", "solid"]);
   let { src } = $$props;
   let { size = "100%" } = $$props;
   let { solid = false } = $$props;
@@ -54,21 +54,21 @@ const Icon = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots)
   if ($$props.solid === void 0 && $$bindings.solid && solid !== void 0)
     $$bindings.solid(solid);
   icon = src == null ? void 0 : src[solid ? "solid" : "default"];
-  return `<svg${(0, import_index_699220d6.i)(
+  return `<svg${(0, import_index_a7d28e02.i)(
     [
-      (0, import_index_699220d6.j)(icon == null ? void 0 : icon.a),
+      (0, import_index_a7d28e02.j)(icon == null ? void 0 : icon.a),
       { xmlns: "http://www.w3.org/2000/svg" },
-      { width: (0, import_index_699220d6.k)(size) },
-      { height: (0, import_index_699220d6.k)(size) },
+      { width: (0, import_index_a7d28e02.k)(size) },
+      { height: (0, import_index_a7d28e02.k)(size) },
       { "aria-hidden": "true" },
-      (0, import_index_699220d6.j)($$restProps)
+      (0, import_index_a7d28e02.j)($$restProps)
     ],
     {}
-  )}>${(0, import_index_699220d6.e)((_a = icon == null ? void 0 : icon.path) != null ? _a : [], (a) => {
-    return `<path${(0, import_index_699220d6.i)([(0, import_index_699220d6.j)(a)], {})}></path>`;
+  )}>${(0, import_index_a7d28e02.d)((_a = icon == null ? void 0 : icon.path) != null ? _a : [], (a) => {
+    return `<path${(0, import_index_a7d28e02.i)([(0, import_index_a7d28e02.j)(a)], {})}></path>`;
   })}</svg>`;
 });
-const Portal = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+const Portal = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   let { target = "body" } = $$props;
   if ($$props.target === void 0 && $$bindings.target && target !== void 0)
     $$bindings.target(target);
@@ -78,7 +78,7 @@ const css$1 = {
   code: '@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Poppins:wght@400;600&display=swap");.svelte-noppfj.svelte-noppfj,.svelte-noppfj.svelte-noppfj::after,.svelte-noppfj.svelte-noppfj::before{box-sizing:border-box}@media(max-width: 768px){}@media(min-width: 768px){}@media(min-width: 1024px){}@media(max-width: 1024px){}@media(min-width: 1024px){}@media(max-width: 768px){}@media(min-width: 768px){}@media(max-width: 1024px){}@media(min-width: 1024px){}.toast.svelte-noppfj.svelte-noppfj{border-radius:1.2rem;padding:2rem 3.5rem 2rem 2.5rem;box-shadow:0 0.6rem 2rem -0.5rem rgba(26, 42, 52, 0.1)}@media(max-width: 768px){.toast.svelte-noppfj.svelte-noppfj{width:calc(100vw - 3.2rem)}}@media(max-width: 1024px){.toast.svelte-noppfj.svelte-noppfj{bottom:1.6rem;left:1.6rem}}@media(min-width: 1024px){.toast.svelte-noppfj.svelte-noppfj{bottom:2.4rem;left:2.4rem}}.toast.svelte-noppfj .close.svelte-noppfj{transition:all 0.4s ease-in-out;top:1.4rem;right:1.4rem}.toast.svelte-noppfj .close.svelte-noppfj:hover{color:#486b3b}',
   map: null
 };
-const Toast = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+const Toast = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   const open = () => {
     active = true;
     setTimeout(
@@ -92,10 +92,10 @@ const Toast = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots
   if ($$props.open === void 0 && $$bindings.open && open !== void 0)
     $$bindings.open(open);
   $$result.css.add(css$1);
-  return `${active ? `${(0, import_index_699220d6.v)(Portal, "Portal").$$render($$result, { target: "body" }, {}, {
+  return `${active ? `${(0, import_index_a7d28e02.v)(Portal, "Portal").$$render($$result, { target: "body" }, {}, {
     default: () => {
       return `<div class="${"toast absolute bg-white overflow-hidden svelte-noppfj"}"><div class="${"toast-content flex items-center svelte-noppfj"}">${slots.default ? slots.default({}) : ``}</div>
-      <span class="${"absolute cursor-pointer close svelte-noppfj"}">${(0, import_index_699220d6.v)(Icon, "Icon").$$render($$result, { src: import_heroicons.X, size: "16" }, {}, {})}</span></div>`;
+      <span class="${"absolute cursor-pointer close svelte-noppfj"}">${(0, import_index_a7d28e02.v)(Icon, "Icon").$$render($$result, { src: import_heroicons.X, size: "16" }, {}, {})}</span></div>`;
     }
   })}` : ``}`;
 });
@@ -109,9 +109,9 @@ const load = async () => {
   const { contact: { data } } = await (0, import_api_fcbaa1f6.g)(import_graphqlQuery.query, "http://localhost:1337/graphql/");
   return { props: { data } };
 };
-const Contact = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+const Contact = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   let $$unsubscribe_mainHeaderHeight;
-  $$unsubscribe_mainHeaderHeight = (0, import_index_699220d6.a)(import_Header_c4517c71.d, (value) => value);
+  $$unsubscribe_mainHeaderHeight = (0, import_index_a7d28e02.a)(import_Header_dd5f05da.d, (value) => value);
   let { data } = $$props;
   let toast = null;
   const { seo: { metaTitle, metaDescription }, title, name, inputs, phoneNumber, emailAddress, buttonText, terms, image: { data: { attributes: { hash: imageUrl, alternativeText: imageAlt } } } } = data == null ? void 0 : data.attributes;
@@ -122,9 +122,9 @@ const Contact = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slo
   let $$rendered;
   do {
     $$settled = true;
-    $$rendered = `${data ? `${(0, import_index_699220d6.v)(import_Head_64983968.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
+    $$rendered = `${data ? `${(0, import_index_a7d28e02.v)(import_Head_0f940379.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
   ${``}` : ``}
-${(0, import_index_699220d6.v)(Toast, "Toast").$$render(
+${(0, import_index_a7d28e02.v)(Toast, "Toast").$$render(
       $$result,
       { this: toast },
       {
@@ -135,7 +135,7 @@ ${(0, import_index_699220d6.v)(Toast, "Toast").$$render(
       },
       {
         default: () => {
-          return `${`${(0, import_index_699220d6.v)(Icon, "Icon").$$render(
+          return `${`${(0, import_index_a7d28e02.v)(Icon, "Icon").$$render(
             $$result,
             {
               src: import_heroicons.XCircle,

@@ -17,13 +17,17 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  default: () => _layout
+  default: () => _layout,
+  load: () => load
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_699220d6 = require("../../_app/immutable/chunks/index-699220d6.js");
-var import_Header_c4517c71 = require("../../_app/immutable/chunks/Header-c4517c71.js");
-var import_store_breakpoint_f870d4ad = require("../../_app/immutable/chunks/store-breakpoint-f870d4ad.js");
-var import_stores_760db7b6 = require("../../_app/immutable/chunks/stores-760db7b6.js");
+var import_index_a7d28e02 = require("../../_app/immutable/chunks/index-a7d28e02.js");
+var import_api_fcbaa1f6 = require("../../_app/immutable/chunks/api-fcbaa1f6.js");
+var import_graphqlQuery = require("../endpoints/graphqlQuery.js");
+var import_Header_dd5f05da = require("../../_app/immutable/chunks/Header-dd5f05da.js");
+var import_graphql_request = require("graphql-request");
+var import_store_breakpoint_bdbf653d = require("../../_app/immutable/chunks/store-breakpoint-bdbf653d.js");
+var import_stores_20da12b8 = require("../../_app/immutable/chunks/stores-20da12b8.js");
 const app = "";
 const index = "";
 const __layout_svelte_svelte_type_style_lang = "";
@@ -31,13 +35,19 @@ const css = {
   code: "main.svelte-1nhlp06{padding-top:var(--headerHeigth)}",
   map: null
 };
-const _layout = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+const load = async () => {
+  const { menu: { data } } = await (0, import_api_fcbaa1f6.g)(import_graphqlQuery.query, "http://localhost:1337/graphql/");
+  return { props: { data } };
+};
+const _layout = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   let $mainHeaderHeight, $$unsubscribe_mainHeaderHeight;
-  $$unsubscribe_mainHeaderHeight = (0, import_index_699220d6.a)(import_Header_c4517c71.d, (value) => $mainHeaderHeight = value);
+  $$unsubscribe_mainHeaderHeight = (0, import_index_a7d28e02.a)(import_Header_dd5f05da.d, (value) => $mainHeaderHeight = value);
+  let { data = null } = $$props;
+  if ($$props.data === void 0 && $$bindings.data && data !== void 0)
+    $$bindings.data(data);
   $$result.css.add(css);
   $$unsubscribe_mainHeaderHeight();
-  return `${(0, import_index_699220d6.v)(import_Header_c4517c71.H, "Header").$$render($$result, {}, {}, {})}
-
-<main${(0, import_index_699220d6.b)("style", `--headerHeigth: ${$mainHeaderHeight}px`, 0)} class="${"svelte-1nhlp06"}">${slots.default ? slots.default({}) : ``}
+  return `${data ? `${(0, import_index_a7d28e02.v)(import_Header_dd5f05da.H, "Header").$$render($$result, { data }, {}, {})}` : ``}
+<main${(0, import_index_a7d28e02.b)("style", `--headerHeigth: ${$mainHeaderHeight}px`, 0)} class="${"svelte-1nhlp06"}">${slots.default ? slots.default({}) : ``}
 </main>`;
 });
