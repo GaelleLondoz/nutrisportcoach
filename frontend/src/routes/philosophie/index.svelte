@@ -1,50 +1,14 @@
 <script context="module">
+  import { query } from "./graphqlQuery.js";
+  import { getData } from "$utils/api.js";
+
   export const prerender = true;
-  import { request, gql } from "graphql-request";
 
   export const load = async () => {
-    const query = gql`
-      {
-        philosophie {
-          data {
-            attributes {
-              title
-              description
-              metaTitle
-              metaDescription
-              programs {
-                image {
-                  data {
-                    attributes {
-                      hash
-                      alternativeText
-                    }
-                  }
-                }
-                title
-                button {
-                  text
-                  url {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `;
+    const {
+      philosophie: { data },
+    } = await getData(query, "http://localhost:1337/graphql/");
 
-    const res = await request(
-      "https://nutrisportcoach.herokuapp.com/graphql/",
-      query
-    );
-
-    const { data } = await res.philosophie;
     return {
       props: { data },
     };
@@ -52,67 +16,68 @@
 </script>
 
 <script>
-  import { fly, fade } from "svelte/transition";
   import { onMount } from "svelte";
-  import HTML from "$lib/HTML/HTML.svelte";
-  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
+  import { fade } from "svelte/transition";
+
+  import Head from "$lib/Head/Head.svelte";
 
   export let data = null;
 
-  const { title, description, metaTitle, metaDescription, programs } =
-    data?.attributes;
+  let mounted = false;
+
+  const {
+    seo: { metaTitle, metaDescription },
+    title,
+    description,
+    programs,
+  } = data?.attributes;
 
   onMount(() => {
     const body = document.querySelector("body");
-    body.id = "philosophy";
+    body.id = "philosophie";
+    mounted = true;
   });
 </script>
 
-<svelte:head>
-  <title>{metaTitle}</title>
-  <meta name="description" content={metaDescription} />
-</svelte:head>
-
 {#if data}
-  <section class="container" style={`--headerHeigth: ${$mainHeaderHeight}px`}>
-    <div class="content flex flex-col  ">
-      <h1 class="font-bold  ">{@html title}</h1>
-      <p>{@html description}</p>
+  <Head {metaTitle} {metaDescription} />
+  {#if mounted}
+    <section class="container">
+      <div class="content">
+        <h1>{title}</h1>
+        <p>{description}</p>
 
-      <div class="programs">
-        {#each programs as program}
-          <div class="program">
-            <div class="program__card">
-              <picture in:fade={{ duration: 500 }}>
-                <source
-                  srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_225/{program
-                    ?.image?.data?.attributes?.hash}"
-                  media="(min-width: 768px)"
-                />
-
-                <img
-                  src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_150/{program
-                    ?.image?.data?.attributes?.hash}"
-                  alt={program?.image?.data?.attributes?.alternativeText}
-                />
-              </picture>
-
-              <span>{program.title}</span>
+        <div class="programs">
+          {#each programs as { title, button: { text: buttonText, url: { data: { attributes: { url: buttonUrl } } } }, image: { data: { attributes: { hash: imageUrl, alternativeText: imageAlt } } } }}
+            <div class="program">
+              <a class="program__link" sveltekit:prefetch href={buttonUrl}>
+                <div class="program__card">
+                  <picture in:fade={{ duration: 500 }}>
+                    <source
+                      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_225/{imageUrl}"
+                      media="(min-width: 1024px)"
+                    />
+                    <source
+                      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_200/{imageUrl}"
+                      media="(min-width: 768px)"
+                    />
+                    <img
+                      src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_112/{imageUrl}"
+                      alt={imageAlt}
+                    />
+                  </picture>
+                  <div class="program__content">
+                    <span class="program__title">{title}</span>
+                    <span class="program__btn">{buttonText}</span>
+                  </div>
+                </div>
+              </a>
             </div>
-
-            <a
-              class="btn-more"
-              sveltekit:prefetch
-              href={program?.button?.url?.data?.attributes?.url}
-              >{program.button.text}</a
-            >
-          </div>
-        {/each}
+          {/each}
+        </div>
       </div>
-
-      <div />
-    </div>
-  </section>
+    </section>
+  {/if}
 {/if}
 
 <style lang="scss">

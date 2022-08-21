@@ -2,86 +2,106 @@ const { init } = require('../serverless.js');
 
 exports.handler = init({
 	appDir: "_app",
-	assets: new Set(["robots.txt"]),
-	mimeTypes: {".txt":"text/plain"},
+	assets: new Set(["apple-touch-icon.png","favicon-16x16.png","favicon-32x32.png","robots.txt"]),
+	mimeTypes: {".png":"image/png",".txt":"text/plain"},
 	_: {
-		entry: {"file":"immutable/start-21f61f07.js","imports":["immutable/start-21f61f07.js","immutable/chunks/index-ea7d6d72.js","immutable/chunks/index-a97d16b2.js","immutable/chunks/singletons-cdeec3fd.js"],"stylesheets":[]},
+		entry: {"file":"_app/immutable/start-5fa1edcc.js","imports":["_app/immutable/start-5fa1edcc.js","_app/immutable/chunks/index-23490812.js","_app/immutable/chunks/index-124a935a.js"],"stylesheets":[]},
 		nodes: [
 			() => Promise.resolve().then(() => require('../server/nodes/0.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/1.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/4.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/11.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/7.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/8.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/9.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/10.js'))
+			() => Promise.resolve().then(() => require('../server/nodes/12.js'))
 		],
 		routes: [
 			{
-				type: 'page',
-				id: "histoire",
-				pattern: /^\/histoire\/?$/,
+				type: 'endpoint',
+				id: "graphqlQuery",
+				pattern: /^\/graphqlQuery\/?$/,
 				names: [],
 				types: [],
-				path: "/histoire",
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/graphqlQuery.js'))
+			},
+			{
+				type: 'endpoint',
+				id: "errors",
+				pattern: /^\/errors\/?$/,
+				names: [],
+				types: [],
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/errors.js'))
+			},
+			{
+				type: 'endpoint',
+				id: "temoignages/graphqlQuery",
+				pattern: /^\/temoignages\/graphqlQuery\/?$/,
+				names: [],
+				types: [],
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/temoignages/graphqlQuery.js'))
+			},
+			{
+				type: 'endpoint',
+				id: "philosophie/graphqlQuery",
+				pattern: /^\/philosophie\/graphqlQuery\/?$/,
+				names: [],
+				types: [],
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/philosophie/graphqlQuery.js'))
+			},
+			{
+				type: 'endpoint',
+				id: "contact/graphqlQuery",
+				pattern: /^\/contact\/graphqlQuery\/?$/,
+				names: [],
+				types: [],
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/contact/graphqlQuery.js'))
+			},
+			{
+				type: 'page',
+				id: "temoignages/creation",
+				pattern: /^\/temoignages\/creation\/?$/,
+				names: [],
+				types: [],
+				path: "/temoignages/creation",
 				shadow: null,
 				a: [0,2],
 				b: [1]
 			},
 			{
-				type: 'page',
-				id: "todos",
-				pattern: /^\/todos\/?$/,
+				type: 'endpoint',
+				id: "philosophie/coach-sportif/graphqlQuery",
+				pattern: /^\/philosophie\/coach-sportif\/graphqlQuery\/?$/,
 				names: [],
 				types: [],
-				path: "/todos",
-				shadow: () => Promise.resolve().then(() => require('../server/entries/endpoints/todos/index.js')),
-				a: [0,3],
-				b: [1]
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/philosophie/coach-sportif/graphqlQuery.js'))
 			},
 			{
-				type: 'page',
-				id: "programs/nutrition",
-				pattern: /^\/programs\/nutrition\/?$/,
+				type: 'endpoint',
+				id: "philosophie/coach-en-nutrition/graphqlQuery",
+				pattern: /^\/philosophie\/coach-en-nutrition\/graphqlQuery\/?$/,
 				names: [],
 				types: [],
-				path: "/programs/nutrition",
-				shadow: null,
-				a: [0,4],
-				b: [1]
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/philosophie/coach-en-nutrition/graphqlQuery.js'))
 			},
 			{
-				type: 'page',
-				id: "programs/philosophie",
-				pattern: /^\/programs\/philosophie\/?$/,
+				type: 'endpoint',
+				id: "philosophie/coach-bien-etre/graphqlQuery",
+				pattern: /^\/philosophie\/coach-bien-etre\/graphqlQuery\/?$/,
 				names: [],
 				types: [],
-				path: "/programs/philosophie",
-				shadow: null,
-				a: [0,5],
-				b: [1]
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/philosophie/coach-bien-etre/graphqlQuery.js'))
 			},
 			{
-				type: 'page',
-				id: "programs/sport",
-				pattern: /^\/programs\/sport\/?$/,
+				type: 'endpoint',
+				id: "a-propos/mon-histoire/graphqlQuery",
+				pattern: /^\/a-propos\/mon-histoire\/graphqlQuery\/?$/,
 				names: [],
 				types: [],
-				path: "/programs/sport",
-				shadow: null,
-				a: [0,6],
-				b: [1]
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/a-propos/mon-histoire/graphqlQuery.js'))
 			},
 			{
-				type: 'page',
-				id: "programs/vie",
-				pattern: /^\/programs\/vie\/?$/,
+				type: 'endpoint',
+				id: "a-propos/ma-mission/graphqlQuery",
+				pattern: /^\/a-propos\/ma-mission\/graphqlQuery\/?$/,
 				names: [],
 				types: [],
-				path: "/programs/vie",
-				shadow: null,
-				a: [0,7],
-				b: [1]
+				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/a-propos/ma-mission/graphqlQuery.js'))
 			}
 		],
 		matchers: async () => {

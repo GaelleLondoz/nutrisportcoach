@@ -3,5 +3,7 @@
   export let metaDescription = "";
 </script>
 
-<title>{metaTitle}</title>
-<meta name="description" content={metaDescription} />
+<svelte:head>
+  <title>{metaTitle}</title>
+  <meta name="description" content={metaDescription} />
+</svelte:head>

@@ -7,6 +7,9 @@ header {
     height: 7.5rem;
   }
 
+  position: fixed;
+  width: 100vw;
+  top: 0;
   background-color: $ui-gray-0;
   box-shadow: -0.2rem 0.5rem 0.6rem rgba($ui-gray-7, 0.16);
 
@@ -93,8 +96,8 @@ header {
           }
 
           .line1 {
+            @include transition;
             transform-origin: 0% 0%;
-            transition: transform 0.4s ease-in-out;
             width: 100%;
           }
 
@@ -104,8 +107,8 @@ header {
           }
 
           .line3 {
+            @include transition;
             transform-origin: 0% 100%;
-            transition: transform 0.4s ease-in-out;
             width: 60%;
           }
         }
@@ -134,10 +137,10 @@ header {
         hsla(106, 15%, 71%, 1) 0%,
         hsla(0, 0%, 100%, 1) 100%
       );
+      @include transition;
       flex-direction: column;
       margin-left: 0;
       padding-left: 0;
-      transition: transform 0.5s ease-in-out;
       text-align: center;
       position: absolute;
       left: 0;
@@ -151,6 +154,7 @@ header {
         display: flex;
 
         li {
+          @include transition;
           padding: 2.2rem 2rem;
           text-align: left;
           font-size: 1.8rem;
@@ -168,7 +172,6 @@ header {
           color: $black;
           letter-spacing: 0.063rem;
           font-weight: 500;
-          transition: 0.4s all ease-in-out;
         }
       }
 
@@ -189,18 +192,17 @@ header {
         display: flex;
 
         li {
+          @include transition;
           font-size: 2rem;
           line-height: 2rem;
+          color: $black;
+          letter-spacing: 0.063rem;
+          font-weight: 500;
 
           &.active,
           &:hover {
             color: $ui-green-0;
           }
-
-          color: $black;
-          letter-spacing: 0.063rem;
-          font-weight: 500;
-          transition: 0.4s all ease-in-out;
         }
       }
     }

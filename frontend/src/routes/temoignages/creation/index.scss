@@ -1,0 +1,86 @@
+.reviews-creation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: calc(100vh - var(--headerHeigth));
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: $ui-green-2;
+    height: calc(50vh - var(--headerHeigth) / 2);
+  }
+}
+
+h1 {
+  @include sm-md {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  @include lg {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.form__container {
+  @include sm-md {
+    padding: 3.3rem 2.4rem;
+  }
+  @include lg {
+    padding: 4.2rem 10rem 0.2rem;
+  }
+
+  background: $white;
+  box-shadow: 0 0.3rem 0.6rem rgba($black, 0.161);
+  border-radius: 3.5rem;
+  position: relative;
+  max-width: 95.3rem;
+  margin: 5rem auto 0;
+}
+
+span.starContainer {
+  @include sm-md {
+    column-gap: 1.2rem;
+  }
+  @include lg {
+    column-gap: 3rem;
+  }
+
+  display: flex;
+  margin: 1rem 0 0;
+
+  :global(.star) {
+    @include sm-md {
+      width: 1.8rem;
+    }
+    @include lg {
+      width: auto;
+    }
+  }
+}
+
+:global(.toast .toast-content) {
+  :global(.check) {
+    fill: $ui-blue-0;
+  }
+
+  :global(.error) {
+    fill: red;
+  }
+
+  .message {
+    margin: 0 2rem;
+    line-height: 2rem;
+    font-size: 1.6rem;
+    color: $black;
+  }
+}

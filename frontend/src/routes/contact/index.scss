@@ -1,14 +1,160 @@
+:global(html) {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.background {
+  @include lg {
+    background-color: $ui-green-2;
+    width: 30vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: -1;
+  }
+}
+
 section {
-  padding-top: 10rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  @include sm-md {
+    min-height: calc(100vh - var(--headerHeigth));
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin-top: 7rem;
+  }
+  @include lg {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  display: flex;
+
+  .details__container {
+    background-color: $ui-green-2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include sm-md {
+      width: 100vw;
+      padding-bottom: 10rem;
+      margin-left: -1.6rem;
+      margin-top: 3rem;
+      padding-top: 5rem;
+
+      .details__container-background {
+        position: absolute;
+        width: 150%;
+        height: 20rem;
+        top: -3rem;
+        border-radius: 50%;
+        z-index: -1;
+        background-color: $ui-green-2;
+        box-shadow: inset 0px 3px 6px rgb(0 0 0 / 16%),
+          0px 3px 6px rgb(0 0 0 / 16%);
+      }
+    }
+
+    @include lg {
+      width: 30%;
+      height: calc(100vh - var(--headerHeigth));
+
+      &:after {
+        content: "";
+        position: absolute;
+        right: -18rem;
+        top: 0;
+        width: 23rem;
+        height: calc(100vh - var(--headerHeigth));
+        z-index: -1;
+        background-image: url("$lib/assets/contact/background.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
+    h2 {
+      @include sm-md {
+        font-size: 2rem;
+      }
+      @include lg {
+        font-size: 2rem;
+      }
+      font-weight: 500;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .phone,
+    .mail {
+      @include sm-md {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+      }
+      @include lg {
+        font-size: 2rem;
+        margin-top: 5rem;
+      }
+
+      display: grid;
+      grid-template-columns: 20% 80%;
+      align-items: center;
+      width: 100%;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .phone {
+      img {
+        @include sm-md {
+          width: 2.3rem;
+        }
+        @include lg {
+          width: 3.2rem;
+        }
+
+        justify-self: center;
+      }
+    }
+
+    .mail {
+      img {
+        @include sm-md {
+          width: 3.8rem;
+        }
+        @include lg {
+          width: 4.8rem;
+        }
+
+        justify-self: center;
+      }
+    }
+  }
 
   .form__container {
+    @include lg {
+      width: 50%;
+      height: calc(100vh - var(--headerHeigth));
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     h1 {
-      font-size: 5rem;
+      @include sm-md {
+        font-size: 2rem;
+        margin-bottom: 5rem;
+      }
+      @include lg {
+        font-size: 3rem;
+        margin-bottom: 10rem;
+      }
+
       font-weight: 500;
       color: $black;
-      margin-bottom: 10rem;
     }
   }
 }

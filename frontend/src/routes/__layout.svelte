@@ -1,11 +1,18 @@
 <script>
   import Header from "$lib/header/Header.svelte";
-  import "../app.css";
-  import "../styles/index.scss";
+  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
+  import "$src/app.css";
+  import "$src/styles/index.scss";
 </script>
 
 <Header />
 
-<main>
+<main style={`--headerHeigth: ${$mainHeaderHeight}px`}>
   <slot />
 </main>
+
+<style>
+  main {
+    padding-top: var(--headerHeigth);
+  }
+</style>

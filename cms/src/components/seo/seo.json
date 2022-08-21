@@ -1,15 +1,18 @@
 {
   "collectionName": "components_seo_seos",
   "info": {
-    "displayName": "seo"
+    "displayName": "seo",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "metaTitle": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 60
     },
     "metaDescription": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 160
     }
   }
 }

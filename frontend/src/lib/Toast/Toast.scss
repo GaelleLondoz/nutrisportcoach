@@ -1,14 +1,25 @@
 .toast {
-  bottom: 2.4rem;
-  left: 2.4rem;
+  @include sm {
+    width: calc(100vw - 3.2rem);
+  }
+  @include sm-md {
+    bottom: 1.6rem;
+    left: 1.6rem;
+  }
+
+  @include lg {
+    bottom: 2.4rem;
+    left: 2.4rem;
+  }
+
   border-radius: 1.2rem;
   padding: 2rem 3.5rem 2rem 2.5rem;
   box-shadow: 0 0.6rem 2rem -0.5rem rgba($black, 0.1);
 
   .close {
+    @include transition;
     top: 1.4rem;
     right: 1.4rem;
-    transition: color 0.4s ease-in-out;
 
     &:hover {
       color: $ui-green-0;

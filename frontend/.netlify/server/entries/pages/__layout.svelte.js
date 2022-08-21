@@ -20,13 +20,24 @@ __export(stdin_exports, {
   default: () => _layout
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_4688debc = require("../../immutable/chunks/index-4688debc.js");
-var import_Header_27331545 = require("../../immutable/chunks/Header-27331545.js");
-var import_heroicons = require("@steeze-ui/heroicons");
-var app = "";
-var index = "";
-const _layout = (0, import_index_4688debc.c)(($$result, $$props, $$bindings, slots) => {
-  return `${(0, import_index_4688debc.v)(import_Header_27331545.H, "Header").$$render($$result, {}, {}, {})}
+var import_index_699220d6 = require("../../_app/immutable/chunks/index-699220d6.js");
+var import_Header_f8c29f20 = require("../../_app/immutable/chunks/Header-f8c29f20.js");
+var import_store_breakpoint_f870d4ad = require("../../_app/immutable/chunks/store-breakpoint-f870d4ad.js");
+var import_stores_760db7b6 = require("../../_app/immutable/chunks/stores-760db7b6.js");
+const app = "";
+const index = "";
+const __layout_svelte_svelte_type_style_lang = "";
+const css = {
+  code: "main.svelte-1nhlp06{padding-top:var(--headerHeigth)}",
+  map: null
+};
+const _layout = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
+  let $mainHeaderHeight, $$unsubscribe_mainHeaderHeight;
+  $$unsubscribe_mainHeaderHeight = (0, import_index_699220d6.a)(import_Header_f8c29f20.d, (value) => $mainHeaderHeight = value);
+  $$result.css.add(css);
+  $$unsubscribe_mainHeaderHeight();
+  return `${(0, import_index_699220d6.v)(import_Header_f8c29f20.H, "Header").$$render($$result, {}, {}, {})}
 
-<main>${slots.default ? slots.default({}) : ``}</main>`;
+<main${(0, import_index_699220d6.b)("style", `--headerHeigth: ${$mainHeaderHeight}px`, 0)} class="${"svelte-1nhlp06"}">${slots.default ? slots.default({}) : ``}
+</main>`;
 });

@@ -1,27 +1,12 @@
 <script context="module">
+  import { query } from "./graphqlQuery.js";
+  import { getData } from "$utils/api.js";
+
   export const prerender = true;
-  import { request, gql } from "graphql-request";
 
   export const load = async () => {
-    const query = gql`
-      {
-        reviews(sort: "order") {
-          data {
-            attributes {
-              rating
-              firstName
-              lastName
-              comment
-              order
-            }
-          }
-        }
-      }
-    `;
+    const data = await getData(query, "http://localhost:1337/graphql/");
 
-    const res = await request("http://localhost:1337/graphql/", query);
-
-    const { data } = await res.reviews;
     return {
       props: { data },
     };
@@ -30,53 +15,79 @@
 
 <script>
   import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
+  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
+
+  import "swiper/css";
+  import "swiper/css/pagination";
+
+  import Head from "$lib/Head/Head.svelte";
+  import Filters from "$lib/Filters/Filters.svelte";
+  import Slider from "$lib/Slider/Slider.svelte";
+
   export let data = null;
 
-  const sortBy = (value = "order", order = "asc") => {
-    data = data.sort((a, b) => {
-      let first = order === "asc" ? a : b;
-      let second = order === "asc" ? b : a;
-      return first.attributes[value] - second.attributes[value];
-    });
-  };
+  let {
+    reviewsPage: {
+      data: {
+        attributes: {
+          seo: { metaTitle, metaDescription },
+          title,
+          button: {
+            text: buttonText,
+            url: {
+              data: {
+                attributes: { url: buttonUrl },
+              },
+            },
+          },
+        },
+      },
+    },
+    reviews: { data: reviews },
+  } = data;
+
+  let mounted = false;
 
   onMount(() => {
     const body = document.querySelector("body");
     body.id = "reviews";
-  });
 
-  let group;
+    setTimeout(() => {
+      mounted = true;
+    }, 500);
+  });
 </script>
 
-<label>
-  <input
-    type="radio"
-    bind:group
-    name="scoops"
-    value={1}
-    on:click={() => sortBy("rating", "asc")}
-  />
-  Moins à plus
-</label>
-<label>
-  <input
-    type="radio"
-    bind:group
-    name="scoops"
-    value={2}
-    on:click={() => sortBy("rating", "desc")}
-  />
-  Plus à moins
-</label>
-<button
-  on:click={() => {
-    sortBy("order", "asc");
-    group = null;
-  }}>empty</button
->
 {#if data}
-  {#each data as { attributes: { order, firstName, lastName, comment, rating } }}
-    <b>{order}</b>
-    {rating}
-  {/each}
+  <Head {metaTitle} {metaDescription} />
+  {#if mounted}
+    <div
+      in:fade
+      class="reviews"
+      style={`--headerHeigth: ${$mainHeaderHeight}px`}
+      class:no-reviews={!reviews.length}
+    >
+      <section class="container">
+        <header>
+          <h1>{title}</h1>
+          {#if !reviews.length}
+            <Filters bind:reviews />
+          {/if}
+        </header>
+        {#if reviews.length}
+          <Slider {reviews} />
+        {:else}
+          <p>Nous n'avons pas encore de témoignages</p>
+        {/if}
+        <div class="link-to-creation-page">
+          <a sveltekit:prefetch href={buttonUrl}>{buttonText}</a>
+        </div>
+      </section>
+    </div>
+  {/if}
 {/if}
+
+<style lang="scss">
+  @import "./index.scss";
+</style>

@@ -1,74 +1,14 @@
 <script context="module">
+  import { query } from "./graphqlQuery.js";
+  import { getData } from "$utils/api.js";
+
   export const prerender = true;
-  import { request, gql } from "graphql-request";
 
   export const load = async () => {
-    const query = gql`
-      {
-        homepage {
-          data {
-            attributes {
-              seo {
-                metaTitle
-                metaDescription
-              }
-              title
-              description
-              button {
-                text
-                url {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
+    const {
+      homepage: { data },
+    } = await getData(query, "http://localhost:1337/graphql/");
 
-              imageTop {
-                data {
-                  attributes {
-                    hash
-                    alternativeText
-                  }
-                }
-              }
-              imageTopMobile {
-                data {
-                  attributes {
-                    hash
-                    alternativeText
-                  }
-                }
-              }
-              imageBottom {
-                data {
-                  attributes {
-                    hash
-                    alternativeText
-                  }
-                }
-              }
-              imageBottomMobile {
-                data {
-                  attributes {
-                    hash
-                    alternativeText
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `;
-
-    const res = await request(
-      "https://nutrisportcoach.herokuapp.com/graphql",
-      query
-    );
-
-    const { data } = await res.homepage;
     return {
       props: { data },
     };
@@ -78,29 +18,37 @@
 <script>
   import { onMount } from "svelte";
   import { fly, fade } from "svelte/transition";
+  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
 
+  import Head from "$lib/Head/Head.svelte";
   import HTML from "$lib/HTML/HTML.svelte";
-  import { breakpoint } from "$stores/store-breakpoint";
-
-  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
 
   export let data = null;
-  import Header, {
-    dynamicOffsetHeight as mainHeaderHeight,
-  } from "$lib/header/Header.svelte";
-  import Head from "$lib/Head/Head.svelte";
 
   let animate = false;
 
   const {
+    seo: { metaTitle, metaDescription },
     title,
     description,
-    button,
-    seo,
-    imageTop,
-    imageBottom,
-    imageTopMobile,
-    imageBottomMobile,
+    button: {
+      text: buttonText,
+      url: {
+        data: {
+          attributes: { url: buttonUrl },
+        },
+      },
+    },
+    imageTop: {
+      data: {
+        attributes: { hash: imageTopUrl, alternativeText: imageTopAlt },
+      },
+    },
+    imageBottom: {
+      data: {
+        attributes: { hash: imageBottomUrl, alternativeText: imageBottomAlt },
+      },
+    },
   } = data?.attributes;
 
   onMount(() => {
@@ -112,59 +60,50 @@
   });
 </script>
 
-<svelte:head>
-  <Head metaTitle={seo?.metaTitle} metaDescription={seo?.metaDescription} />
-</svelte:head>
+{#if data}
+  <Head {metaTitle} {metaDescription} />
+  {#if animate}
+    <picture in:fade={{ duration: 500 }}>
+      <source
+        srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_713/{imageTopUrl}"
+        media="(min-width: 768px)"
+      />
 
-{#if data && animate && $mainHeaderHeight}
-  <picture in:fade={{ duration: 500 }}>
-    <source
-      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageTop
-        ?.data?.attributes?.hash}"
-      media="(min-width: 768px)"
-    />
+      <img
+        style={`--headerHeigth: ${$mainHeaderHeight}px`}
+        src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_500/{imageTopUrl}"
+        alt={imageTopAlt}
+        class="image--t-r"
+      />
+    </picture>
 
-    <img
+    <section
+      in:fly={{ x: -200, duration: 500 }}
+      class="container"
       style={`--headerHeigth: ${$mainHeaderHeight}px`}
-      src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageTop
-        ?.data?.attributes?.hash}"
-      alt={imageTop?.data?.attributes?.alternativeText}
-      class="absolute top-0  right-0 image-t-r"
-    />
-  </picture>
-
-  <section
-    in:fly={{ x: -200, duration: 500 }}
-    class="container relative z-10 flex justify-start md:items-center"
-    style={`--headerHeigth: ${$mainHeaderHeight}px`}
-  >
-    <div class="content flex flex-col items-start justify-center">
-      {@html title}
-      <p>{description}</p>
-      <div>
-        <a
-          class="text-white"
-          sveltekit:prefetch
-          href={button.url.data.attributes.url}>{button.text}</a
-        >
+    >
+      <div class="content">
+        <HTML text={title} />
+        <p>{description}</p>
+        <div>
+          <a sveltekit:prefetch href={buttonUrl}>{buttonText}</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <picture in:fade={{ duration: 500 }}>
-    <source
-      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageBottom
-        ?.data?.attributes?.hash}"
-      media="(min-width: 768px)"
-    />
+    <picture in:fade={{ duration: 500 }}>
+      <source
+        srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_885/{imageBottomUrl}"
+        media="(min-width: 768px)"
+      />
 
-    <img
-      src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageBottom
-        ?.data?.attributes?.hash}"
-      alt={imageBottom?.data?.attributes?.alternativeText}
-      class="absolute bottom-0 left-0  image-b-l"
-    />
-  </picture>
+      <img
+        src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_500/{imageBottomUrl}"
+        alt={imageBottomAlt}
+        class="image--b-l"
+      />
+    </picture>
+  {/if}
 {/if}
 
 <style lang="scss">

@@ -1,79 +1,62 @@
 <script context="module">
+  import { query } from "./graphqlQuery.js";
+  import { getData } from "$utils/api.js";
+
   export const prerender = true;
 
-  export const load = async ({ fetch, params }) => {
-    const res = await fetch(
-      "http://localhost:1337/api/bien-etre?populate=deep"
-    );
-    if (res.ok) {
-      const { data } = await res.json();
-      return {
-        props: { data },
-      };
-    }
+  export const load = async () => {
+    const {
+      bienEtre: { data },
+    } = await getData(query, "http://localhost:1337/graphql/");
+
+    return {
+      props: { data },
+    };
   };
 </script>
 
 <script>
   import { onMount } from "svelte";
-  import { fly, fade } from "svelte/transition";
+  import { fade } from "svelte/transition";
 
+  import Head from "$lib/Head/Head.svelte";
   import HTML from "$lib/HTML/HTML.svelte";
-  import { breakpoint } from "$stores/store-breakpoint";
 
-  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
-
-  import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
+  import Tree from "$lib/assets/bien-etre/arbre.png";
 
   export let data = null;
 
-  // let animate = false;
+  let mounted = false;
 
-  const { title, description } = data?.attributes;
+  const {
+    seo: { metaTitle, metaDescription },
+    title,
+    description,
+  } = data?.attributes;
 
-  // onMount(() => {
-  //   const body = document.querySelector("body");
-  //   body.id = "homepage";
-  //   setTimeout(() => {
-  //     animate = true;
-  //   }, 500);
-  // });
+  onMount(() => {
+    const body = document.querySelector("body");
+    body.id = "bien-etre";
+    setTimeout(() => {
+      mounted = true;
+    }, 500);
+  });
 </script>
 
-<!-- <svelte:head>
-      <title>{metaTitle}</title>
-      <meta name="description" content={metaDescription} />
-    </svelte:head> -->
-
 {#if data}
-  <!-- <picture in:fade={{ duration: 500 }}>
-        <source
-          srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageTop
-            ?.data?.attributes?.hash}"
-          media="(min-width: 768px)"
-        />
-    
-        <img
-          style={`--headerHeigth: ${$mainHeaderHeight}px`}
-          src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{imageTop
-            ?.data?.attributes?.hash}"
-          alt={imageTop?.data?.attributes?.alternativeText}
-          class="absolute top-0  right-0 image-t-r"
-        />
-      </picture>
-     -->
-  <section
-    in:fly={{ x: -200, duration: 500 }}
-    class="container relative z-10 flex justify-start md:items-center"
-    style={`--headerHeigth: ${$mainHeaderHeight}px`}
-  >
-    <div class="content flex flex-col items-start justify-center">
-      {title}
-      <p>{@html description}</p>
-    </div>
-  </section>
+  <Head {metaTitle} {metaDescription} />
+  {#if mounted}
+    <section in:fade class="container">
+      <div class="content">
+        <h1>{title}</h1>
+        <HTML text={description} />
+      </div>
+
+      <img in:fade src={Tree} alt="arbre" class="image image--tree" />
+    </section>
+  {/if}
 {/if}
-<!--   
-    <style lang="scss">
-      @import "./index.scss";
-    </style> -->
+
+<style lang="scss">
+  @import "./index.scss";
+</style>

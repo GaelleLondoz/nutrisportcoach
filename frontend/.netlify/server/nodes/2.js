@@ -16,7 +16,10 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
@@ -27,8 +30,8 @@ __export(stdin_exports, {
   stylesheets: () => stylesheets
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/about.svelte.js"));
+var module2 = __toESM(require("../entries/pages/a-propos/__layout.svelte.js"));
 const index = 2;
-const file = "immutable/pages/about.svelte-7a640f4c.js";
-const imports = ["immutable/pages/about.svelte-7a640f4c.js", "immutable/chunks/index-ea7d6d72.js"];
-const stylesheets = ["immutable/assets/pages/about.svelte-91e1140c.css"];
+const file = "_app/immutable/pages/a-propos/__layout.svelte-ddfdbc69.js";
+const imports = ["_app/immutable/pages/a-propos/__layout.svelte-ddfdbc69.js", "_app/immutable/chunks/index-23490812.js", "_app/immutable/chunks/index-52da8fb8.js", "_app/immutable/chunks/TabsList-00d74fa7.js", "_app/immutable/chunks/stores-3bbf5796.js", "_app/immutable/chunks/index-581d6be2.js", "_app/immutable/chunks/store-breakpoint-cd70237a.js", "_app/immutable/chunks/index-124a935a.js"];
+const stylesheets = ["_app/immutable/assets/TabsList-bed7946c.css"];

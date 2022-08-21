@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "metaTitle": {
-      "type": "string"
-    },
-    "metaDescription": {
-      "type": "text"
-    },
     "title": {
       "type": "string"
     },
@@ -29,6 +23,31 @@
     },
     "inputs": {
       "type": "json"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "terms": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
     }
   }
 }

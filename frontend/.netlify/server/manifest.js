@@ -16,7 +16,10 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
@@ -25,23 +28,25 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 const manifest = {
   appDir: "_app",
-  assets: /* @__PURE__ */ new Set(["robots.txt"]),
-  mimeTypes: { ".txt": "text/plain" },
+  assets: /* @__PURE__ */ new Set(["apple-touch-icon.png", "favicon-16x16.png", "favicon-32x32.png", "robots.txt"]),
+  mimeTypes: { ".png": "image/png", ".txt": "text/plain" },
   _: {
-    entry: { "file": "immutable/start-21f61f07.js", "imports": ["immutable/start-21f61f07.js", "immutable/chunks/index-ea7d6d72.js", "immutable/chunks/index-a97d16b2.js", "immutable/chunks/singletons-cdeec3fd.js"], "stylesheets": [] },
+    entry: { "file": "_app/immutable/start-5fa1edcc.js", "imports": ["_app/immutable/start-5fa1edcc.js", "_app/immutable/chunks/index-23490812.js", "_app/immutable/chunks/index-124a935a.js"], "stylesheets": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/5.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/2.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/3.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/4.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/6.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/11.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/7.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/6.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/3.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/11.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/13.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/2.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/4.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/5.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/8.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/9.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/10.js")))
+      () => Promise.resolve().then(() => __toESM(require("./nodes/10.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/12.js")))
     ],
     routes: [
       {
@@ -56,15 +61,20 @@ const manifest = {
         b: [1]
       },
       {
-        type: "page",
-        id: "about",
-        pattern: /^\/about\/?$/,
+        type: "endpoint",
+        id: "graphqlQuery",
+        pattern: /^\/graphqlQuery\/?$/,
         names: [],
         types: [],
-        path: "/about",
-        shadow: null,
-        a: [0, 3],
-        b: [1]
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/graphqlQuery.js")))
+      },
+      {
+        type: "endpoint",
+        id: "errors",
+        pattern: /^\/errors\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/errors.js")))
       },
       {
         type: "page",
@@ -74,18 +84,7 @@ const manifest = {
         types: [],
         path: "/contact",
         shadow: null,
-        a: [0, 4],
-        b: [1]
-      },
-      {
-        type: "page",
-        id: "histoire",
-        pattern: /^\/histoire\/?$/,
-        names: [],
-        types: [],
-        path: "/histoire",
-        shadow: null,
-        a: [0, 5],
+        a: [0, 3],
         b: [1]
       },
       {
@@ -96,63 +95,149 @@ const manifest = {
         types: [],
         path: "/philosophie",
         shadow: null,
+        a: [0, 4, 5],
+        b: [1]
+      },
+      {
+        type: "page",
+        id: "temoignages",
+        pattern: /^\/temoignages\/?$/,
+        names: [],
+        types: [],
+        path: "/temoignages",
+        shadow: null,
         a: [0, 6],
         b: [1]
       },
       {
-        type: "page",
-        id: "todos",
-        pattern: /^\/todos\/?$/,
+        type: "endpoint",
+        id: "temoignages/graphqlQuery",
+        pattern: /^\/temoignages\/graphqlQuery\/?$/,
         names: [],
         types: [],
-        path: "/todos",
-        shadow: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/todos/index.js"))),
-        a: [0, 7],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/temoignages/graphqlQuery.js")))
+      },
+      {
+        type: "endpoint",
+        id: "philosophie/graphqlQuery",
+        pattern: /^\/philosophie\/graphqlQuery\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/philosophie/graphqlQuery.js")))
+      },
+      {
+        type: "endpoint",
+        id: "contact/graphqlQuery",
+        pattern: /^\/contact\/graphqlQuery\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/contact/graphqlQuery.js")))
+      },
+      {
+        type: "page",
+        id: "a-propos/ma-mission",
+        pattern: /^\/a-propos\/ma-mission\/?$/,
+        names: [],
+        types: [],
+        path: "/a-propos/ma-mission",
+        shadow: null,
+        a: [0, 7, 8],
         b: [1]
       },
       {
         type: "page",
-        id: "programs/nutrition",
-        pattern: /^\/programs\/nutrition\/?$/,
+        id: "a-propos/mon-histoire",
+        pattern: /^\/a-propos\/mon-histoire\/?$/,
         names: [],
         types: [],
-        path: "/programs/nutrition",
+        path: "/a-propos/mon-histoire",
         shadow: null,
-        a: [0, 8],
+        a: [0, 7, 9],
         b: [1]
       },
       {
         type: "page",
-        id: "programs/philosophie",
-        pattern: /^\/programs\/philosophie\/?$/,
+        id: "philosophie/coach-bien-etre",
+        pattern: /^\/philosophie\/coach-bien-etre\/?$/,
         names: [],
         types: [],
-        path: "/programs/philosophie",
+        path: "/philosophie/coach-bien-etre",
         shadow: null,
-        a: [0, 9],
+        a: [0, 4, 10],
         b: [1]
       },
       {
         type: "page",
-        id: "programs/sport",
-        pattern: /^\/programs\/sport\/?$/,
+        id: "philosophie/coach-en-nutrition",
+        pattern: /^\/philosophie\/coach-en-nutrition\/?$/,
         names: [],
         types: [],
-        path: "/programs/sport",
+        path: "/philosophie/coach-en-nutrition",
         shadow: null,
-        a: [0, 10],
+        a: [0, 4, 11],
         b: [1]
       },
       {
         type: "page",
-        id: "programs/vie",
-        pattern: /^\/programs\/vie\/?$/,
+        id: "philosophie/coach-sportif",
+        pattern: /^\/philosophie\/coach-sportif\/?$/,
         names: [],
         types: [],
-        path: "/programs/vie",
+        path: "/philosophie/coach-sportif",
         shadow: null,
-        a: [0, 11],
+        a: [0, 4, 12],
         b: [1]
+      },
+      {
+        type: "page",
+        id: "temoignages/creation",
+        pattern: /^\/temoignages\/creation\/?$/,
+        names: [],
+        types: [],
+        path: "/temoignages/creation",
+        shadow: null,
+        a: [0, 13],
+        b: [1]
+      },
+      {
+        type: "endpoint",
+        id: "philosophie/coach-sportif/graphqlQuery",
+        pattern: /^\/philosophie\/coach-sportif\/graphqlQuery\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/philosophie/coach-sportif/graphqlQuery.js")))
+      },
+      {
+        type: "endpoint",
+        id: "philosophie/coach-en-nutrition/graphqlQuery",
+        pattern: /^\/philosophie\/coach-en-nutrition\/graphqlQuery\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/philosophie/coach-en-nutrition/graphqlQuery.js")))
+      },
+      {
+        type: "endpoint",
+        id: "philosophie/coach-bien-etre/graphqlQuery",
+        pattern: /^\/philosophie\/coach-bien-etre\/graphqlQuery\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/philosophie/coach-bien-etre/graphqlQuery.js")))
+      },
+      {
+        type: "endpoint",
+        id: "a-propos/mon-histoire/graphqlQuery",
+        pattern: /^\/a-propos\/mon-histoire\/graphqlQuery\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/a-propos/mon-histoire/graphqlQuery.js")))
+      },
+      {
+        type: "endpoint",
+        id: "a-propos/ma-mission/graphqlQuery",
+        pattern: /^\/a-propos\/ma-mission\/graphqlQuery\/?$/,
+        names: [],
+        types: [],
+        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/a-propos/ma-mission/graphqlQuery.js")))
       }
     ],
     matchers: async () => {

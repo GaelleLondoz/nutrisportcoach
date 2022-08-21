@@ -8,6 +8,7 @@ const config = {
     alias: {
       $src: path.resolve("./src"),
       $stores: path.resolve("./src/stores"),
+      $utils: path.resolve("./src/utils"),
     },
   },
 };

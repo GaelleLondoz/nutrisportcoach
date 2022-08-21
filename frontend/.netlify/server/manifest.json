@@ -4,15 +4,60 @@
     "src": ".svelte-kit/build/index.js",
     "isEntry": true,
     "imports": [
-      "_index-4688debc.js"
+      "_index-699220d6.js"
     ],
     "dynamicImports": [
       "src/hooks.js"
     ]
   },
-  "src/routes/todos/index.js": {
-    "file": "entries/endpoints/todos/index.js",
-    "src": "src/routes/todos/index.js",
+  "src/routes/graphqlQuery.js": {
+    "file": "entries/endpoints/graphqlQuery.js",
+    "src": "src/routes/graphqlQuery.js",
+    "isEntry": true
+  },
+  "src/routes/errors.js": {
+    "file": "entries/endpoints/errors.js",
+    "src": "src/routes/errors.js",
+    "isEntry": true
+  },
+  "src/routes/temoignages/graphqlQuery.js": {
+    "file": "entries/endpoints/temoignages/graphqlQuery.js",
+    "src": "src/routes/temoignages/graphqlQuery.js",
+    "isEntry": true
+  },
+  "src/routes/philosophie/graphqlQuery.js": {
+    "file": "entries/endpoints/philosophie/graphqlQuery.js",
+    "src": "src/routes/philosophie/graphqlQuery.js",
+    "isEntry": true
+  },
+  "src/routes/contact/graphqlQuery.js": {
+    "file": "entries/endpoints/contact/graphqlQuery.js",
+    "src": "src/routes/contact/graphqlQuery.js",
+    "isEntry": true
+  },
+  "src/routes/philosophie/coach-sportif/graphqlQuery.js": {
+    "file": "entries/endpoints/philosophie/coach-sportif/graphqlQuery.js",
+    "src": "src/routes/philosophie/coach-sportif/graphqlQuery.js",
+    "isEntry": true
+  },
+  "src/routes/philosophie/coach-en-nutrition/graphqlQuery.js": {
+    "file": "entries/endpoints/philosophie/coach-en-nutrition/graphqlQuery.js",
+    "src": "src/routes/philosophie/coach-en-nutrition/graphqlQuery.js",
+    "isEntry": true
+  },
+  "src/routes/philosophie/coach-bien-etre/graphqlQuery.js": {
+    "file": "entries/endpoints/philosophie/coach-bien-etre/graphqlQuery.js",
+    "src": "src/routes/philosophie/coach-bien-etre/graphqlQuery.js",
+    "isEntry": true
+  },
+  "src/routes/a-propos/mon-histoire/graphqlQuery.js": {
+    "file": "entries/endpoints/a-propos/mon-histoire/graphqlQuery.js",
+    "src": "src/routes/a-propos/mon-histoire/graphqlQuery.js",
+    "isEntry": true
+  },
+  "src/routes/a-propos/ma-mission/graphqlQuery.js": {
+    "file": "entries/endpoints/a-propos/ma-mission/graphqlQuery.js",
+    "src": "src/routes/a-propos/ma-mission/graphqlQuery.js",
     "isEntry": true
   },
   "src/routes/__layout.svelte": {
@@ -20,30 +65,92 @@
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-4688debc.js",
-      "_Header-27331545.js"
+      "_index-699220d6.js",
+      "_Header-f8c29f20.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_stores-760db7b6.js"
     ],
     "css": [
-      "immutable/assets/entries/pages/__layout.svelte-2750fc48.css"
+      "_app/immutable/assets/__layout-d40e9985.css",
+      "_app/immutable/assets/Header-baff7507.css"
     ]
   },
-  ".svelte-kit/runtime/components/error.svelte": {
-    "file": "entries/fallbacks/error.svelte.js",
-    "src": ".svelte-kit/runtime/components/error.svelte",
+  "src/routes/__error.svelte": {
+    "file": "entries/pages/__error.svelte.js",
+    "src": "src/routes/__error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-4688debc.js"
-    ]
-  },
-  "src/routes/about.svelte": {
-    "file": "entries/pages/about.svelte.js",
-    "src": "src/routes/about.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-4688debc.js"
+      "_index-699220d6.js",
+      "_stores-760db7b6.js",
+      "_Header-f8c29f20.js",
+      "src/routes/errors.js",
+      "_Head-64983968.js",
+      "_store-breakpoint-f870d4ad.js"
     ],
     "css": [
-      "immutable/assets/entries/pages/about.svelte-7b1aeeb4.css"
+      "_app/immutable/assets/__error-2629945b.css",
+      "_app/immutable/assets/Header-baff7507.css"
+    ]
+  },
+  "src/routes/a-propos/__layout.svelte": {
+    "file": "entries/pages/a-propos/__layout.svelte.js",
+    "src": "src/routes/a-propos/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-699220d6.js",
+      "_TabsList-ec9be979.js",
+      "_stores-760db7b6.js",
+      "_store-breakpoint-f870d4ad.js"
+    ]
+  },
+  "src/routes/philosophie/__layout.svelte": {
+    "file": "entries/pages/philosophie/__layout.svelte.js",
+    "src": "src/routes/philosophie/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-699220d6.js",
+      "_stores-760db7b6.js",
+      "_TabsList-ec9be979.js",
+      "_store-breakpoint-f870d4ad.js"
+    ]
+  },
+  "src/routes/a-propos/ma-mission/index.svelte": {
+    "file": "entries/pages/a-propos/ma-mission/index.svelte.js",
+    "src": "src/routes/a-propos/ma-mission/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/a-propos/ma-mission/graphqlQuery.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_Head-64983968.js",
+      "_HTML-7385adc6.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-76409d30.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/mission-4757a619.png"
+    ]
+  },
+  "src/routes/a-propos/mon-histoire/index.svelte": {
+    "file": "entries/pages/a-propos/mon-histoire/index.svelte.js",
+    "src": "src/routes/a-propos/mon-histoire/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/a-propos/mon-histoire/graphqlQuery.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_Head-64983968.js",
+      "_HTML-7385adc6.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-403f6166.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/histoire-9faefea8.png",
+      "_app/immutable/assets/histoire-mobile-9d363208.png"
     ]
   },
   "src/routes/contact/index.svelte": {
@@ -51,15 +158,22 @@
     "src": "src/routes/contact/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-4688debc.js"
-    ]
-  },
-  "src/routes/histoire/index.svelte": {
-    "file": "entries/pages/histoire/index.svelte.js",
-    "src": "src/routes/histoire/index.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-4688debc.js"
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/contact/graphqlQuery.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_Header-f8c29f20.js",
+      "_Head-64983968.js",
+      "_stores-760db7b6.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-cc0e420f.css",
+      "_app/immutable/assets/Header-baff7507.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/phone-57ecb407.svg",
+      "_app/immutable/assets/mail-032ff6c6.svg",
+      "_app/immutable/assets/background-51d6f07b.png"
     ]
   },
   "src/routes/index.svelte": {
@@ -67,12 +181,77 @@
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-4688debc.js",
-      "_HTML-15b647e7.js",
-      "_Header-27331545.js"
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/graphqlQuery.js",
+      "_Header-f8c29f20.js",
+      "_Head-64983968.js",
+      "_HTML-7385adc6.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_stores-760db7b6.js"
     ],
     "css": [
-      "immutable/assets/entries/pages/index.svelte-98dbc48e.css"
+      "_app/immutable/assets/index-ba16e02f.css",
+      "_app/immutable/assets/Header-baff7507.css"
+    ]
+  },
+  "src/routes/philosophie/coach-bien-etre/index.svelte": {
+    "file": "entries/pages/philosophie/coach-bien-etre/index.svelte.js",
+    "src": "src/routes/philosophie/coach-bien-etre/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/philosophie/coach-bien-etre/graphqlQuery.js",
+      "_Head-64983968.js",
+      "_HTML-7385adc6.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-10bf9ab7.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/arbre-84b55dbb.png"
+    ]
+  },
+  "src/routes/philosophie/coach-en-nutrition/index.svelte": {
+    "file": "entries/pages/philosophie/coach-en-nutrition/index.svelte.js",
+    "src": "src/routes/philosophie/coach-en-nutrition/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/philosophie/coach-en-nutrition/graphqlQuery.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_Head-64983968.js",
+      "_HTML-7385adc6.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-817257f4.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/mojito-9ba8c86f.png",
+      "_app/immutable/assets/plate-97e790f6.png",
+      "_app/immutable/assets/plate-mobile-6fde77f0.png"
+    ]
+  },
+  "src/routes/philosophie/coach-sportif/index.svelte": {
+    "file": "entries/pages/philosophie/coach-sportif/index.svelte.js",
+    "src": "src/routes/philosophie/coach-sportif/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/philosophie/coach-sportif/graphqlQuery.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_Head-64983968.js",
+      "_HTML-7385adc6.js"
+    ],
+    "css": [
+      "_app/immutable/assets/index-62e0ae85.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/ballon-bdd2c132.png",
+      "_app/immutable/assets/ballon-mobile-96dc30f6.png"
     ]
   },
   "src/routes/philosophie/index.svelte": {
@@ -80,77 +259,103 @@
     "src": "src/routes/philosophie/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-4688debc.js",
-      "_HTML-15b647e7.js",
-      "_Header-27331545.js"
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/philosophie/graphqlQuery.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_Head-64983968.js"
     ],
     "css": [
-      "immutable/assets/entries/pages/philosophie/index.svelte-587f5b93.css"
+      "_app/immutable/assets/index-44bd90f3.css",
+      "_app/immutable/assets/Header-baff7507.css"
     ]
   },
-  "src/routes/programs/nutrition.svelte": {
-    "file": "entries/pages/programs/nutrition.svelte.js",
-    "src": "src/routes/programs/nutrition.svelte",
+  "src/routes/temoignages/creation/index.svelte": {
+    "file": "entries/pages/temoignages/creation/index.svelte.js",
+    "src": "src/routes/temoignages/creation/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-4688debc.js"
-    ]
-  },
-  "src/routes/programs/philosophie.svelte": {
-    "file": "entries/pages/programs/philosophie.svelte.js",
-    "src": "src/routes/programs/philosophie.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-4688debc.js"
-    ]
-  },
-  "src/routes/programs/sport.svelte": {
-    "file": "entries/pages/programs/sport.svelte.js",
-    "src": "src/routes/programs/sport.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-4688debc.js"
-    ]
-  },
-  "src/routes/programs/vie.svelte": {
-    "file": "entries/pages/programs/vie.svelte.js",
-    "src": "src/routes/programs/vie.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-4688debc.js"
-    ]
-  },
-  "src/routes/todos/index.svelte": {
-    "file": "entries/pages/todos/index.svelte.js",
-    "src": "src/routes/todos/index.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-4688debc.js"
+      "_index-699220d6.js",
+      "_Header-f8c29f20.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_stores-760db7b6.js"
     ],
     "css": [
-      "immutable/assets/entries/pages/todos/index.svelte-ff4870ed.css"
+      "_app/immutable/assets/index-c5caa2da.css",
+      "_app/immutable/assets/Header-baff7507.css"
     ]
   },
-  "_index-4688debc.js": {
-    "file": "immutable/chunks/index-4688debc.js"
-  },
-  "_Header-27331545.js": {
-    "file": "immutable/chunks/Header-27331545.js",
+  "src/routes/temoignages/index.svelte": {
+    "file": "entries/pages/temoignages/index.svelte.js",
+    "src": "src/routes/temoignages/index.svelte",
+    "isEntry": true,
     "imports": [
-      "_index-4688debc.js"
+      "_index-699220d6.js",
+      "_api-fcbaa1f6.js",
+      "src/routes/temoignages/graphqlQuery.js",
+      "_Header-f8c29f20.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_stores-760db7b6.js"
     ],
     "css": [
-      "immutable/assets/Header-b797947d.css"
+      "_app/immutable/assets/index-814d9435.css",
+      "_app/immutable/assets/Header-baff7507.css"
     ]
   },
-  "_HTML-15b647e7.js": {
-    "file": "immutable/chunks/HTML-15b647e7.js",
+  "_index-699220d6.js": {
+    "file": "_app/immutable/chunks/index-699220d6.js"
+  },
+  "_Header-f8c29f20.js": {
+    "file": "_app/immutable/chunks/Header-f8c29f20.js",
     "imports": [
-      "_index-4688debc.js"
+      "_index-699220d6.js",
+      "_store-breakpoint-f870d4ad.js",
+      "_stores-760db7b6.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Header-baff7507.css"
+    ]
+  },
+  "_store-breakpoint-f870d4ad.js": {
+    "file": "_app/immutable/chunks/store-breakpoint-f870d4ad.js",
+    "imports": [
+      "_index-699220d6.js"
+    ]
+  },
+  "_stores-760db7b6.js": {
+    "file": "_app/immutable/chunks/stores-760db7b6.js",
+    "imports": [
+      "_index-699220d6.js"
+    ]
+  },
+  "_Head-64983968.js": {
+    "file": "_app/immutable/chunks/Head-64983968.js",
+    "imports": [
+      "_index-699220d6.js"
+    ]
+  },
+  "_TabsList-ec9be979.js": {
+    "file": "_app/immutable/chunks/TabsList-ec9be979.js",
+    "imports": [
+      "_index-699220d6.js",
+      "_stores-760db7b6.js",
+      "_store-breakpoint-f870d4ad.js"
+    ],
+    "css": [
+      "_app/immutable/assets/TabsList-1e171467.css"
+    ]
+  },
+  "_api-fcbaa1f6.js": {
+    "file": "_app/immutable/chunks/api-fcbaa1f6.js"
+  },
+  "_HTML-7385adc6.js": {
+    "file": "_app/immutable/chunks/HTML-7385adc6.js",
+    "imports": [
+      "_index-699220d6.js"
     ]
   },
   "src/hooks.js": {
-    "file": "immutable/chunks/hooks-c6cde00f.js",
+    "file": "_app/immutable/chunks/hooks-1c986cc1.js",
     "src": "src/hooks.js",
     "isDynamicEntry": true
   }

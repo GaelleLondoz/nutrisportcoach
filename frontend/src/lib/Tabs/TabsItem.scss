@@ -1,0 +1,102 @@
+@mixin active-state {
+  @include transition;
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  content: "";
+  border-bottom: solid 0.3rem $ui-green-0;
+}
+
+li {
+  @include sm-md {
+    &:not(.with-image) {
+      width: calc(100% / var(--numberOfTabs));
+    }
+
+    &.with-image {
+      width: auto;
+    }
+  }
+
+  @include lg {
+    width: 100%;
+    margin: 0 7rem;
+  }
+
+  padding: 3rem 0;
+
+  font-size: 2rem;
+  color: #d4d2d2;
+  font-weight: 500;
+  @include transition;
+  position: relative;
+
+  a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:not(.active) {
+    img {
+      width: 5.1rem;
+    }
+  }
+
+  &.active {
+    color: $ui-green-0;
+  }
+
+  @include sm-md {
+    &:not(.with-image) {
+      &.active {
+        &::after {
+          width: 100%;
+          @include active-state;
+        }
+      }
+
+      &::after {
+        width: 0%;
+        @include active-state();
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: $ui-green-0;
+
+          &::after {
+            width: 100%;
+            @include active-state();
+          }
+        }
+      }
+    }
+  }
+
+  @include lg {
+    &.active {
+      &::after {
+        width: 100%;
+        @include active-state;
+      }
+    }
+
+    &::after {
+      width: 0%;
+      @include active-state();
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: $ui-green-0;
+
+        &::after {
+          width: 100%;
+          @include active-state();
+        }
+      }
+    }
+  }
+}

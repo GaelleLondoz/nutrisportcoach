@@ -1,27 +1,43 @@
 form {
   .form__inputs {
+    @include sm {
+      gap: 4rem 2rem;
+    }
+
+    @include md {
+      gap: 4rem;
+    }
+
+    @include lg {
+      gap: 7rem;
+    }
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 7rem;
 
     label {
+      @include sm-md {
+        font-size: 1.8rem;
+      }
+      @include lg {
+        font-size: 1.8rem;
+      }
+
       font-weight: 500;
-      font-size: 2rem;
 
       span,
       sup {
         text-transform: initial;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         color: $ui-green-0;
       }
 
       input {
         width: 100%;
-        border-bottom: solid 1px #989191;
+        border-bottom: solid 0.1rem $ui-gray-4-light;
         background-color: transparent;
 
         &:focus {
-          border-bottom: solid 1px $black;
+          border-bottom: solid 0.1rem $black;
         }
 
         &:-webkit-autofill,
@@ -40,23 +56,33 @@ form {
         width: 100%;
         padding: 2rem 1.8rem;
         height: 14.5rem;
-        background-color: rgba(221, 215, 215, 0.4);
-        border-radius: 22px;
+        background-color: rgba($ui-gray-7-light, 0.4);
+        border-radius: 2.2rem;
       }
 
       input,
       textarea {
+        @include sm {
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+        }
+
+        @include md {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
         display: block;
         margin-top: 1.5rem;
         color: $black;
         font-weight: 500;
-        font-size: 1.5rem;
-        line-height: 2rem;
+
         &::placeholder {
-          color: #989191;
+          @include transition;
+          color: $ui-gray-4-light;
         }
 
         &:focus {
+          @include transition;
           outline: none;
           &::placeholder {
             color: $black;
@@ -65,15 +91,30 @@ form {
       }
     }
   }
+
+  .terms {
+    color: $ui-gray-4-light;
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+  }
+
   button {
+    @include sm-md {
+      font-size: 1.8rem;
+      line-height: 2rem;
+      border-radius: 1rem;
+    }
+    @include lg {
+      font-size: 2rem;
+      line-height: 3rem;
+      border-radius: 1.5rem;
+    }
+
+    @include transition;
     color: $white;
     background-color: $ui-green-0;
-    border-radius: 1.5rem;
     padding: 0.5rem 3.2rem;
-    font-size: 2.5rem;
     width: max-content;
-    line-height: 3rem;
-    transition: all ease-in-out 0.4s;
     margin: 3.5rem 0;
 
     &:hover {

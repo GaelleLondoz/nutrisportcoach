@@ -6,11 +6,12 @@
 </script>
 
 {#if data?.length}
-  <nav class="nav container md:flex md:justify-between md:items-center">
+  <nav class="nav container">
     <div class="tabs-items">
-      <ul class="md:flex p-0 list-none">
+      <ul class:with-image={tabsWithImages}>
         {#each data as tab}
           <TabsItem
+            numberOfTabs={data?.length}
             url={tabsWithImages
               ? tab?.url?.page?.data?.attributes?.url
               : tab?.page?.data?.attributes?.url}
@@ -23,3 +24,7 @@
     </div>
   </nav>
 {/if}
+
+<style lang="scss">
+  @import "./TabsList.scss";
+</style>

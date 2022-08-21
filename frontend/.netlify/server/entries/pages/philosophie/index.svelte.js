@@ -22,44 +22,43 @@ __export(stdin_exports, {
   prerender: () => prerender
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_4688debc = require("../../../immutable/chunks/index-4688debc.js");
-var import_HTML_15b647e7 = require("../../../immutable/chunks/HTML-15b647e7.js");
-var import_Header_27331545 = require("../../../immutable/chunks/Header-27331545.js");
-var import_sanitize_html = require("sanitize-html");
-var import_heroicons = require("@steeze-ui/heroicons");
-var index_svelte_svelte_type_style_lang = "";
+var import_index_699220d6 = require("../../../_app/immutable/chunks/index-699220d6.js");
+var import_api_fcbaa1f6 = require("../../../_app/immutable/chunks/api-fcbaa1f6.js");
+var import_graphqlQuery = require("../../endpoints/philosophie/graphqlQuery.js");
+var import_store_breakpoint_f870d4ad = require("../../../_app/immutable/chunks/store-breakpoint-f870d4ad.js");
+var import_Head_64983968 = require("../../../_app/immutable/chunks/Head-64983968.js");
+var import_graphql_request = require("graphql-request");
+const index_svelte_svelte_type_style_lang = "";
 const css = {
-  code: '@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&display=swap");.svelte-9ucw4p.svelte-9ucw4p,.svelte-9ucw4p.svelte-9ucw4p::after,.svelte-9ucw4p.svelte-9ucw4p::before{box-sizing:border-box}.container.svelte-9ucw4p.svelte-9ucw4p{padding-right:1.6rem;padding-left:1.6rem;max-width:141.6rem;margin-right:auto;margin-left:auto;padding-top:10rem;max-height:calc(100vh - var(--headerHeigth))}h1.svelte-9ucw4p.svelte-9ucw4p{font-size:5rem;line-height:9rem}p.svelte-9ucw4p.svelte-9ucw4p{font-size:2.5rem;line-height:3.3rem;max-width:87.6rem;letter-spacing:0.63px;margin-bottom:5rem}.programs.svelte-9ucw4p.svelte-9ucw4p{display:flex;justify-content:space-between;width:100%;gap:14rem}.programs.svelte-9ucw4p .program.svelte-9ucw4p{width:100%;display:flex;flex-direction:column;align-items:center}.programs.svelte-9ucw4p .program__card.svelte-9ucw4p{width:100%;position:relative;display:flex;flex-direction:column;align-items:center;border-radius:16px;box-shadow:0px 10px 6px rgba(0, 0, 0, 0.04);overflow:hidden;padding:9rem 0;height:100%;border:1px solid rgba(255, 255, 255, 0.6901960784)}.programs.svelte-9ucw4p .program__card span.svelte-9ucw4p{margin-top:6rem;font-size:3rem;font-weight:medium}.programs.svelte-9ucw4p .program__card img.svelte-9ucw4p{max-width:16rem}.programs.svelte-9ucw4p .program__card.svelte-9ucw4p:after{content:"";width:100%;height:100%;opacity:0.38;position:absolute;left:0;top:0;background:var(--background)}.programs.svelte-9ucw4p .program .btn-more.svelte-9ucw4p{background-color:#e0dddd;color:white;border-radius:15px;padding:15px 21px;margin:2rem 0;font-size:15px;transition:all ease-in-out 0.4s}.programs.svelte-9ucw4p .program .btn-more.svelte-9ucw4p:hover{background-color:#c8c2c2}',
+  code: '@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Poppins:wght@400;600&display=swap");.svelte-w2svoh.svelte-w2svoh,.svelte-w2svoh.svelte-w2svoh::after,.svelte-w2svoh.svelte-w2svoh::before{box-sizing:border-box}.container.svelte-w2svoh.svelte-w2svoh{padding-right:1.6rem;padding-left:1.6rem;max-width:141.6rem;margin-right:auto;margin-left:auto}@media(max-width: 1024px){}@media(min-width: 1024px){}@media(max-width: 1024px){}@media(min-width: 1024px){}@media(max-width: 1024px){.container.svelte-w2svoh.svelte-w2svoh{margin:7rem auto}}@media(min-width: 1024px){.container.svelte-w2svoh.svelte-w2svoh{margin:10rem auto}}.container.svelte-w2svoh .content.svelte-w2svoh{height:100%;display:flex;flex-direction:column}.container.svelte-w2svoh .content h1.svelte-w2svoh{line-height:3rem;font-weight:500}@media(max-width: 1024px){.container.svelte-w2svoh .content h1.svelte-w2svoh{font-size:2rem;margin-bottom:1rem}}@media(min-width: 768px){.container.svelte-w2svoh .content h1.svelte-w2svoh{font-size:3rem;margin-bottom:2rem}}.container.svelte-w2svoh .content p.svelte-w2svoh{max-width:70rem}@media(max-width: 1024px){.container.svelte-w2svoh .content p.svelte-w2svoh{font-size:1.6rem;line-height:1.6rem}}@media(min-width: 768px){.container.svelte-w2svoh .content p.svelte-w2svoh{font-size:1.8rem;line-height:2.5rem}}.container.svelte-w2svoh .content .programs.svelte-w2svoh{display:flex;justify-content:space-between;flex-wrap:wrap;width:100%;margin-top:14rem}@media(max-width: 1024px){.container.svelte-w2svoh .content .programs.svelte-w2svoh{margin-top:5rem;row-gap:5rem}}.container.svelte-w2svoh .content .programs .program.svelte-w2svoh{display:flex;flex-direction:column;align-items:center}@media(max-width: 768px){.container.svelte-w2svoh .content .programs .program.svelte-w2svoh{width:100%}}@media(min-width: 768px){.container.svelte-w2svoh .content .programs .program.svelte-w2svoh{width:33.3333333333%}}@media(min-width: 1024px){.container.svelte-w2svoh .content .programs .program.svelte-w2svoh{width:33.3333333333%}}.container.svelte-w2svoh .content .programs .program__link.svelte-w2svoh{width:100%}@media(hover: hover) and (pointer: fine){.container.svelte-w2svoh .content .programs .program__link:hover .program__btn.svelte-w2svoh{background-color:#77c0c5}}.container.svelte-w2svoh .content .programs .program__card.svelte-w2svoh{width:100%;position:relative;display:flex;gap:2.5rem}@media(min-width: 768px){.container.svelte-w2svoh .content .programs .program__card.svelte-w2svoh{flex-direction:column;align-items:center;gap:0}}.container.svelte-w2svoh .content .programs .program__card .program__title.svelte-w2svoh{margin-top:3.2rem;font-size:1.8rem;font-weight:500}@media(min-width: 768px){.container.svelte-w2svoh .content .programs .program__card .program__title.svelte-w2svoh{font-size:2rem}}@media(min-width: 1024px){.container.svelte-w2svoh .content .programs .program__card .program__title.svelte-w2svoh{font-size:2.5rem}}.container.svelte-w2svoh .content .programs .program__content.svelte-w2svoh{display:flex;flex-direction:column;align-items:start}@media(min-width: 768px){.container.svelte-w2svoh .content .programs .program__content.svelte-w2svoh{align-items:center}}.container.svelte-w2svoh .content .programs .program .program__btn.svelte-w2svoh{background-color:rgba(114, 110, 110, 0.306);color:#fff;padding:1rem;margin:1.5rem 0;transition:all ease-in-out 0.4s;border-radius:1rem;padding:1rem 1.5rem;font-size:1.5rem}@media(min-width: 768px){.container.svelte-w2svoh .content .programs .program .program__btn.svelte-w2svoh{border-radius:1.5rem;padding:1.5rem 2.1rem;margin:3.2rem 0}}',
   map: null
 };
 const prerender = true;
-const load = async ({ fetch, params }) => {
-  const res = await fetch(`http://localhost:1337/api/philosophie?populate=deep`);
-  if (res.ok) {
-    const { data } = await res.json();
-    return { props: { data } };
-  }
+const load = async () => {
+  const { philosophie: { data } } = await (0, import_api_fcbaa1f6.g)(import_graphqlQuery.query, "http://localhost:1337/graphql/");
+  return { props: { data } };
 };
-const Philosophie = (0, import_index_4688debc.c)(($$result, $$props, $$bindings, slots) => {
-  let $mainHeaderHeight, $$unsubscribe_mainHeaderHeight;
-  $$unsubscribe_mainHeaderHeight = (0, import_index_4688debc.b)(import_Header_27331545.d, (value) => $mainHeaderHeight = value);
+const Philosophie = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
   let { data = null } = $$props;
-  const { title, description, metaTitle, metaDescription, programs } = data == null ? void 0 : data.attributes;
+  let mounted = false;
+  const { seo: { metaTitle, metaDescription }, title, description, programs } = data == null ? void 0 : data.attributes;
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
     $$bindings.data(data);
   $$result.css.add(css);
-  $$unsubscribe_mainHeaderHeight();
-  return `${$$result.head += `${$$result.title = `<title>${(0, import_index_4688debc.e)(metaTitle)}</title>`, ""}<meta name="${"description"}"${(0, import_index_4688debc.f)("content", metaDescription, 0)} class="${"svelte-9ucw4p"}" data-svelte="svelte-nygp0t">`, ""}
+  return `${data && mounted ? `${(0, import_index_699220d6.v)(import_Head_64983968.H, "Head").$$render($$result, { metaTitle, metaDescription }, {}, {})}
 
-${data ? `<section class="${"container svelte-9ucw4p"}"${(0, import_index_4688debc.f)("style", `--headerHeigth: ${$mainHeaderHeight}px`, 0)}><div class="${"content flex flex-col items-end md:items-start justify-center svelte-9ucw4p"}"><h1 class="${"font-bold text-right md:text-left svelte-9ucw4p"}">${(0, import_index_4688debc.v)(import_HTML_15b647e7.H, "HTML").$$render($$result, { text: title }, {}, {})}</h1>
-      <p class="${"svelte-9ucw4p"}">${(0, import_index_4688debc.v)(import_HTML_15b647e7.H, "HTML").$$render($$result, { text: description }, {}, {})}</p>
+  <section class="${"container svelte-w2svoh"}"><div class="${"content svelte-w2svoh"}"><h1 class="${"svelte-w2svoh"}">${(0, import_index_699220d6.d)(title)}</h1>
+      <p class="${"svelte-w2svoh"}">${(0, import_index_699220d6.d)(description)}</p>
 
-      <div class="${"programs svelte-9ucw4p"}">${(0, import_index_4688debc.d)(programs.data, (program) => {
-    return `<div class="${"program svelte-9ucw4p"}"><div class="${"program__card svelte-9ucw4p"}"${(0, import_index_4688debc.f)("style", `--background: ${program.attributes.background}`, 0)}><img${(0, import_index_4688debc.f)("alt", program.attributes.image.data.attributes.alternativeText, 0)} src="${"http://localhost:1337" + (0, import_index_4688debc.e)(program.attributes.image.data.attributes.url, true)}" class="${"svelte-9ucw4p"}">
-              <span class="${"svelte-9ucw4p"}">${(0, import_index_4688debc.e)(program.attributes.title)}</span></div>
-            <a class="${"btn-more svelte-9ucw4p"}" sveltekit:prefetch href="${"/programs/" + (0, import_index_4688debc.e)(program.attributes.buttonLink, true)}">${(0, import_index_4688debc.e)(program.attributes.buttonText)}</a>
+      <div class="${"programs svelte-w2svoh"}">${(0, import_index_699220d6.e)(programs, ({ title: title2, button: { text: buttonText, url: { data: { attributes: { url: buttonUrl } } } }, image: { data: { attributes: { hash: imageUrl, alternativeText: imageAlt } } } }) => {
+    return `<div class="${"program svelte-w2svoh"}"><a class="${"program__link svelte-w2svoh"}" sveltekit:prefetch${(0, import_index_699220d6.b)("href", buttonUrl, 0)}><div class="${"program__card svelte-w2svoh"}"><picture class="${"svelte-w2svoh"}"><source srcset="${"https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_225/" + (0, import_index_699220d6.d)(imageUrl, true)}" media="${"(min-width: 1024px)"}" class="${"svelte-w2svoh"}">
+                  <source srcset="${"https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_200/" + (0, import_index_699220d6.d)(imageUrl, true)}" media="${"(min-width: 768px)"}" class="${"svelte-w2svoh"}">
+                  <img src="${"https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_112/" + (0, import_index_699220d6.d)(imageUrl, true)}"${(0, import_index_699220d6.b)("alt", imageAlt, 0)} class="${"svelte-w2svoh"}"></picture>
+                <div class="${"program__content svelte-w2svoh"}"><span class="${"program__title svelte-w2svoh"}">${(0, import_index_699220d6.d)(title2)}</span>
+                  <span class="${"program__btn svelte-w2svoh"}">${(0, import_index_699220d6.d)(buttonText)}</span></div>
+              </div></a>
           </div>`;
   })}</div>
 
-      <div class="${"svelte-9ucw4p"}"></div></div></section>` : ``}`;
+      <div class="${"svelte-w2svoh"}"></div></div></section>` : ``}`;
 });

@@ -18,11 +18,10 @@
     "description": {
       "type": "richtext"
     },
-    "metaTitle": {
-      "type": "string"
-    },
-    "metaDescription": {
-      "type": "string"
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

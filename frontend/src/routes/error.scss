@@ -1,0 +1,68 @@
+:global(#error) {
+  background-color: $ui-green-1;
+}
+
+.container--error {
+  @include transition;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - var(--headerHeigth));
+  width: 100vw;
+
+  h1 {
+    @include sm-md {
+      gap: 2.4rem;
+      font-size: 15rem;
+      height: 15rem;
+      margin-bottom: 3rem;
+    }
+    @include lg {
+      gap: 6rem;
+      font-size: 30rem;
+      height: 30rem;
+      margin-bottom: 5rem;
+    }
+    display: flex;
+    align-items: center;
+    color: $ui-green-0;
+    font-weight: 500;
+
+    img {
+      @include sm {
+        width: 7.8rem;
+      }
+      @include md {
+        width: 12rem;
+      }
+      @include lg {
+        width: 18.2rem;
+      }
+      max-width: 100%;
+    }
+
+    span {
+      @include sm-md {
+        padding-top: 2rem;
+      }
+      @include lg {
+        padding-top: 4rem;
+      }
+    }
+  }
+
+  :global(p) {
+    @include sm-md {
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+    }
+    @include lg {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+
+    text-align: center;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "reviews_page_creations",
+  "info": {
+    "singularName": "reviews-page-creation",
+    "pluralName": "reviews-page-creations",
+    "displayName": "reviews-page-creation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "title": {
+      "type": "string"
+    },
+    "terms": {
+      "type": "string"
+    }
+  }
+}

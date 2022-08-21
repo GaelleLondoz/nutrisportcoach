@@ -1,0 +1,86 @@
+.review {
+  background-color: $white;
+  border-radius: 3.5rem;
+  box-shadow: 0 0.3rem 0.6rem rgba($black, 0.161);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 31.6rem;
+  max-height: 31.6rem;
+  position: relative;
+
+  &__header {
+    overflow: visible;
+    position: absolute;
+    background-color: $white;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    width: 9rem;
+    height: 9rem;
+    padding: 2rem;
+    box-shadow: 0 0.3rem 0.6rem rgba($black, 0.161);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__main {
+    flex-grow: 1;
+    width: 100%;
+    margin-top: 5rem;
+    padding: 3rem 2.4rem 0;
+    border-style: solid;
+    border-color: $ui-gray-2-light;
+    border-top-width: 0.1rem;
+    border-bottom-width: 0.1rem;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+
+  &__stars {
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    margin-bottom: 3rem;
+
+    svg {
+      width: 3rem;
+      height: 2.8rem;
+    }
+  }
+
+  &__comment {
+    position: relative;
+
+    :global(p) {
+      overflow-y: scroll;
+      max-height: 12rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 3rem;
+      background: linear-gradient(
+        0deg,
+        rgba($white, 1) 41%,
+        rgba($white, 0) 100%
+      );
+    }
+  }
+
+  &__footer {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+}

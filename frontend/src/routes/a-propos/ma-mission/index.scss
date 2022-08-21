@@ -1,0 +1,58 @@
+.container {
+  @include sm-md {
+    margin: 0 auto;
+  }
+  @include lg {
+    margin: 10rem auto;
+    align-items: center;
+  }
+
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 90rem;
+
+    @include sm-md {
+      width: 100%;
+    }
+
+    @include lg {
+      width: 75%;
+    }
+
+    h1 {
+      @include sm-md {
+        font-size: 2.4rem;
+        line-height: 3rem;
+        margin-bottom: 3rem;
+        font-weight: bold;
+      }
+      @include lg {
+        font-size: 3rem;
+        line-height: 4rem;
+        margin-bottom: 5.5rem;
+        font-weight: 500;
+      }
+    }
+
+    :global(p) {
+      font-size: 1.8rem;
+      line-height: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.image--mission {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  right: 0;
+}

@@ -16,7 +16,10 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
@@ -27,8 +30,8 @@ __export(stdin_exports, {
   stylesheets: () => stylesheets
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/todos/index.svelte.js"));
+var module2 = __toESM(require("../entries/pages/philosophie/index.svelte.js"));
 const index = 11;
-const file = "immutable/pages/todos/index.svelte-b903d4cd.js";
-const imports = ["immutable/pages/todos/index.svelte-b903d4cd.js", "immutable/chunks/index-ea7d6d72.js", "immutable/chunks/singletons-cdeec3fd.js", "immutable/chunks/index-8fd42ee5.js"];
-const stylesheets = ["immutable/assets/pages/todos/index.svelte-2c0f0116.css"];
+const file = "_app/immutable/pages/philosophie/index.svelte-cefcbbc5.js";
+const imports = ["_app/immutable/pages/philosophie/index.svelte-cefcbbc5.js", "_app/immutable/chunks/index-23490812.js", "_app/immutable/chunks/api-72f5aeeb.js", "_app/immutable/chunks/index-52da8fb8.js", "_app/immutable/chunks/index-581d6be2.js", "_app/immutable/chunks/store-breakpoint-cd70237a.js", "_app/immutable/chunks/index-124a935a.js", "_app/immutable/chunks/Head-f60d22aa.js"];
+const stylesheets = ["_app/immutable/assets/index-2cf8efb2.css", "_app/immutable/assets/Header-3cc40a78.css"];

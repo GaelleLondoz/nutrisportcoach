@@ -16,7 +16,10 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var __accessCheck = (obj, member, msg) => {
   if (!member.has(obj))
@@ -42,18 +45,19 @@ __export(stdin_exports, {
   override: () => override
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_4688debc = require("./immutable/chunks/index-4688debc.js");
-var _use_hashes, _dev, _script_needs_csp, _style_needs_csp, _directives, _script_src, _style_src;
+var import_index_699220d6 = require("./_app/immutable/chunks/index-699220d6.js");
+var _use_hashes, _script_needs_csp, _style_needs_csp, _directives, _script_src, _style_src, _nonce;
 function afterUpdate() {
 }
-const Root = (0, import_index_4688debc.c)(($$result, $$props, $$bindings, slots) => {
+const Root = (0, import_index_699220d6.c)(($$result, $$props, $$bindings, slots) => {
   let { stores } = $$props;
   let { page } = $$props;
   let { components } = $$props;
   let { props_0 = null } = $$props;
   let { props_1 = null } = $$props;
   let { props_2 = null } = $$props;
-  (0, import_index_4688debc.s)("__svelte__", stores);
+  let { props_3 = null } = $$props;
+  (0, import_index_699220d6.s)("__svelte__", stores);
   afterUpdate(stores.page.notify);
   if ($$props.stores === void 0 && $$bindings.stores && stores !== void 0)
     $$bindings.stores(stores);
@@ -67,21 +71,27 @@ const Root = (0, import_index_4688debc.c)(($$result, $$props, $$bindings, slots)
     $$bindings.props_1(props_1);
   if ($$props.props_2 === void 0 && $$bindings.props_2 && props_2 !== void 0)
     $$bindings.props_2(props_2);
+  if ($$props.props_3 === void 0 && $$bindings.props_3 && props_3 !== void 0)
+    $$bindings.props_3(props_3);
   {
     stores.page.set(page);
   }
   return `
 
 
-${components[1] ? `${(0, import_index_4688debc.v)(components[0] || import_index_4688debc.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
+${components[1] ? `${(0, import_index_699220d6.v)(components[0] || import_index_699220d6.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
     default: () => {
-      return `${components[2] ? `${(0, import_index_4688debc.v)(components[1] || import_index_4688debc.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
+      return `${components[2] ? `${(0, import_index_699220d6.v)(components[1] || import_index_699220d6.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
         default: () => {
-          return `${(0, import_index_4688debc.v)(components[2] || import_index_4688debc.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`;
+          return `${components[3] ? `${(0, import_index_699220d6.v)(components[2] || import_index_699220d6.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {
+            default: () => {
+              return `${(0, import_index_699220d6.v)(components[3] || import_index_699220d6.m, "svelte:component").$$render($$result, Object.assign(props_3 || {}), {}, {})}`;
+            }
+          })}` : `${(0, import_index_699220d6.v)(components[2] || import_index_699220d6.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`}`;
         }
-      })}` : `${(0, import_index_4688debc.v)(components[1] || import_index_4688debc.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
+      })}` : `${(0, import_index_699220d6.v)(components[1] || import_index_699220d6.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
     }
-  })}` : `${(0, import_index_4688debc.v)(components[0] || import_index_4688debc.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {})}`}
+  })}` : `${(0, import_index_699220d6.v)(components[0] || import_index_699220d6.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {})}`}
 
 ${``}`;
 });
@@ -104,14 +114,15 @@ function to_headers(object) {
   return headers;
 }
 function negotiate(accept, types) {
-  const parts = accept.split(",").map((str, i) => {
+  const parts = [];
+  accept.split(",").forEach((str, i) => {
     const match = /([^/]+)\/([^;]+)(?:;q=([0-9.]+))?/.exec(str);
     if (match) {
       const [, type, subtype, q = "1"] = match;
-      return { type, subtype, q: +q, i };
+      parts.push({ type, subtype, q: +q, i });
     }
-    throw new Error(`Invalid Accept header: ${accept}`);
-  }).sort((a, b) => {
+  });
+  parts.sort((a, b) => {
     if (a.q !== b.q) {
       return b.q - a.q;
     }
@@ -127,7 +138,9 @@ function negotiate(accept, types) {
   let min_priority = Infinity;
   for (const mimetype of types) {
     const [type, subtype] = mimetype.split("/");
-    const priority = parts.findIndex((part) => (part.type === type || part.type === "*") && (part.subtype === subtype || part.subtype === "*"));
+    const priority = parts.findIndex(
+      (part) => (part.type === type || part.type === "*") && (part.subtype === subtype || part.subtype === "*")
+    );
     if (priority !== -1 && priority < min_priority) {
       accepted = mimetype;
       min_priority = priority;
@@ -154,12 +167,6 @@ function lowercase_keys(obj) {
   }
   return clone;
 }
-function decode_params(params) {
-  for (const key2 in params) {
-    params[key2] = params[key2].replace(/%23/g, "#").replace(/%3[Bb]/g, ";").replace(/%2[Cc]/g, ",").replace(/%2[Ff]/g, "/").replace(/%3[Ff]/g, "?").replace(/%3[Aa]/g, ":").replace(/%40/g, "@").replace(/%26/g, "&").replace(/%3[Dd]/g, "=").replace(/%2[Bb]/g, "+").replace(/%24/g, "$");
-  }
-  return params;
-}
 function is_pojo(body) {
   if (typeof body !== "object")
     return false;
@@ -173,10 +180,6 @@ function is_pojo(body) {
     }
   }
   return true;
-}
-function normalize_request_method(event) {
-  const method = event.request.method.toLowerCase();
-  return method === "delete" ? "del" : method;
 }
 function serialize_error(error2, get_stack) {
   return JSON.stringify(clone_error(error2, get_stack));
@@ -197,6 +200,19 @@ function clone_error(error2, get_stack) {
   }
   return object;
 }
+function check_method_names(mod) {
+  ["get", "post", "put", "patch", "del"].forEach((m) => {
+    if (m in mod) {
+      const replacement = m === "del" ? "DELETE" : m.toUpperCase();
+      throw Error(
+        `Endpoint method "${m}" has changed to "${replacement}". See https://github.com/sveltejs/kit/discussions/5359 for more information.`
+      );
+    }
+  });
+}
+const GENERIC_ERROR = {
+  id: "__error"
+};
 function error(body) {
   return new Response(body, {
     status: 500
@@ -219,24 +235,23 @@ function is_text(content_type) {
   return type.startsWith("text/") || type.endsWith("+xml") || text_types.has(type);
 }
 async function render_endpoint(event, mod, options) {
-  const method = normalize_request_method(event);
+  const { method } = event.request;
+  check_method_names(mod);
   let handler = mod[method];
-  if (!handler && method === "head") {
-    handler = mod.get;
+  if (!handler && method === "HEAD") {
+    handler = mod.GET;
   }
   if (!handler) {
     const allowed = [];
-    for (const method2 in ["get", "post", "put", "patch"]) {
+    for (const method2 in ["GET", "POST", "PUT", "PATCH", "DELETE"]) {
       if (mod[method2])
-        allowed.push(method2.toUpperCase());
+        allowed.push(method2);
     }
-    if (mod.del)
-      allowed.push("DELETE");
-    if (mod.get || mod.head)
+    if (mod.GET || mod.HEAD)
       allowed.push("HEAD");
     return event.request.headers.get("x-sveltekit-load") ? new Response(void 0, {
       status: 204
-    }) : new Response(`${event.request.method} method not allowed`, {
+    }) : new Response(`${method} method not allowed`, {
       status: 405,
       headers: {
         allow: allowed.join(", ")
@@ -249,13 +264,17 @@ async function render_endpoint(event, mod, options) {
     return error(`${preface}: expected an object, got ${typeof response}`);
   }
   if (response.fallthrough) {
-    throw new Error("fallthrough is no longer supported. Use matchers instead: https://kit.svelte.dev/docs/routing#advanced-routing-matching");
+    throw new Error(
+      "fallthrough is no longer supported. Use matchers instead: https://kit.svelte.dev/docs/routing#advanced-routing-matching"
+    );
   }
   const { status = 200, body = {} } = response;
   const headers = response.headers instanceof Headers ? new Headers(response.headers) : to_headers(response.headers);
   const type = headers.get("content-type");
   if (!is_text(type) && !(body instanceof Uint8Array || body instanceof ReadableStream || is_string(body))) {
-    return error(`${preface}: body must be an instance of string, Uint8Array or ReadableStream if content-type is not a supported textual content-type`);
+    return error(
+      `${preface}: body must be an instance of string, Uint8Array or ReadableStream if content-type is not a supported textual content-type`
+    );
   }
   let normalized_body;
   if (is_pojo(body) && (!type || type.startsWith("application/json"))) {
@@ -270,10 +289,13 @@ async function render_endpoint(event, mod, options) {
       headers.set("etag", `"${hash(normalized_body)}"`);
     }
   }
-  return new Response(method !== "head" && !bodyless_status_codes.has(status) ? normalized_body : void 0, {
-    status,
-    headers
-  });
+  return new Response(
+    method !== "HEAD" && !bodyless_status_codes.has(status) ? normalized_body : void 0,
+    {
+      status,
+      headers
+    }
+  );
 }
 var chars$1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_$";
 var unsafeChars = /[<>\b\f\n\r\t\0\u2028\u2029]/g;
@@ -558,9 +580,15 @@ const render_json_payload_script_dict = {
   "\u2028": "\\u2028",
   "\u2029": "\\u2029"
 };
-const render_json_payload_script_regex = new RegExp(`[${Object.keys(render_json_payload_script_dict).join("")}]`, "g");
+const render_json_payload_script_regex = new RegExp(
+  `[${Object.keys(render_json_payload_script_dict).join("")}]`,
+  "g"
+);
 function render_json_payload_script(attrs, payload) {
-  const safe_payload = JSON.stringify(payload).replace(render_json_payload_script_regex, (match) => render_json_payload_script_dict[match]);
+  const safe_payload = JSON.stringify(payload).replace(
+    render_json_payload_script_regex,
+    (match) => render_json_payload_script_dict[match]
+  );
   let safe_attrs = "";
   for (const [key2, value] of Object.entries(attrs)) {
     if (value === void 0)
@@ -573,7 +601,10 @@ const escape_html_attr_dict = {
   "&": "&amp;",
   '"': "&quot;"
 };
-const escape_html_attr_regex = new RegExp(`[${Object.keys(escape_html_attr_dict).join("")}]|[\\ud800-\\udbff](?![\\udc00-\\udfff])|[\\ud800-\\udbff][\\udc00-\\udfff]|[\\udc00-\\udfff]`, "g");
+const escape_html_attr_regex = new RegExp(
+  `[${Object.keys(escape_html_attr_dict).join("")}]|[\\ud800-\\udbff](?![\\udc00-\\udfff])|[\\ud800-\\udbff][\\udc00-\\udfff]|[\\udc00-\\udfff]`,
+  "g"
+);
 function escape_html_attr(str) {
   const escaped_str = str.replace(escape_html_attr_regex, (match) => {
     var _a;
@@ -708,7 +739,6 @@ function base64(bytes) {
   }
   return result;
 }
-let csp_ready;
 const array = new Uint8Array(16);
 function generate_nonce() {
   crypto.getRandomValues(array);
@@ -724,18 +754,17 @@ const quoted = /* @__PURE__ */ new Set([
   "report-sample"
 ]);
 const crypto_pattern = /^(nonce|sha\d\d\d)-/;
-class Csp {
-  constructor({ mode, directives }, { dev, prerender, needs_nonce }) {
+class BaseProvider {
+  constructor(use_hashes, directives, nonce, dev) {
     __privateAdd(this, _use_hashes, void 0);
-    __privateAdd(this, _dev, void 0);
     __privateAdd(this, _script_needs_csp, void 0);
     __privateAdd(this, _style_needs_csp, void 0);
     __privateAdd(this, _directives, void 0);
     __privateAdd(this, _script_src, void 0);
     __privateAdd(this, _style_src, void 0);
-    __privateSet(this, _use_hashes, mode === "hash" || mode === "auto" && prerender);
+    __privateAdd(this, _nonce, void 0);
+    __privateSet(this, _use_hashes, use_hashes);
     __privateSet(this, _directives, dev ? { ...directives } : directives);
-    __privateSet(this, _dev, dev);
     const d = __privateGet(this, _directives);
     if (dev) {
       const effective_style_src2 = d["style-src"] || d["default-src"];
@@ -751,16 +780,14 @@ class Csp {
     __privateSet(this, _style_needs_csp, !dev && !!effective_style_src && effective_style_src.filter((value) => value !== "unsafe-inline").length > 0);
     this.script_needs_nonce = __privateGet(this, _script_needs_csp) && !__privateGet(this, _use_hashes);
     this.style_needs_nonce = __privateGet(this, _style_needs_csp) && !__privateGet(this, _use_hashes);
-    if (this.script_needs_nonce || this.style_needs_nonce || needs_nonce) {
-      this.nonce = generate_nonce();
-    }
+    __privateSet(this, _nonce, nonce);
   }
   add_script(content) {
     if (__privateGet(this, _script_needs_csp)) {
       if (__privateGet(this, _use_hashes)) {
         __privateGet(this, _script_src).push(`sha256-${sha256(content)}`);
       } else if (__privateGet(this, _script_src).length === 0) {
-        __privateGet(this, _script_src).push(`nonce-${this.nonce}`);
+        __privateGet(this, _script_src).push(`nonce-${__privateGet(this, _nonce)}`);
       }
     }
   }
@@ -769,7 +796,7 @@ class Csp {
       if (__privateGet(this, _use_hashes)) {
         __privateGet(this, _style_src).push(`sha256-${sha256(content)}`);
       } else if (__privateGet(this, _style_src).length === 0) {
-        __privateGet(this, _style_src).push(`nonce-${this.nonce}`);
+        __privateGet(this, _style_src).push(`nonce-${__privateGet(this, _nonce)}`);
       }
     }
   }
@@ -809,18 +836,60 @@ class Csp {
     }
     return header.join("; ");
   }
-  get_meta() {
-    const content = escape_html_attr(this.get_header(true));
-    return `<meta http-equiv="content-security-policy" content=${content}>`;
-  }
 }
 _use_hashes = new WeakMap();
-_dev = new WeakMap();
 _script_needs_csp = new WeakMap();
 _style_needs_csp = new WeakMap();
 _directives = new WeakMap();
 _script_src = new WeakMap();
 _style_src = new WeakMap();
+_nonce = new WeakMap();
+class CspProvider extends BaseProvider {
+  get_meta() {
+    const content = escape_html_attr(this.get_header(true));
+    return `<meta http-equiv="content-security-policy" content=${content}>`;
+  }
+}
+class CspReportOnlyProvider extends BaseProvider {
+  constructor(use_hashes, directives, nonce, dev) {
+    var _a2, _b2;
+    var _a, _b;
+    super(use_hashes, directives, nonce, dev);
+    if (Object.values(directives).filter((v) => !!v).length > 0) {
+      const has_report_to = (_a2 = (_a = directives["report-to"]) == null ? void 0 : _a.length) != null ? _a2 : 0 > 0;
+      const has_report_uri = (_b2 = (_b = directives["report-uri"]) == null ? void 0 : _b.length) != null ? _b2 : 0 > 0;
+      if (!has_report_to && !has_report_uri) {
+        throw Error(
+          "`content-security-policy-report-only` must be specified with either the `report-to` or `report-uri` directives, or both"
+        );
+      }
+    }
+  }
+}
+class Csp {
+  nonce = generate_nonce();
+  csp_provider;
+  report_only_provider;
+  constructor({ mode, directives, reportOnly }, { prerender, dev }) {
+    const use_hashes = mode === "hash" || mode === "auto" && prerender;
+    this.csp_provider = new CspProvider(use_hashes, directives, this.nonce, dev);
+    this.report_only_provider = new CspReportOnlyProvider(use_hashes, reportOnly, this.nonce, dev);
+  }
+  get script_needs_nonce() {
+    return this.csp_provider.script_needs_nonce || this.report_only_provider.script_needs_nonce;
+  }
+  get style_needs_nonce() {
+    return this.csp_provider.style_needs_nonce || this.report_only_provider.style_needs_nonce;
+  }
+  add_script(content) {
+    this.csp_provider.add_script(content);
+    this.report_only_provider.add_script(content);
+  }
+  add_style(content) {
+    this.csp_provider.add_style(content);
+    this.report_only_provider.add_style(content);
+  }
+}
 const absolute = /^([a-z]+:)?\/?\//;
 const scheme = /^[a-z]+:/;
 function resolve(base2, path) {
@@ -859,9 +928,17 @@ function normalize_path(path, trailing_slash) {
   }
   return path;
 }
+function decode_params(params) {
+  for (const key2 in params) {
+    params[key2] = params[key2].replace(/%23/g, "#").replace(/%3[Bb]/g, ";").replace(/%2[Cc]/g, ",").replace(/%2[Ff]/g, "/").replace(/%3[Ff]/g, "?").replace(/%3[Aa]/g, ":").replace(/%40/g, "@").replace(/%26/g, "&").replace(/%3[Dd]/g, "=").replace(/%2[Bb]/g, "+").replace(/%24/g, "$");
+  }
+  return params;
+}
 class LoadURL extends URL {
   get hash() {
-    throw new Error("url.hash is inaccessible from load. Consider accessing hash from the page store within the script tag of your component.");
+    throw new Error(
+      "url.hash is inaccessible from load. Consider accessing hash from the page store within the script tag of your component."
+    );
   }
 }
 class PrerenderingURL extends URL {
@@ -888,7 +965,7 @@ async function render_response({
   resolve_opts,
   stuff
 }) {
-  var _a;
+  var _a, _b;
   if (state.prerendering) {
     if (options.csp.mode === "nonce") {
       throw new Error('Cannot use prerendering if config.kit.csp.mode === "nonce"');
@@ -906,10 +983,15 @@ async function render_response({
   let rendered;
   let is_private = false;
   let cache;
-  if (error2) {
+  const stack = error2 == null ? void 0 : error2.stack;
+  if (options.dev && error2) {
     error2.stack = options.get_stack(error2);
   }
   if (resolve_opts.ssr) {
+    const leaf = branch.at(-1);
+    if (leaf.loaded.status) {
+      status = leaf.loaded.status;
+    }
     for (const { node, props: props2, loaded, fetched, uses_credentials } of branch) {
       if (node.imports) {
         node.imports.forEach((url) => modulepreloads.add(url));
@@ -928,18 +1010,12 @@ async function render_response({
       is_private = (_a = cache == null ? void 0 : cache.private) != null ? _a : uses_credentials;
     }
     const session = writable($session);
+    is_private = is_private || ((_b = cache == null ? void 0 : cache.private) != null ? _b : !!$session && Object.keys($session).length > 0);
     const props = {
       stores: {
         page: writable(null),
         navigating: writable(null),
-        session: {
-          ...session,
-          subscribe: (fn) => {
-            var _a2;
-            is_private = (_a2 = cache == null ? void 0 : cache.private) != null ? _a2 : true;
-            return session.subscribe(fn);
-          }
-        },
+        session,
         updated
       },
       page: {
@@ -970,15 +1046,16 @@ async function render_response({
     rendered = { head: "", html: "", css: { code: "", map: null } };
   }
   let { head, html: body } = rendered;
-  await csp_ready;
   const csp = new Csp(options.csp, {
     dev: options.dev,
-    prerender: !!state.prerendering,
-    needs_nonce: options.template_contains_nonce
+    prerender: !!state.prerendering
   });
   const target = hash(body);
   const init_app = `
-		import { start } from ${s(options.prefix + entry.file)};
+		import { set_public_env, start } from ${s(options.prefix + entry.file)};
+
+		set_public_env(${s(options.public_env)});
+
 		start({
 			target: document.querySelector('[data-sveltekit-hydrate="${target}"]').parentNode,
 			paths: ${s(options.paths)},
@@ -1039,7 +1116,12 @@ async function render_response({
     }
     body += `
 		<script ${attributes.join(" ")}>${init_app}<\/script>`;
-    body += serialized_data.map(({ url, body: body2, response }) => render_json_payload_script({ type: "data", url, body: typeof body2 === "string" ? hash(body2) : void 0 }, response)).join("\n	");
+    body += serialized_data.map(
+      ({ url, body: body2, response }) => render_json_payload_script(
+        { type: "data", url, body: typeof body2 === "string" ? hash(body2) : void 0 },
+        response
+      )
+    ).join("\n	");
     if (shadow_props) {
       body += render_json_payload_script({ type: "props" }, shadow_props);
     }
@@ -1051,7 +1133,7 @@ async function render_response({
   }
   if (state.prerendering) {
     const http_equiv = [];
-    const csp_headers = csp.get_meta();
+    const csp_headers = csp.csp_provider.get_meta();
     if (csp_headers) {
       http_equiv.push(csp_headers);
     }
@@ -1064,9 +1146,10 @@ async function render_response({
   }
   const segments = event.url.pathname.slice(options.paths.base.length).split("/").slice(2);
   const assets2 = options.paths.assets || (segments.length > 0 ? segments.map(() => "..").join("/") : ".");
-  const html = await resolve_opts.transformPage({
-    html: options.template({ head, body, assets: assets2, nonce: csp.nonce })
-  });
+  const html = await resolve_opts.transformPageChunk({
+    html: options.template({ head, body, assets: assets2, nonce: csp.nonce }),
+    done: true
+  }) || "";
   const headers = new Headers({
     "content-type": "text/html",
     etag: `"${hash(html)}"`
@@ -1075,10 +1158,17 @@ async function render_response({
     headers.set("cache-control", `${is_private ? "private" : "public"}, max-age=${cache.maxage}`);
   }
   if (!state.prerendering) {
-    const csp_header = csp.get_header();
+    const csp_header = csp.csp_provider.get_header();
     if (csp_header) {
       headers.set("content-security-policy", csp_header);
     }
+    const report_only_header = csp.report_only_provider.get_header();
+    if (report_only_header) {
+      headers.set("content-security-policy-report-only", report_only_header);
+    }
+  }
+  if (options.dev && error2) {
+    error2.stack = stack;
   }
   return new Response(html, {
     status,
@@ -1253,7 +1343,10 @@ function parseString(setCookieValue, options) {
   try {
     value = options.decodeValues ? decodeURIComponent(value) : value;
   } catch (e) {
-    console.error("set-cookie-parser encountered an error while decoding a cookie with value '" + value + "'. Set options.decodeValues to false to disable this feature.", e);
+    console.error(
+      "set-cookie-parser encountered an error while decoding a cookie with value '" + value + "'. Set options.decodeValues to false to disable this feature.",
+      e
+    );
   }
   var cookie = {
     name,
@@ -1295,7 +1388,9 @@ function parse(input, options) {
       return key2.toLowerCase() === "set-cookie";
     })];
     if (!sch && input.headers.cookie && !options.silent) {
-      console.warn("Warning: set-cookie-parser appears to have been called on a request object. It is designed to parse Set-Cookie headers from responses, not Cookie headers from requests. Set the option {silent: true} to suppress this warning.");
+      console.warn(
+        "Warning: set-cookie-parser appears to have been called on a request object. It is designed to parse Set-Cookie headers from responses, not Cookie headers from requests. Set the option {silent: true} to suppress this warning."
+      );
     }
     input = sch;
   }
@@ -1376,8 +1471,13 @@ setCookie.exports.parse = parse;
 var parseString_1 = setCookie.exports.parseString = parseString;
 var splitCookiesString_1 = setCookie.exports.splitCookiesString = splitCookiesString;
 function normalize(loaded) {
+  if (!loaded) {
+    return {};
+  }
   if (loaded.fallthrough) {
-    throw new Error("fallthrough is no longer supported. Use matchers instead: https://kit.svelte.dev/docs/routing#advanced-routing-matching");
+    throw new Error(
+      "fallthrough is no longer supported. Use matchers instead: https://kit.svelte.dev/docs/routing#advanced-routing-matching"
+    );
   }
   if ("maxage" in loaded) {
     throw new Error("maxage should be replaced with cache: { maxage }");
@@ -1386,13 +1486,18 @@ function normalize(loaded) {
   if (loaded.error || has_error_status) {
     const status = loaded.status;
     if (!loaded.error && has_error_status) {
-      return { status: status || 500, error: new Error() };
+      return {
+        status: status || 500,
+        error: new Error(`${status}`)
+      };
     }
     const error2 = typeof loaded.error === "string" ? new Error(loaded.error) : loaded.error;
     if (!(error2 instanceof Error)) {
       return {
         status: 500,
-        error: new Error(`"error" property returned from load() must be a string or instance of Error, received type "${typeof error2}"`)
+        error: new Error(
+          `"error" property returned from load() must be a string or instance of Error, received type "${typeof error2}"`
+        )
       };
     }
     if (!status || status < 400 || status > 599) {
@@ -1403,7 +1508,9 @@ function normalize(loaded) {
   }
   if (loaded.redirect) {
     if (!loaded.status || Math.floor(loaded.status / 100) !== 3) {
-      throw new Error('"redirect" property returned from load() must be accompanied by a 3xx status code');
+      throw new Error(
+        '"redirect" property returned from load() must be accompanied by a 3xx status code'
+      );
     }
     if (typeof loaded.redirect !== "string") {
       throw new Error('"redirect" property returned from load() must be a string');
@@ -1415,7 +1522,9 @@ function normalize(loaded) {
     }
   }
   if (loaded.context) {
-    throw new Error('You are returning "context" from a load function. "context" was renamed to "stuff", please adjust your code accordingly.');
+    throw new Error(
+      'You are returning "context" from a load function. "context" was renamed to "stuff", please adjust your code accordingly.'
+    );
   }
   return loaded;
 }
@@ -1448,7 +1557,7 @@ async function load_node({
   status,
   error: error2
 }) {
-  var _a;
+  var _a, _b, _c;
   const { module: module2 } = node;
   let uses_credentials = false;
   const fetched = [];
@@ -1456,7 +1565,12 @@ async function load_node({
   const new_cookies = [];
   let loaded;
   const should_prerender = (_a = node.module.prerender) != null ? _a : options.prerender.default;
-  const shadow = is_leaf ? await load_shadow_data(route, event, options, should_prerender) : {};
+  const shadow = is_leaf ? await load_shadow_data(
+    route,
+    event,
+    options,
+    should_prerender
+  ) : {};
   if (shadow.cookies) {
     shadow.cookies.forEach((header) => {
       new_cookies.push(parseString_1(header));
@@ -1464,12 +1578,10 @@ async function load_node({
   }
   if (shadow.error) {
     loaded = {
-      status: shadow.status,
       error: shadow.error
     };
   } else if (shadow.redirect) {
     loaded = {
-      status: shadow.status,
       redirect: shadow.redirect
     };
   } else if (module2.load) {
@@ -1481,7 +1593,9 @@ async function load_node({
       get session() {
         var _a2;
         if ((_a2 = node.module.prerender) != null ? _a2 : options.prerender.default) {
-          throw Error("Attempted to access session from a prerendered page. Session would never be populated.");
+          throw Error(
+            "Attempted to access session from a prerendered page. Session would never be populated."
+          );
         }
         uses_credentials = true;
         return $session;
@@ -1515,7 +1629,9 @@ async function load_node({
         let response;
         let dependency;
         const prefix = options.paths.assets || options.paths.base;
-        const filename = decodeURIComponent(resolved.startsWith(prefix) ? resolved.slice(prefix.length) : resolved).slice(1);
+        const filename = decodeURIComponent(
+          resolved.startsWith(prefix) ? resolved.slice(prefix.length) : resolved
+        ).slice(1);
         const filename_html = `${filename}/index.html`;
         const is_asset = options.manifest.assets.has(filename);
         const is_asset_html = options.manifest.assets.has(filename_html);
@@ -1527,7 +1643,10 @@ async function load_node({
               headers: type ? { "content-type": type } : {}
             });
           } else {
-            response = await fetch(`${event.url.origin}/${file}`, opts);
+            response = await fetch(
+              `${event.url.origin}/${file}`,
+              opts
+            );
           }
         } else if (is_root_relative(resolved)) {
           if (opts.credentials !== "omit") {
@@ -1552,10 +1671,14 @@ async function load_node({
           if (opts.body && typeof opts.body !== "string") {
             throw new Error("Request body must be a string");
           }
-          response = await respond(new Request(new URL(requested, event.url).href, { ...opts }), options, {
-            ...state,
-            initiator: route
-          });
+          response = await respond(
+            new Request(new URL(requested, event.url).href, { ...opts }),
+            options,
+            {
+              ...state,
+              initiator: route
+            }
+          );
           if (state.prerendering) {
             dependency = { response, body: null };
             state.prerendering.dependencies.set(resolved, dependency);
@@ -1576,7 +1699,9 @@ async function load_node({
         }
         const set_cookie = response.headers.get("set-cookie");
         if (set_cookie) {
-          new_cookies.push(...splitCookiesString_1(set_cookie).map((str) => parseString_1(str)));
+          new_cookies.push(
+            ...splitCookiesString_1(set_cookie).map((str) => parseString_1(str))
+          );
         }
         const proxy = new Proxy(response, {
           get(response2, key2, _receiver) {
@@ -1591,7 +1716,9 @@ async function load_node({
               if (!opts.body || typeof opts.body === "string") {
                 const status_number = Number(response2.status);
                 if (isNaN(status_number)) {
-                  throw new Error(`response.status is not a number. value: "${response2.status}" type: ${typeof response2.status}`);
+                  throw new Error(
+                    `response.status is not a number. value: "${response2.status}" type: ${typeof response2.status}`
+                  );
                 }
                 fetched.push({
                   url: requested,
@@ -1632,7 +1759,7 @@ async function load_node({
         return proxy;
       },
       stuff: { ...stuff },
-      status: is_error ? status != null ? status : null : null,
+      status: (_b = is_error ? status : shadow.status) != null ? _b : null,
       error: is_error ? error2 != null ? error2 : null : null
     };
     if (options.dev) {
@@ -1642,10 +1769,7 @@ async function load_node({
         }
       });
     }
-    loaded = await module2.load.call(null, load_input);
-    if (!loaded) {
-      throw new Error(`load function must return a value${options.dev ? ` (${node.file})` : ""}`);
-    }
+    loaded = normalize(await module2.load.call(null, load_input));
   } else if (shadow.body) {
     loaded = {
       props: shadow.body
@@ -1653,6 +1777,7 @@ async function load_node({
   } else {
     loaded = {};
   }
+  loaded.status = (_c = loaded.status) != null ? _c : shadow.status;
   if (shadow.body && state.prerendering) {
     const pathname = `${event.url.pathname.replace(/\/$/, "")}/__data.json`;
     const dependency = {
@@ -1664,7 +1789,7 @@ async function load_node({
   return {
     node,
     props: shadow.body,
-    loaded: normalize(loaded),
+    loaded,
     stuff: loaded.stuff || stuff,
     fetched,
     set_cookie_headers: new_cookies.map((new_cookie) => {
@@ -1679,12 +1804,13 @@ async function load_shadow_data(route, event, options, prerender) {
     return {};
   try {
     const mod = await route.shadow();
-    if (prerender && (mod.post || mod.put || mod.del || mod.patch)) {
+    check_method_names(mod);
+    if (prerender && (mod.POST || mod.PUT || mod.DELETE || mod.PATCH)) {
       throw new Error("Cannot prerender pages that have endpoints with mutative methods");
     }
-    const method = normalize_request_method(event);
-    const is_get = method === "head" || method === "get";
-    const handler = method === "head" ? mod.head || mod.get : mod[method];
+    const { method } = event.request;
+    const is_get = method === "HEAD" || method === "GET";
+    const handler = method === "HEAD" ? mod.HEAD || mod.GET : mod[method];
     if (!handler && !is_get) {
       return {
         status: 405,
@@ -1692,7 +1818,7 @@ async function load_shadow_data(route, event, options, prerender) {
       };
     }
     const data = {
-      status: 200,
+      status: void 0,
       cookies: [],
       body: {}
     };
@@ -1715,25 +1841,27 @@ async function load_shadow_data(route, event, options, prerender) {
       }
       data.body = body;
     }
-    const get = method === "head" && mod.head || mod.get;
+    const get = method === "HEAD" && mod.HEAD || mod.GET;
     if (get) {
       const { status, headers, body } = validate_shadow_output(await get(event));
       add_cookies(data.cookies, headers);
-      data.status = status;
       if (body instanceof Error) {
         if (status < 400) {
           data.status = 500;
           data.error = new Error("A non-error status code was returned with an error body");
         } else {
+          data.status = status;
           data.error = body;
         }
         return data;
       }
       if (status >= 400) {
+        data.status = status;
         data.error = new Error("Failed to load data");
         return data;
       }
       if (status >= 300) {
+        data.status = status;
         data.redirect = headers instanceof Headers ? headers.get("location") : headers.location;
         return data;
       }
@@ -1761,19 +1889,25 @@ function add_cookies(target, headers) {
 }
 function validate_shadow_output(result) {
   if (result.fallthrough) {
-    throw new Error("fallthrough is no longer supported. Use matchers instead: https://kit.svelte.dev/docs/routing#advanced-routing-matching");
+    throw new Error(
+      "fallthrough is no longer supported. Use matchers instead: https://kit.svelte.dev/docs/routing#advanced-routing-matching"
+    );
   }
   const { status = 200, body = {} } = result;
   let headers = result.headers || {};
   if (headers instanceof Headers) {
     if (headers.has("set-cookie")) {
-      throw new Error("Endpoint request handler cannot use Headers interface with Set-Cookie headers");
+      throw new Error(
+        "Endpoint request handler cannot use Headers interface with Set-Cookie headers"
+      );
     }
   } else {
     headers = lowercase_keys(headers);
   }
   if (!is_pojo(body)) {
-    throw new Error("Body returned from endpoint request handler must be a plain object or an Error");
+    throw new Error(
+      "Body returned from endpoint request handler must be a plain object or an Error"
+    );
   }
   return { status, headers, body };
 }
@@ -1796,18 +1930,21 @@ async function respond_with_error({
         event,
         options,
         state,
-        route: null,
+        route: GENERIC_ERROR,
         node: default_layout,
         $session,
         stuff: {},
         is_error: false,
         is_leaf: false
       });
+      if (layout_loaded.loaded.error) {
+        throw layout_loaded.loaded.error;
+      }
       const error_loaded = await load_node({
         event,
         options,
         state,
-        route: null,
+        route: GENERIC_ERROR,
         node: default_error,
         $session,
         stuff: layout_loaded ? layout_loaded.stuff : {},
@@ -1843,7 +1980,7 @@ async function respond_with_error({
   }
 }
 async function respond$1(opts) {
-  var _a;
+  var _a, _b;
   const { event, options, state, $session, route, resolve_opts } = opts;
   let nodes;
   if (!resolve_opts.ssr) {
@@ -1861,7 +1998,9 @@ async function respond$1(opts) {
     });
   }
   try {
-    nodes = await Promise.all(route.a.map((n) => n == void 0 ? n : options.manifest._.nodes[n]()));
+    nodes = await Promise.all(
+      route.a.map((n) => n == void 0 ? n : options.manifest._.nodes[n]())
+    );
   } catch (err) {
     const error3 = coalesce_to_error(err);
     options.handle_error(error3, event);
@@ -1905,15 +2044,19 @@ async function respond$1(opts) {
           });
           set_cookie_headers = set_cookie_headers.concat(loaded.set_cookie_headers);
           if (loaded.loaded.redirect) {
-            return with_cookies(new Response(void 0, {
-              status: loaded.loaded.status,
-              headers: {
-                location: loaded.loaded.redirect
-              }
-            }), set_cookie_headers);
+            return with_cookies(
+              new Response(void 0, {
+                status: loaded.loaded.status,
+                headers: {
+                  location: loaded.loaded.redirect
+                }
+              }),
+              set_cookie_headers
+            );
           }
           if (loaded.loaded.error) {
-            ({ status, error: error2 } = loaded.loaded);
+            error2 = loaded.loaded.error;
+            status = (_b = loaded.loaded.status) != null ? _b : 500;
           }
         } catch (err) {
           const e = coalesce_to_error(err);
@@ -1958,15 +2101,18 @@ async function respond$1(opts) {
               }
             }
           }
-          return with_cookies(await respond_with_error({
-            event,
-            options,
-            state,
-            $session,
-            status,
-            error: error2,
-            resolve_opts
-          }), set_cookie_headers);
+          return with_cookies(
+            await respond_with_error({
+              event,
+              options,
+              state,
+              $session,
+              status,
+              error: error2,
+              resolve_opts
+            }),
+            set_cookie_headers
+          );
         }
       }
       if (loaded && loaded.loaded.stuff) {
@@ -1978,28 +2124,36 @@ async function respond$1(opts) {
     }
   }
   try {
-    return with_cookies(await render_response({
-      ...opts,
-      stuff,
-      event,
-      page_config,
-      status,
-      error: error2,
-      branch: branch.filter(Boolean)
-    }), set_cookie_headers);
+    return with_cookies(
+      await render_response({
+        ...opts,
+        stuff,
+        event,
+        page_config,
+        status,
+        error: error2,
+        branch: branch.filter(Boolean)
+      }),
+      set_cookie_headers
+    );
   } catch (err) {
     const error3 = coalesce_to_error(err);
     options.handle_error(error3, event);
-    return with_cookies(await respond_with_error({
-      ...opts,
-      status: 500,
-      error: error3
-    }), set_cookie_headers);
+    return with_cookies(
+      await respond_with_error({
+        ...opts,
+        status: 500,
+        error: error3
+      }),
+      set_cookie_headers
+    );
   }
 }
 function get_page_config(leaf, options) {
   if ("ssr" in leaf) {
-    throw new Error("`export const ssr` has been removed \u2014 use the handle hook instead: https://kit.svelte.dev/docs/hooks#handle");
+    throw new Error(
+      "`export const ssr` has been removed \u2014 use the handle hook instead: https://kit.svelte.dev/docs/hooks#handle"
+    );
   }
   return {
     router: "router" in leaf ? !!leaf.router : options.router,
@@ -2139,7 +2293,9 @@ async function respond(request, options, state) {
   const event = {
     get clientAddress() {
       if (!state.getClientAddress) {
-        throw new Error(`${"@sveltejs/adapter-netlify"} does not specify getClientAddress. Please raise an issue`);
+        throw new Error(
+          `${"@sveltejs/adapter-netlify"} does not specify getClientAddress. Please raise an issue`
+        );
       }
       Object.defineProperty(event, "clientAddress", {
         value: state.getClientAddress()
@@ -2161,7 +2317,9 @@ async function respond(request, options, state) {
   const details = ". See https://github.com/sveltejs/kit/pull/3384 for details";
   const body_getter = {
     get: () => {
-      throw new Error("To access the request body use the text/json/arrayBuffer/formData methods, e.g. `body = await request.json()`" + details);
+      throw new Error(
+        "To access the request body use the text/json/arrayBuffer/formData methods, e.g. `body = await request.json()`" + details
+      );
     }
   };
   Object.defineProperties(event, {
@@ -2175,7 +2333,7 @@ async function respond(request, options, state) {
   });
   let resolve_opts = {
     ssr: true,
-    transformPage: default_transform
+    transformPageChunk: default_transform
   };
   try {
     const response = await options.hooks.handle({
@@ -2183,9 +2341,14 @@ async function respond(request, options, state) {
       resolve: async (event2, opts) => {
         var _a2;
         if (opts) {
+          if (opts.transformPage) {
+            throw new Error(
+              "transformPage has been replaced by transformPageChunk \u2014 see https://github.com/sveltejs/kit/pull/5657 for more information"
+            );
+          }
           resolve_opts = {
             ssr: opts.ssr !== false,
-            transformPage: opts.transformPage || default_transform
+            transformPageChunk: opts.transformPageChunk || default_transform
           };
         }
         if ((_a2 = state.prerendering) == null ? void 0 : _a2.fallback) {
@@ -2254,6 +2417,11 @@ async function respond(request, options, state) {
             return response2;
           }
         }
+        if (state.initiator === GENERIC_ERROR) {
+          return new Response("Internal Server Error", {
+            status: 500
+          });
+        }
         if (!state.initiator) {
           const $session = await options.hooks.getSession(event2);
           return await respond_with_error({
@@ -2319,7 +2487,7 @@ function set_paths(paths) {
 }
 function set_prerendering(value) {
 }
-const template = ({ head, body, assets: assets2, nonce }) => '<!DOCTYPE html>\n<html lang="fr">\n\n<head>\n	<meta charset="utf-8" />\n	<!-- <link rel="icon" href="' + assets2 + '/favicon.png" /> -->\n	<meta name="viewport" content="width=device-width, initial-scale=1" />\n	' + head + "\n</head>\n\n<body>\n	<div>" + body + "</div>\n</body>\n\n</html>";
+const template = ({ head, body, assets: assets2, nonce }) => '<!DOCTYPE html>\n<html lang="fr">\n\n<head>\n	<meta charset="utf-8" />\n	<!-- <link rel="icon" href="' + assets2 + '/favicon.png" /> -->\n	<meta name="viewport" content="width=device-width, initial-scale=1" />\n	<link rel="apple-touch-icon" sizes="180x180" href="' + assets2 + '/apple-touch-icon.png">\n	<link rel="icon" type="image/png" sizes="32x32" href="' + assets2 + '/favicon-32x32.png">\n	<link rel="icon" type="image/png" sizes="16x16" href="' + assets2 + '/favicon-16x16.png">\n	' + head + "\n</head>\n\n<body>\n	<div>" + body + "</div>\n</body>\n\n</html>";
 let read = null;
 set_paths({ "base": "", "assets": "" });
 let default_protocol = "https";
@@ -2332,7 +2500,7 @@ function override(settings) {
 class Server {
   constructor(manifest) {
     this.options = {
-      csp: { "mode": "auto", "directives": { "upgrade-insecure-requests": false, "block-all-mixed-content": false } },
+      csp: { "mode": "auto", "directives": { "upgrade-insecure-requests": false, "block-all-mixed-content": false }, "reportOnly": { "upgrade-insecure-requests": false, "block-all-mixed-content": false } },
       dev: false,
       get_stack: (error2) => String(error2),
       handle_error: (error2, event) => {
@@ -2350,11 +2518,12 @@ class Server {
       manifest,
       method_override: { "parameter": "_method", "allowed": ["PATCH", "DELETE"] },
       paths: { base, assets },
-      prefix: assets + "/_app/",
+      prefix: assets + "/",
       prerender: {
         default: false,
         enabled: true
       },
+      public_env: {},
       read,
       root: Root,
       service_worker: null,
@@ -2364,12 +2533,17 @@ class Server {
       trailing_slash: "never"
     };
   }
+  init({ env }) {
+    Object.fromEntries(Object.entries(env).filter(([k]) => !k.startsWith("PUBLIC_")));
+    const pub = Object.fromEntries(Object.entries(env).filter(([k]) => k.startsWith("PUBLIC_")));
+    this.options.public_env = pub;
+  }
   async respond(request, options = {}) {
     if (!(request instanceof Request)) {
       throw new Error("The first argument to server.respond must be a Request object. See https://github.com/sveltejs/kit/pull/3384 for details");
     }
     if (!this.options.hooks) {
-      const module2 = await Promise.resolve().then(() => __toESM(require("./immutable/chunks/hooks-c6cde00f.js")));
+      const module2 = await Promise.resolve().then(() => __toESM(require("./_app/immutable/chunks/hooks-1c986cc1.js")));
       this.options.hooks = {
         getSession: module2.getSession || (() => ({})),
         handle: module2.handle || (({ event, resolve: resolve2 }) => resolve2(event)),

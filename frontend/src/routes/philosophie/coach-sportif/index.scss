@@ -1,0 +1,61 @@
+.container {
+  @include sm-md {
+    margin: 0 auto;
+  }
+  @include lg {
+    margin: 10rem auto;
+    align-items: center;
+  }
+
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 85rem;
+
+    @include lg {
+      width: 50vw;
+    }
+
+    h1 {
+      @include sm-md {
+        font-size: 2.4rem;
+        line-height: 3rem;
+        margin-bottom: 3rem;
+        font-weight: bold;
+      }
+      @include lg {
+        font-size: 3rem;
+        line-height: 4rem;
+        margin-bottom: 5.5rem;
+        font-weight: 500;
+      }
+    }
+
+    :global(p) {
+      font-size: 1.8rem;
+      line-height: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.image--ball {
+  position: absolute;
+  @include sm-md {
+    right: 0;
+    bottom: 0;
+  }
+  @include lg {
+    right: 2rem;
+    top: 25%;
+    max-width: 54.2rem;
+    width: 30vw;
+  }
+}

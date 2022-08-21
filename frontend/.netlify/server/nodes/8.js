@@ -16,7 +16,10 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
@@ -27,8 +30,8 @@ __export(stdin_exports, {
   stylesheets: () => stylesheets
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/programs/philosophie.svelte.js"));
+var module2 = __toESM(require("../entries/pages/philosophie/coach-bien-etre/index.svelte.js"));
 const index = 8;
-const file = "immutable/pages/programs/philosophie.svelte-1abd0cea.js";
-const imports = ["immutable/pages/programs/philosophie.svelte-1abd0cea.js", "immutable/chunks/index-ea7d6d72.js"];
-const stylesheets = [];
+const file = "_app/immutable/pages/philosophie/coach-bien-etre/index.svelte-9490f012.js";
+const imports = ["_app/immutable/pages/philosophie/coach-bien-etre/index.svelte-9490f012.js", "_app/immutable/chunks/index-23490812.js", "_app/immutable/chunks/api-72f5aeeb.js", "_app/immutable/chunks/index-52da8fb8.js", "_app/immutable/chunks/index-581d6be2.js", "_app/immutable/chunks/Head-f60d22aa.js", "_app/immutable/chunks/HTML-d7fde8fd.js"];
+const stylesheets = ["_app/immutable/assets/index-f52a8771.css"];

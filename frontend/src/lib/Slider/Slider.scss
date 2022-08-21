@@ -1,0 +1,13 @@
+:global(.swiper) {
+  padding: 5rem 0.5rem;
+  margin: 6rem 0;
+}
+
+.swiper-pagination {
+  margin: 2rem 0;
+  position: relative;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background-color: $ui-green-0;
+}
