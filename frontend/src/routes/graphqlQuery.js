@@ -2,6 +2,38 @@ import { gql } from "graphql-request";
 
 export const query = gql`
   {
+    menu {
+      data {
+        attributes {
+          items {
+            label
+            page {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+          logoBig {
+            data {
+              attributes {
+                hash
+                alternativeText
+              }
+            }
+          }
+          logoSmall {
+            data {
+              attributes {
+                hash
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
     homepage {
       data {
         attributes {

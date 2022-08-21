@@ -1,27 +1,36 @@
 <script context="module">
   import { writable } from "svelte/store";
+
   export const dynamicOffsetHeight = writable(0);
 </script>
 
 <script>
+  import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
   import { page } from "$app/stores";
   import { breakpoint } from "$stores/store-breakpoint";
-  import { getMenuData } from "./index.js";
-  import { onMount } from "svelte";
-  import { fly, fade } from "svelte/transition";
 
   $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
 
+  export let data = null;
+
   let body = undefined;
-  let data = null;
   let checked = false;
+  let mounted = false;
 
-  $: menu = data?.data?.attributes?.items;
-  $: logo = data?.data?.attributes;
-
-  const loadMenuData = async () => {
-    data = await getMenuData();
-  };
+  const {
+    items,
+    logoBig: {
+      data: {
+        attributes: { hash: logoBigUrl, alternativeText: logoBigAlt },
+      },
+    },
+    logoSmall: {
+      data: {
+        attributes: { hash: logoSmallUrl, alternativeText: logoSmallAlt },
+      },
+    },
+  } = data?.attributes;
 
   const toggleOpen = () => {
     checked = !checked;
@@ -32,12 +41,13 @@
 
   onMount(() => {
     body = document.querySelector("body");
+    setTimeout(() => {
+      mounted = true;
+    }, 500);
   });
-
-  loadMenuData();
 </script>
 
-{#if data}
+{#if data && mounted}
   <header
     in:fade={{ duration: 500 }}
     bind:offsetHeight={$dynamicOffsetHeight}
@@ -72,19 +82,20 @@
           </div>
         {/if}
 
-        <a sveltekit:prefetch href="/" class="no-underline"
-          ><img
+        <a sveltekit:prefetch href="/" class="no-underline">
+          <img
+            in:fade={{ duration: 500 }}
+            src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{logoBigUrl}"
+            alt={logoBigAlt}
             class="logo logo--big"
-            src={logo.logoBig.data.attributes.url}
-            alt="logo"
-          /></a
-        >
+          />
+        </a>
       </div>
 
       {#if !smallViewport}
         <div class="menu-items--desktop">
           <ul class="md:flex p-0 list-none">
-            {#each menu as { label, page: { data: { attributes: { url } } } }}
+            {#each items as { label, page: { data: { attributes: { url } } } }}
               <li
                 class:active={!$page.url.pathname.includes("/a-propos")
                   ? $page.url.pathname.includes(url)
@@ -105,15 +116,17 @@
               toggleOpen();
             }}
             class="no-underline"
-            ><img
-              class="logo logo--small"
-              src={logo.logoSmall.data.attributes.url}
-              alt="logo"
-            /></a
           >
+            <img
+              in:fade={{ duration: 500 }}
+              src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{logoSmallUrl}"
+              alt={logoSmallAlt}
+              class="logo logo--small"
+            />
+          </a>
 
           <ul class="md:flex p-0 list-none">
-            {#each menu as { label, page: { data: { attributes: { url } } } }}
+            {#each items as { label, page: { data: { attributes: { url } } } }}
               <li
                 class:active={$page.url.pathname.includes(url)}
                 on:click={() => {
