@@ -5,7 +5,10 @@
   export const prerender = true;
 
   export const load = async () => {
-    const data = await getData(query, "http://localhost:1337/graphql/");
+    const data = await getData(
+      query,
+      "https://nutrisportcoach.herokuapp.com/graphql"
+    );
 
     return {
       props: { data },
@@ -61,7 +64,7 @@
   };
 
   const handleSubmit = async () => {
-    const endpoint = "http://localhost:1337/graphql/";
+    const endpoint = "https://nutrisportcoach.herokuapp.com/graphql";
 
     const graphQLClient = new GraphQLClient(endpoint);
 

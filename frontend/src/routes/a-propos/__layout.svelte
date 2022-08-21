@@ -25,7 +25,10 @@
       }
     `;
 
-    const res = await request("http://localhost:1337/graphql/", query);
+    const res = await request(
+      "https://nutrisportcoach.herokuapp.com/graphql",
+      query
+    );
 
     const { data } = await res.about;
     return {

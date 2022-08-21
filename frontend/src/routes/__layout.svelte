@@ -5,7 +5,7 @@
   export const load = async () => {
     const {
       menu: { data },
-    } = await getData(query, "http://localhost:1337/graphql/");
+    } = await getData(query, "https://nutrisportcoach.herokuapp.com/graphql");
 
     return {
       props: { data },
