@@ -28,7 +28,6 @@
     "cookie": "^0.4.1",
     "dompurify": "^2.3.10",
     "svelte-portal": "^2.2.0",
-    "swiper": "^8.3.2",
-    "typesafe-i18n": "^5.9.0"
+    "swiper": "^8.3.2"
   }
 }

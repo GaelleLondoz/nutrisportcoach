@@ -48,12 +48,8 @@
 </script>
 
 {#if data && mounted}
-  <header
-    in:fade={{ duration: 500 }}
-    bind:offsetHeight={$dynamicOffsetHeight}
-    class="md:flex md:items-center relative z-20"
-  >
-    <nav class="nav container md:flex md:justify-between md:items-center">
+  <header in:fade={{ duration: 500 }} bind:offsetHeight={$dynamicOffsetHeight}>
+    <nav class="nav container">
       {#if smallViewport}
         <input
           class="checkbox"
@@ -94,15 +90,14 @@
 
       {#if !smallViewport}
         <div class="menu-items--desktop">
-          <ul class="md:flex p-0 list-none">
+          <ul>
             {#each items as { label, page: { data: { attributes: { url } } } }}
               <li
                 class:active={!$page.url.pathname.includes("/a-propos")
                   ? $page.url.pathname.includes(url)
                   : url.includes("/a-propos")}
               >
-                <a sveltekit:prefetch href={url} class="no-underline">{label}</a
-                >
+                <a sveltekit:prefetch href={url}>{label}</a>
               </li>
             {/each}
           </ul>
@@ -125,7 +120,7 @@
             />
           </a>
 
-          <ul class="md:flex p-0 list-none">
+          <ul>
             {#each items as { label, page: { data: { attributes: { url } } } }}
               <li
                 class:active={$page.url.pathname.includes(url)}
@@ -133,8 +128,7 @@
                   toggleOpen();
                 }}
               >
-                <a sveltekit:prefetch href={url} class="no-underline">{label}</a
-                >
+                <a sveltekit:prefetch href={url}>{label}</a>
               </li>
             {/each}
           </ul>

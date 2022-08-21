@@ -21,14 +21,11 @@
 
 {#if active}
   <Portal target="body">
-    <div
-      class="toast absolute bg-white overflow-hidden"
-      transition:fly={{ x: -200, duration: 400 }}
-    >
-      <div class="toast-content flex items-center">
+    <div class="toast" transition:fly={{ x: -200, duration: 400 }}>
+      <div class="toast-content">
         <slot />
       </div>
-      <span class="absolute cursor-pointer close" on:click={close}>
+      <span class="close" on:click={close}>
         <Icon src={X} size="16" />
       </span>
     </div>

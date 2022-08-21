@@ -32,6 +32,6 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/philosophie/index.svelte.js"));
 const index = 11;
-const file = "_app/immutable/pages/philosophie/index.svelte-e54e0f0e.js";
-const imports = ["_app/immutable/pages/philosophie/index.svelte-e54e0f0e.js", "_app/immutable/chunks/index-ad623e1c.js", "_app/immutable/chunks/api-72f5aeeb.js", "_app/immutable/chunks/index-52da8fb8.js", "_app/immutable/chunks/index-8a628e86.js", "_app/immutable/chunks/Head-32a91d31.js"];
-const stylesheets = ["_app/immutable/assets/index-eb8dae3b.css"];
+const file = "_app/immutable/pages/philosophie/index.svelte-4b4a9901.js";
+const imports = ["_app/immutable/pages/philosophie/index.svelte-4b4a9901.js", "_app/immutable/chunks/index-ad623e1c.js", "_app/immutable/chunks/api-4a6cd6ef.js", "_app/immutable/chunks/index-11acd883.js", "_app/immutable/chunks/index-8a628e86.js", "_app/immutable/chunks/Head-32a91d31.js"];
+const stylesheets = ["_app/immutable/assets/index-39a4091d.css"];

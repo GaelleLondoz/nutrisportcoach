@@ -24,7 +24,7 @@ module.exports = __toCommonJS(stdin_exports);
 var import_index_a7d28e02 = require("../../_app/immutable/chunks/index-a7d28e02.js");
 var import_api_fcbaa1f6 = require("../../_app/immutable/chunks/api-fcbaa1f6.js");
 var import_graphqlQuery = require("../endpoints/graphqlQuery.js");
-var import_Header_dd5f05da = require("../../_app/immutable/chunks/Header-dd5f05da.js");
+var import_Header_92b89f1f = require("../../_app/immutable/chunks/Header-92b89f1f.js");
 var import_graphql_request = require("graphql-request");
 var import_store_breakpoint_bdbf653d = require("../../_app/immutable/chunks/store-breakpoint-bdbf653d.js");
 var import_stores_20da12b8 = require("../../_app/immutable/chunks/stores-20da12b8.js");
@@ -41,13 +41,13 @@ const load = async () => {
 };
 const _layout = (0, import_index_a7d28e02.c)(($$result, $$props, $$bindings, slots) => {
   let $mainHeaderHeight, $$unsubscribe_mainHeaderHeight;
-  $$unsubscribe_mainHeaderHeight = (0, import_index_a7d28e02.a)(import_Header_dd5f05da.d, (value) => $mainHeaderHeight = value);
+  $$unsubscribe_mainHeaderHeight = (0, import_index_a7d28e02.a)(import_Header_92b89f1f.d, (value) => $mainHeaderHeight = value);
   let { data = null } = $$props;
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
     $$bindings.data(data);
   $$result.css.add(css);
   $$unsubscribe_mainHeaderHeight();
-  return `${data ? `${(0, import_index_a7d28e02.v)(import_Header_dd5f05da.H, "Header").$$render($$result, { data }, {}, {})}` : ``}
+  return `${data ? `${(0, import_index_a7d28e02.v)(import_Header_92b89f1f.H, "Header").$$render($$result, { data }, {}, {})}` : ``}
 <main${(0, import_index_a7d28e02.b)("style", `--headerHeigth: ${$mainHeaderHeight}px`, 0)} class="${"svelte-1nhlp06"}">${slots.default ? slots.default({}) : ``}
 </main>`;
 });

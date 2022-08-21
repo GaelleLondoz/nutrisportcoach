@@ -31,7 +31,7 @@ const manifest = {
   assets: /* @__PURE__ */ new Set(["apple-touch-icon.png", "favicon-16x16.png", "favicon-32x32.png", "robots.txt"]),
   mimeTypes: { ".png": "image/png", ".txt": "text/plain" },
   _: {
-    entry: { "file": "_app/immutable/start-94be2626.js", "imports": ["_app/immutable/start-94be2626.js", "_app/immutable/chunks/index-ad623e1c.js", "_app/immutable/chunks/index-efcf4f68.js"], "stylesheets": [] },
+    entry: { "file": "_app/immutable/start-588b3410.js", "imports": ["_app/immutable/start-588b3410.js", "_app/immutable/chunks/index-ad623e1c.js", "_app/immutable/chunks/index-efcf4f68.js"], "stylesheets": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
