@@ -5,8 +5,18 @@
 }
 
 section {
-  @include md {
+  @include tabletportrait {
     align-items: center;
+  }
+
+  @include tabletlandscape {
+    align-items: flex-start;
+    padding-top: 10rem;
+  }
+
+  @include lg {
+    align-items: flex-start;
+    padding-top: 10rem;
   }
 
   height: calc(100vh - var(--headerHeigth));
@@ -20,6 +30,11 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    @include lg {
+      align-items: flex-start;
+      padding-top: 10rem;
+    }
 
     :global(h1) {
       @include sm-md {
@@ -37,7 +52,7 @@ section {
     }
 
     p {
-      @include sm-md {
+      @include sm {
         margin: 0 0 5rem;
         font-size: 1.6rem;
         line-height: 2rem;
@@ -52,7 +67,7 @@ section {
     }
 
     a {
-      @include sm-md {
+      @include sm {
         border-radius: 1rem;
         padding: 0.8rem 2.3rem;
         font-size: 1.5rem;
@@ -75,20 +90,22 @@ section {
 }
 
 .image--b-l {
-  @include sm-md {
+  @include sm {
     max-width: 100vw;
     transform: scale(-1, 1);
     right: 0;
   }
+
   @include md {
-    max-width: 70vw;
+    max-width: 40vw;
     transform: none;
     left: 0;
   }
 
-  @include lg {
-    height: 60vh;
-    max-width: unset;
+  @include xl {
+    max-width: 50vw;
+    // height: 60vh;
+    // max-width: unset;
   }
   @include transition;
 
@@ -98,20 +115,23 @@ section {
 }
 
 .image--t-r {
-  @include sm-md {
-    max-height: 50vh;
+  @include sm {
+    max-width: 40vw;
+    // max-height: 40vh;
     left: 0;
   }
   @include md {
     right: 0;
     left: auto;
-    height: 60vh;
+    max-width: 40vw;
+    // height: 40vh;
     transform: none;
-    max-height: 60vh;
+    // max-height: 60vh;
   }
-  @include lg {
-    height: 90vh;
-    max-height: 90vh;
+  @include xl {
+    max-width: 30vw;
+    // height: 90vh;
+    // max-height: 90vh;
   }
   @include transition;
   position: absolute;

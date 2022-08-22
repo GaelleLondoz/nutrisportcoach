@@ -50,7 +50,7 @@
       },
     },
   } = data?.attributes;
-
+  $: console.log(data);
   onMount(() => {
     const body = document.querySelector("body");
     body.id = "homepage";
