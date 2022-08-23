@@ -54,35 +54,10 @@ export const query = gql`
             }
           }
 
-          imageTop {
+          imageBackground {
             data {
               attributes {
                 hash
-                alternativeText
-              }
-            }
-          }
-          imageTopMobile {
-            data {
-              attributes {
-                hash
-                alternativeText
-              }
-            }
-          }
-          imageBottom {
-            data {
-              attributes {
-                hash
-                alternativeText
-              }
-            }
-          }
-          imageBottomMobile {
-            data {
-              attributes {
-                hash
-                alternativeText
               }
             }
           }

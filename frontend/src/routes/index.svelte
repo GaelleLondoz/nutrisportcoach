@@ -39,14 +39,9 @@
         },
       },
     },
-    imageTop: {
+    imageBackground: {
       data: {
-        attributes: { hash: imageTopUrl, alternativeText: imageTopAlt },
-      },
-    },
-    imageBottom: {
-      data: {
-        attributes: { hash: imageBottomUrl, alternativeText: imageBottomAlt },
+        attributes: { hash: imageUrl },
       },
     },
   } = data?.attributes;
@@ -54,6 +49,7 @@
   onMount(() => {
     const body = document.querySelector("body");
     body.id = "homepage";
+    body.style.backgroundImage = `url(https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/${imageUrl})`;
     setTimeout(() => {
       animate = true;
     }, 500);
@@ -63,20 +59,6 @@
 {#if data}
   <Head {metaTitle} {metaDescription} />
   {#if animate}
-    <picture in:fade={{ duration: 500 }}>
-      <source
-        srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_713/{imageTopUrl}"
-        media="(min-width: 768px)"
-      />
-
-      <img
-        style={`--headerHeigth: ${$mainHeaderHeight}px`}
-        src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_500/{imageTopUrl}"
-        alt={imageTopAlt}
-        class="image--t-r"
-      />
-    </picture>
-
     <section
       in:fly={{ x: -200, duration: 500 }}
       class="container"
@@ -90,19 +72,6 @@
         </div>
       </div>
     </section>
-
-    <picture in:fade={{ duration: 500 }}>
-      <source
-        srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_885/{imageBottomUrl}"
-        media="(min-width: 768px)"
-      />
-
-      <img
-        src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_500/{imageBottomUrl}"
-        alt={imageBottomAlt}
-        class="image--b-l"
-      />
-    </picture>
   {/if}
 {/if}
 
