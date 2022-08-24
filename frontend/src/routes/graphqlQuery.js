@@ -53,8 +53,21 @@ export const query = gql`
               }
             }
           }
-
-          imageBackground {
+          imageBackgroundDesktop {
+            data {
+              attributes {
+                hash
+              }
+            }
+          }
+          imageBackgroundTablet {
+            data {
+              attributes {
+                hash
+              }
+            }
+          }
+          imageBackgroundMobile {
             data {
               attributes {
                 hash

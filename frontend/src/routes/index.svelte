@@ -17,8 +17,9 @@
 
 <script>
   import { onMount } from "svelte";
-  import { fly, fade } from "svelte/transition";
+  import { fly } from "svelte/transition";
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
+  import { breakpoint } from "$stores/store-breakpoint";
 
   import Head from "$lib/Head/Head.svelte";
   import HTML from "$lib/HTML/HTML.svelte";
@@ -26,6 +27,26 @@
   export let data = null;
 
   let animate = false;
+  let rootElement;
+  let imageUrl;
+
+  $: smallViewport = ["xs", "sm"].includes($breakpoint?.name);
+  $: mediumViewport = ["md"].includes($breakpoint?.name);
+  $: largeViewport = ["lg"].includes($breakpoint?.name);
+
+  $: if (smallViewport) {
+    imageUrl = imageMobileUrl;
+  } else if (mediumViewport) {
+    imageUrl = imageTabletUrl;
+  } else if (largeViewport) {
+    imageUrl = imageDesktopUrl;
+  }
+
+  $: rootElement &&
+    rootElement.style.setProperty(
+      "--background",
+      `url(https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/${imageUrl})`
+    );
 
   const {
     seo: { metaTitle, metaDescription },
@@ -39,17 +60,27 @@
         },
       },
     },
-    imageBackground: {
+    imageBackgroundMobile: {
       data: {
-        attributes: { hash: imageUrl },
+        attributes: { hash: imageMobileUrl },
+      },
+    },
+    imageBackgroundTablet: {
+      data: {
+        attributes: { hash: imageTabletUrl },
+      },
+    },
+    imageBackgroundDesktop: {
+      data: {
+        attributes: { hash: imageDesktopUrl },
       },
     },
   } = data?.attributes;
-  $: console.log(data);
+
   onMount(() => {
     const body = document.querySelector("body");
     body.id = "homepage";
-    body.style.backgroundImage = `url(https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/${imageUrl})`;
+
     setTimeout(() => {
       animate = true;
     }, 500);
@@ -60,6 +91,7 @@
   <Head {metaTitle} {metaDescription} />
   {#if animate}
     <section
+      bind:this={rootElement}
       in:fly={{ x: -200, duration: 500 }}
       class="container"
       style={`--headerHeigth: ${$mainHeaderHeight}px`}
