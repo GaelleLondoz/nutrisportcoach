@@ -61,17 +61,18 @@ section {
     @include lg {
       width: 30%;
       height: calc(100vh - var(--headerHeigth));
+      margin-right: 20rem;
 
       &:after {
         content: "";
         position: absolute;
-        right: -18rem;
+        right: -16rem;
         top: 0;
-        width: 23rem;
+        width: 20rem;
         height: calc(100vh - var(--headerHeigth));
         z-index: -1;
         background-image: url("$lib/assets/contact/background.png");
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
       }
     }
