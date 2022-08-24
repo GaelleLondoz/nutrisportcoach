@@ -13,6 +13,9 @@
   justify-content: flex-start;
 
   .content {
+    @include sm-md {
+      margin-bottom: 30rem;
+    }
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -47,14 +50,16 @@
 }
 
 .image--ball {
-  position: absolute;
   @include sm-md {
-    right: 0;
+    position: absolute;
     bottom: 0;
+    right: 0;
   }
+
   @include lg {
     right: 2rem;
-    top: 25%;
+    position: absolute;
+    top: 30%;
     max-width: 54.2rem;
     width: 30vw;
   }

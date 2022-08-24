@@ -1,4 +1,6 @@
 :global(#philosophie) {
+  background-image: none;
+
   @include lg {
     overflow: hidden;
     position: relative;

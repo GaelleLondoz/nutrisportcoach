@@ -23,4 +23,6 @@ body {
   font-size: $base-font-size;
   background-color: $white;
   color: $black;
+  position: relative;
+  min-height: 100vh;
 }

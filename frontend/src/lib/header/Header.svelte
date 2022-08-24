@@ -10,7 +10,7 @@
   import { page } from "$app/stores";
   import { breakpoint } from "$stores/store-breakpoint";
 
-  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
+  $: smallViewport = ["xs", "sm", "md", "lg"].includes($breakpoint?.name);
 
   export let data = null;
 

@@ -27,12 +27,12 @@
   export let data = null;
 
   let animate = false;
-  let rootElement;
   let imageUrl;
+  let mounted = false;
 
   $: smallViewport = ["xs", "sm"].includes($breakpoint?.name);
   $: mediumViewport = ["md"].includes($breakpoint?.name);
-  $: largeViewport = ["lg"].includes($breakpoint?.name);
+  $: largeViewport = ["lg", "xl", "xxl"].includes($breakpoint?.name);
 
   $: if (smallViewport) {
     imageUrl = imageMobileUrl;
@@ -42,11 +42,11 @@
     imageUrl = imageDesktopUrl;
   }
 
-  $: rootElement &&
-    rootElement.style.setProperty(
-      "--background",
-      `url(https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/${imageUrl})`
-    );
+  $: url = `url(https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/${imageUrl})`;
+
+  $: if (mounted) {
+    document.documentElement.style.setProperty("--background", url);
+  }
 
   const {
     seo: { metaTitle, metaDescription },
@@ -80,7 +80,7 @@
   onMount(() => {
     const body = document.querySelector("body");
     body.id = "homepage";
-
+    mounted = true;
     setTimeout(() => {
       animate = true;
     }, 500);
@@ -91,10 +91,9 @@
   <Head {metaTitle} {metaDescription} />
   {#if animate}
     <section
-      bind:this={rootElement}
       in:fly={{ x: -200, duration: 500 }}
       class="container"
-      style={`--headerHeigth: ${$mainHeaderHeight}px`}
+      style={`--headerHeigth: ${$mainHeaderHeight}px;`}
     >
       <div class="content">
         <HTML text={title} />
