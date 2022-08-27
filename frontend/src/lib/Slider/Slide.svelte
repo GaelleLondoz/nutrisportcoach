@@ -25,14 +25,16 @@
       </div>
       {#if comment}
         <div class="review__comment">
-          <HTML text={comment} />
+          <div>
+            <HTML text={comment} />
+          </div>
         </div>
       {/if}
     </main>
     <footer class="review__footer">
       {#if firstName || lastName}
-        {firstName && firstName}
-        {lastName && lastName}
+        {#if firstName}{firstName} {/if}
+        {#if lastName}{lastName}{/if}
       {/if}
     </footer>
   </div>

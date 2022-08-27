@@ -53,10 +53,10 @@
 
   &__comment {
     position: relative;
-
-    :global(p) {
+    > div {
+      flex-grow: 1;
       overflow-y: scroll;
-      max-height: 12rem;
+      max-height: 14rem;
       padding-bottom: 2rem;
       position: relative;
     }
@@ -76,7 +76,9 @@
   }
 
   &__footer {
+    min-height: 3.5rem;
     height: 3.5rem;
+    max-height: 3.5rem;
     display: flex;
     align-items: center;
     font-weight: 500;

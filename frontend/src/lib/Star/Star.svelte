@@ -6,9 +6,6 @@
 {#if filled}
   <svg
     class="star"
-    on:mouseover
-    on:focus
-    on:mouseleave
     on:click
     data-starid={starId}
     let:class
@@ -49,9 +46,6 @@
 {:else}
   <svg
     class="star"
-    on:mouseover
-    on:focus
-    on:mouseleave
     on:click
     data-starid={starId}
     let:class
