@@ -42,7 +42,7 @@
     imageUrl = imageDesktopUrl;
   }
 
-  $: url = `url(https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/${imageUrl})`;
+  $: url = `url(https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/${imageUrl})`;
 
   $: if (mounted) {
     document.documentElement.style.setProperty("--background", url);

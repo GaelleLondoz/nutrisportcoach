@@ -81,7 +81,7 @@
         <a sveltekit:prefetch href="/" class="no-underline">
           <img
             in:fade={{ duration: 500 }}
-            src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{logoBigUrl}"
+            src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{logoBigUrl}"
             alt={logoBigAlt}
             class="logo logo--big"
           />
@@ -114,7 +114,7 @@
           >
             <img
               in:fade={{ duration: 500 }}
-              src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto/{logoSmallUrl}"
+              src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{logoSmallUrl}"
               alt={logoSmallAlt}
               class="logo logo--small"
             />

@@ -54,15 +54,15 @@
                 <div class="program__card">
                   <picture in:fade={{ duration: 500 }}>
                     <source
-                      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_225/{imageUrl}"
+                      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageUrl}"
                       media="(min-width: 1024px)"
                     />
                     <source
-                      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_200/{imageUrl}"
+                      srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageUrl}"
                       media="(min-width: 768px)"
                     />
                     <img
-                      src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_112/{imageUrl}"
+                      src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageUrl}"
                       alt={imageAlt}
                     />
                   </picture>

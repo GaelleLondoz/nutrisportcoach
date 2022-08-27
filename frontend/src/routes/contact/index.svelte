@@ -93,12 +93,12 @@
         <div class="details__container-background" />
         <picture in:fade={{ duration: 500 }}>
           <source
-            srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_254/{imageUrl}"
+            srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageUrl}"
             media="(min-width: 1024px)"
           />
 
           <img
-            src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_142/{imageUrl}"
+            src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageUrl}"
             alt={imageAlt}
             class="image--isa"
           />

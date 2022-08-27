@@ -21,12 +21,12 @@
     {#if cloudinaryHash && alternativeText && smallViewport}
       <picture in:fade={{ duration: 500 }}>
         <source
-          srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_250/{cloudinaryHash}"
+          srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{cloudinaryHash}"
           media="(min-width: 1024px)"
         />
 
         <img
-          src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto,q_auto,w_80/{cloudinaryHash}"
+          src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{cloudinaryHash}"
           alt={alternativeText}
         />
       </picture>
