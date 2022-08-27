@@ -9,7 +9,7 @@
   export let cloudinaryHash = "";
   export let numberOfTabs = 0;
 
-  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
+  $: smallViewport = ["xs", "sm", "md", "lg"].includes($breakpoint?.name);
 </script>
 
 <li

@@ -27,7 +27,7 @@
   import Ball from "$lib/assets/sport/ballon.png";
   import BallMobile from "$lib/assets/sport/ballon-mobile.png";
 
-  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
+  $: smallViewport = ["xs", "sm"].includes($breakpoint?.name);
 
   export let data = null;
 

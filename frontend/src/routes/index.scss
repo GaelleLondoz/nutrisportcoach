@@ -4,7 +4,6 @@
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
   background-image: var(--background);
 }
 
@@ -41,14 +40,15 @@ section {
         margin: 0 0 5rem;
         font-size: 2rem;
         line-height: 2.5rem;
-        max-width: 100%;
       }
+
       @include md {
         margin: 0 0 10rem;
         font-size: 2.5rem;
         line-height: 3.5rem;
-        max-width: 55rem;
       }
+
+      max-width: 55rem;
     }
 
     a {

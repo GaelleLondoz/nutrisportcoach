@@ -36,7 +36,7 @@
     description,
   } = data?.attributes;
 
-  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
+  $: smallViewport = ["xs", "sm", "md", "lg"].includes($breakpoint?.name);
 
   onMount(() => {
     const body = document.querySelector("body");
@@ -56,12 +56,14 @@
         <HTML text={description} />
       </div>
 
-      <img
-        in:fade
-        src={smallViewport ? HistoireMobile : Histoire}
-        alt="Isabelle"
-        class="image image--histoire"
-      />
+      {#if !smallViewport}
+        <img
+          in:fade
+          src={Histoire}
+          alt="Isabelle"
+          class="image image--histoire"
+        />
+      {/if}
     </section>
   {/if}
 {/if}

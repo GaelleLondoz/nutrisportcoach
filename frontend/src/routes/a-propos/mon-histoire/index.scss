@@ -19,10 +19,10 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    max-width: 85rem;
 
     @include lg {
       width: 60%;
+      max-width: 85rem;
     }
 
     h1 {
@@ -41,19 +41,6 @@
     }
 
     :global(p) {
-      @include sm {
-        &:first-of-type {
-          padding-right: 14rem;
-        }
-      }
-
-      @include md {
-        &:first-of-type,
-        &:nth-of-type(2) {
-          padding-right: 14rem;
-        }
-      }
-
       font-size: 1.8rem;
       line-height: 2rem;
       margin-bottom: 1.5rem;
@@ -61,19 +48,12 @@
   }
 
   .image--histoire {
-    @include sm-md {
-      width: 100%;
-      max-width: 16rem;
-      transform: translateX(2rem);
-    }
-
     @include lg {
       width: 40%;
       max-width: 47.1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
     }
-
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 }

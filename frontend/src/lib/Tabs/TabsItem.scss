@@ -37,6 +37,11 @@ li {
     justify-content: center;
     align-items: center;
   }
+  &.active {
+    img {
+      width: 10rem;
+    }
+  }
 
   &:not(.active) {
     img {

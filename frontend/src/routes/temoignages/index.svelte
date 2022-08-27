@@ -74,7 +74,7 @@
       <section class="container">
         <header>
           <h1>{title}</h1>
-          {#if !reviews.length}
+          {#if reviews.length > 1}
             <Filters bind:reviews />
           {/if}
         </header>

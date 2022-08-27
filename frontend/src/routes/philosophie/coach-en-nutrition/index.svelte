@@ -38,7 +38,7 @@
     description,
   } = data?.attributes;
 
-  $: smallViewport = ["xs", "sm", "md"].includes($breakpoint?.name);
+  $: smallViewport = ["xs", "sm", "md", "lg"].includes($breakpoint?.name);
 
   onMount(() => {
     const body = document.querySelector("body");
