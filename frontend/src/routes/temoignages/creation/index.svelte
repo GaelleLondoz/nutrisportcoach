@@ -198,7 +198,6 @@
                 attributes={reviewAttributes}
               />
             </div>
-            <p class="terms">{terms}</p>
             <button type="submit">Publier</button>
           </form>
         </div>
