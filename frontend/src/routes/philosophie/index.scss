@@ -113,6 +113,19 @@
           position: relative;
           display: flex;
 
+          img {
+            @include sm {
+              max-width: 11.2rem;
+            }
+            @include md {
+              max-width: 17rem;
+            }
+
+            @include lg {
+              max-width: 22.5rem;
+            }
+          }
+
           .program__title {
             @include sm {
               font-size: 1.8rem;
