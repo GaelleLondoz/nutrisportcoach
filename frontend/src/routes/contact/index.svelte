@@ -28,6 +28,8 @@
 
   import Phone from "$lib/assets/contact/phone.svg";
   import Mail from "$lib/assets/contact/mail.svg";
+  import Facebook from "$lib/assets/contact/facebook.svg";
+  import Instagram from "$lib/assets/contact/instagram.svg";
 
   export let data;
 
@@ -111,6 +113,41 @@
         <div class="mail">
           <img in:fade src={Mail} alt="icone mail" class="image image--mail" />
           <span>{emailAddress}</span>
+        </div>
+
+        <div class="social-media">
+          <hr />
+          <span>N'hésitez pas à me suivre sur<br />Facebook et Instagram:</span>
+          <div class="social-media__inner">
+            <div class="facebook">
+              <a
+                href="https://www.facebook.com/Nutrisport-Coach-Isabelle-Steurbaut-101459936033877"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  in:fade
+                  src={Facebook}
+                  alt="icone facebook"
+                  class="image image--facebook"
+                />
+              </a>
+            </div>
+            <div class="instagram">
+              <a
+                href="https://www.instagram.com/nutri.sportcoach/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  in:fade
+                  src={Instagram}
+                  alt="icone insta"
+                  class="image image--instagram"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div

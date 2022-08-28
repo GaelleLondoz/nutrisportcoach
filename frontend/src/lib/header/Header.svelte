@@ -34,9 +34,11 @@
 
   const toggleOpen = () => {
     checked = !checked;
-    body.style.position = checked ? "fixed" : "relative";
-    body.style.width = checked ? "100vw" : "100%";
-    body.style.heigth = checked ? "100vh" : "100%";
+    if (body.id !== "homepage") {
+      body.style.position = checked ? "fixed" : "relative";
+      body.style.width = checked ? "100vw" : "100%";
+      body.style.heigth = checked ? "100vh" : "100%";
+    }
   };
 
   onMount(() => {
