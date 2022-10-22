@@ -23,9 +23,6 @@
   import Head from "$lib/Head/Head.svelte";
   import HTML from "$lib/HTML/HTML.svelte";
 
-  import Histoire from "$lib/assets/histoire/histoire.png";
-  import HistoireMobile from "$lib/assets/histoire/histoire-mobile.png";
-
   export let data = null;
 
   let mounted = false;
@@ -34,9 +31,18 @@
     seo: { metaTitle, metaDescription },
     title,
     description,
+    titleBeforeAfter,
+    beforePicture: {
+      data: {
+        attributes: { hash: imageBeforeUrl, alternativeText: imageBeforeAlt },
+      },
+    },
+    afterPicture: {
+      data: {
+        attributes: { hash: imageAfterUrl, alternativeText: imageAfterAlt },
+      },
+    },
   } = data?.attributes;
-
-  $: smallViewport = ["xs", "sm", "md", "lg"].includes($breakpoint?.name);
 
   onMount(() => {
     const body = document.querySelector("body");
@@ -54,16 +60,38 @@
       <div class="content">
         <h1>{title}</h1>
         <HTML text={description} />
-      </div>
+        <h2>{titleBeforeAfter}</h2>
+        <div class="images-container">
+          <div class="image">
+            <picture in:fade={{ duration: 500 }}>
+              <source
+                srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageBeforeUrl}"
+                media="(min-width: 1024px)"
+              />
 
-      {#if !smallViewport}
-        <img
-          in:fade
-          src={Histoire}
-          alt="Isabelle"
-          class="image image--histoire"
-        />
-      {/if}
+              <img
+                src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageBeforeUrl}"
+                alt={imageBeforeAlt}
+              />
+            </picture>
+            <span>Avant</span>
+          </div>
+          <div class="image">
+            <picture in:fade={{ duration: 500 }}>
+              <source
+                srcset="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageAfterUrl}"
+                media="(min-width: 1024px)"
+              />
+
+              <img
+                src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{imageAfterUrl}"
+                alt={imageAfterAlt}
+              />
+            </picture>
+            <span>Après</span>
+          </div>
+        </div>
+      </div>
     </section>
   {/if}
 {/if}

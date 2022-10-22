@@ -6,6 +6,7 @@ export const query = gql`
       data {
         attributes {
           title
+          titleVideo
           description
           seo {
             metaTitle

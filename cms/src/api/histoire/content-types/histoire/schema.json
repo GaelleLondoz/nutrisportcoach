@@ -22,6 +22,29 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "titleBeforeAfter": {
+      "type": "string"
+    },
+    "beforePicture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "afterPicture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

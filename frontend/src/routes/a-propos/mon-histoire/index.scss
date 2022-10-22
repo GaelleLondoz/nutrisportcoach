@@ -10,22 +10,12 @@
 
   position: relative;
   z-index: 10;
-  overflow-x: hidden;
   display: flex;
   justify-content: flex-start;
 
   .content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
-    @include lg {
-      width: 60%;
-      max-width: 85rem;
-    }
-
-    h1 {
+    h1,
+    h2 {
       @include sm-md {
         font-size: 2.4rem;
         line-height: 3rem;
@@ -40,20 +30,80 @@
       }
     }
 
+    h2 {
+      @include sm-md {
+        margin-top: 3rem;
+      }
+      @include lg {
+        margin-top: 5.5rem;
+      }
+    }
+
     :global(p) {
       font-size: 1.8rem;
       line-height: 2rem;
       margin-bottom: 1.5rem;
     }
-  }
 
-  .image--histoire {
-    @include lg {
-      width: 40%;
-      max-width: 47.1rem;
-      position: absolute;
-      top: 0;
-      right: 0;
+    .images-container {
+      @include sm {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 3rem;
+      }
+
+      @include sm-md {
+        margin-bottom: 3rem;
+      }
+
+      @include md {
+        justify-content: space-between;
+      }
+
+      @include lg {
+        column-gap: 21.4rem;
+        justify-content: center;
+        margin-bottom: 5.5rem;
+      }
+
+      display: flex;
+      margin: auto;
+      position: relative;
+
+      .image {
+        @include sm {
+          width: 100%;
+        }
+
+        @include sm-md {
+          max-width: 40rem;
+        }
+
+        @include md {
+          width: 40rem;
+        }
+
+        @include lg {
+          width: 43rem;
+          max-width: 43rem;
+        }
+
+        position: relative;
+
+        img {
+          max-width: 100%;
+        }
+
+        span {
+          color: $ui-gray-0;
+          text-transform: uppercase;
+          font-size: 3rem;
+          bottom: 3.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          position: absolute;
+        }
+      }
     }
   }
 }

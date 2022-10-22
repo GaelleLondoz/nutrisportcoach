@@ -7,6 +7,23 @@ export const query = gql`
         attributes {
           title
           description
+          titleBeforeAfter
+          beforePicture {
+            data {
+              attributes {
+                alternativeText
+                hash
+              }
+            }
+          }
+          afterPicture {
+            data {
+              attributes {
+                alternativeText
+                hash
+              }
+            }
+          }
           seo {
             metaTitle
             metaDescription
