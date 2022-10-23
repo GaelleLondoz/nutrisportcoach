@@ -1,6 +1,6 @@
 <script>
   import { Swiper } from "swiper/svelte";
-  import { Pagination } from "swiper";
+  import { Pagination, Mousewheel } from "swiper";
 
   import Slide from "$lib/Slider/Slide.svelte";
 
@@ -26,10 +26,11 @@
         spaceBetween: 120,
       },
     }}
+    mousewheel={true}
     pagination={{
       clickable: true,
     }}
-    modules={[Pagination]}
+    modules={[Pagination, Mousewheel]}
   >
     {#each reviews as { attributes: { firstName, lastName, comment, rating } }}
       <Slide {firstName} {lastName} {comment} {rating} />

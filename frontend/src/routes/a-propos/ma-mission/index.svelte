@@ -52,9 +52,7 @@
   {#if mounted}
     <section in:fade class="container">
       <div class="content">
-        <h1>{title}</h1>
-        <HTML text={description} />
-        <h2>{titleVideo}</h2>
+        <h1>{titleVideo}</h1>
         <div class="video-container">
           <iframe
             src="https://www.youtube.com/embed/kH3U2Og6F-Y"
@@ -64,6 +62,8 @@
             allowfullscreen
           />
         </div>
+        <h2>{title}</h2>
+        <HTML text={description} />
       </div>
     </section>
 
