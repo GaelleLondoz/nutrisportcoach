@@ -26,7 +26,7 @@
         spaceBetween: 120,
       },
     }}
-    mousewheel={true}
+    mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: true }}
     pagination={{
       clickable: true,
     }}
