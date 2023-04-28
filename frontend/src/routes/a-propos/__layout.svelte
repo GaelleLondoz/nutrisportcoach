@@ -26,7 +26,7 @@
     `;
 
     const res = await request(
-      "https://nutrisportcoach.herokuapp.com/graphql",
+      "https://nutrisportcoach.onrender.com/graphql",
       query
     );
 

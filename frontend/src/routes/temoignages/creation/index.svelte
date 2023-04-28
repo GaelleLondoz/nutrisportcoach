@@ -7,7 +7,7 @@
   export const load = async () => {
     const data = await getData(
       query,
-      "https://nutrisportcoach.herokuapp.com/graphql"
+      "https://nutrisportcoach.onrender.com/graphql"
     );
 
     return {
@@ -64,7 +64,7 @@
   };
 
   const handleSubmit = async () => {
-    const endpoint = "https://nutrisportcoach.herokuapp.com/graphql";
+    const endpoint = "https://nutrisportcoach.onrender.com/graphql";
 
     const graphQLClient = new GraphQLClient(endpoint);
 

@@ -7,7 +7,7 @@
   export const load = async () => {
     const {
       sport: { data },
-    } = await getData(query, "https://nutrisportcoach.herokuapp.com/graphql");
+    } = await getData(query, "https://nutrisportcoach.onrender.com/graphql");
 
     return {
       props: { data },

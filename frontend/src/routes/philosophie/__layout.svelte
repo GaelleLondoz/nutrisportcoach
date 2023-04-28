@@ -37,7 +37,7 @@
     }
   `;
 
-  request("https://nutrisportcoach.herokuapp.com/graphql", query).then(
+  request("https://nutrisportcoach.onrender.com/graphql", query).then(
     (res) => (data = res.philosophie.data.attributes.tabs)
   );
 </script>
