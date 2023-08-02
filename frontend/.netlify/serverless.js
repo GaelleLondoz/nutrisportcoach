@@ -1,34 +1,24 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-require('./shims.js');
-var _0SERVER = require('./server/index.js');
-require('assert');
-require('net');
-require('http');
-require('stream');
-require('buffer');
-require('util');
-require('stream/web');
-require('perf_hooks');
-require('util/types');
-require('events');
-require('tls');
-require('async_hooks');
-require('console');
-require('zlib');
-require('node:http');
-require('node:https');
-require('node:zlib');
-require('node:stream');
-require('node:buffer');
-require('node:util');
-require('node:url');
-require('node:net');
-require('node:fs');
-require('node:path');
-require('crypto');
+import './shims.js';
+import { Server } from './server/index.js';
+import 'assert';
+import 'net';
+import 'http';
+import 'stream';
+import 'buffer';
+import 'util';
+import 'querystring';
+import 'stream/web';
+import 'worker_threads';
+import 'perf_hooks';
+import 'util/types';
+import 'url';
+import 'string_decoder';
+import 'events';
+import 'tls';
+import 'async_hooks';
+import 'console';
+import 'zlib';
+import 'crypto';
 
 var setCookie = {exports: {}};
 
@@ -44,9 +34,11 @@ function isNonEmptyString(str) {
 
 function parseString(setCookieValue, options) {
   var parts = setCookieValue.split(";").filter(isNonEmptyString);
-  var nameValue = parts.shift().split("=");
-  var name = nameValue.shift();
-  var value = nameValue.join("="); // everything after the first =, joined by a "=" if there was more than one part
+
+  var nameValuePairStr = parts.shift();
+  var parsed = parseNameValuePair(nameValuePairStr);
+  var name = parsed.name;
+  var value = parsed.value;
 
   options = options
     ? Object.assign({}, defaultParseOptions, options)
@@ -64,7 +56,7 @@ function parseString(setCookieValue, options) {
   }
 
   var cookie = {
-    name: name, // grab everything before the first =
+    name: name,
     value: value,
   };
 
@@ -88,6 +80,22 @@ function parseString(setCookieValue, options) {
   });
 
   return cookie;
+}
+
+function parseNameValuePair(nameValuePairStr) {
+  // Parses name-value-pair according to rfc6265bis draft
+
+  var name = "";
+  var value = "";
+  var nameValueArr = nameValuePairStr.split("=");
+  if (nameValueArr.length > 1) {
+    name = nameValueArr.shift();
+    value = nameValueArr.join("="); // everything after the first =, joined by a "=" if there was more than one part
+  } else {
+    value = nameValuePairStr;
+  }
+
+  return { name: name, value: value };
 }
 
 function parse(input, options) {
@@ -267,13 +275,18 @@ function split_headers(headers) {
  * @returns {import('@netlify/functions').Handler}
  */
 function init(manifest) {
-	const server = new _0SERVER.Server(manifest);
+	const server = new Server(manifest);
 
-	server.init({
+	let init_promise = server.init({
 		env: process.env
 	});
 
 	return async (event, context) => {
+		if (init_promise !== null) {
+			await init_promise;
+			init_promise = null;
+		}
+
 		const response = await server.respond(to_request(event), {
 			platform: { context },
 			getClientAddress() {
@@ -345,4 +358,4 @@ function is_text(content_type) {
 	return type.startsWith('text/') || type.endsWith('+xml') || text_types.has(type);
 }
 
-exports.init = init;
+export { init };
