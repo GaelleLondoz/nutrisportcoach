@@ -1,8 +1,9 @@
 import { sveltekit } from "@sveltejs/kit/vite";
+import { defineConfig } from "vite";
 
 import path from "path";
-/** @type {import('vite').UserConfig} */
-const config = {
+
+export default defineConfig({
   plugins: [sveltekit()],
   resolve: {
     alias: {
@@ -11,6 +12,7 @@ const config = {
       $utils: path.resolve("./src/utils"),
     },
   },
-};
-
-export default config;
+  ssr: {
+    noExternal: ["svelte-hero-icons"],
+  },
+});

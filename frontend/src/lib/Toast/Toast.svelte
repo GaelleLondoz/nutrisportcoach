@@ -1,6 +1,6 @@
 <script>
   import { fly } from "svelte/transition";
-  import { Icon, X } from "svelte-hero-icons";
+  import { Icon, XMark } from "svelte-hero-icons";
   import Portal from "svelte-portal";
 
   export const open = () => {
@@ -26,7 +26,7 @@
         <slot />
       </div>
       <span class="close" on:click={close}>
-        <Icon src={X} size="16" />
+        <Icon src={XMark} size="16" />
       </span>
     </div>
   </Portal>

@@ -1,0 +1,12 @@
+<svg id="picto_-_contact" data-name="picto - contact" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="56" viewBox="0 0 32 56">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_10" data-name="Rectangle 10" width="32" height="56" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_3" data-name="Groupe 3" clip-path="url(#clip-path)">
+    <rect id="Rectangle_9" data-name="Rectangle 9" width="30" height="54" rx="5.236" transform="translate(1 1)" fill="none" stroke="#000" stroke-width="2"/>
+    <path id="Tracé_13" data-name="Tracé 13" d="M2,7H30V2H2ZM20.5,5h-9a.5.5,0,0,1,0-1h9a.5.5,0,0,1,0,1"/>
+    <path id="Tracé_14" data-name="Tracé 14" d="M2,54H30V50H2Zm15.25-1.25a1.043,1.043,0,1,1,.013-1.487,1.052,1.052,0,0,1-.013,1.487"/>
+  </g>
+</svg>

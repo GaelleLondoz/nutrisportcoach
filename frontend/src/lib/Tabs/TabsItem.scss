@@ -25,13 +25,13 @@ li {
 
   padding: 3rem 0;
 
-  font-size: 2rem;
-  color: #d4d2d2;
   font-weight: 500;
   @include transition;
   position: relative;
 
   a {
+    font-size: 2rem;
+    color: #d4d2d2;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -49,7 +49,7 @@ li {
     }
   }
 
-  &.active {
+  &.active a {
     color: $ui-green-0;
   }
 

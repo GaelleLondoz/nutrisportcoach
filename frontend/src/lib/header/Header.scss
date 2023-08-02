@@ -175,9 +175,11 @@ header {
             background-color: #b0bcac;
           }
 
-          color: $black;
-          letter-spacing: 0.063rem;
-          font-weight: 500;
+          > a {
+            color: $black;
+            font-weight: 500;
+            letter-spacing: 0.063rem;
+          }
         }
       }
 
@@ -198,7 +200,7 @@ header {
         padding: 0;
         list-style-type: none;
 
-        li {
+        li > a {
           @include transition;
           font-size: 2rem;
           line-height: 2rem;

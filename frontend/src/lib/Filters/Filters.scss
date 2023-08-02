@@ -6,6 +6,7 @@ button {
   line-height: 1;
   font-weight: 500;
   border-radius: 1.5rem;
+  background-color: transparent;
 
   &:hover {
     background-color: $ui-green-0;
@@ -20,7 +21,7 @@ button {
   row-gap: 4rem;
   position: absolute;
   right: 0;
-  top: 5rem;
+  top: 7rem;
   z-index: 10;
   box-shadow: 0px 3px 6px #00000029;
   background-color: white;

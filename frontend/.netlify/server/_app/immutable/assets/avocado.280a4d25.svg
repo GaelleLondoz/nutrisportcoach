@@ -1,0 +1,38 @@
+<svg id="Groupe_148" data-name="Groupe 148" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="182.628" height="193.693" viewBox="0 0 182.628 193.693">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_66" data-name="Rectangle 66" width="182.628" height="193.693" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Tracé_72" data-name="Tracé 72" d="M98.973,28.279C47.059,42.436,28.183,70.756,28.183,70.756c-5.2-4.419-77.091,89.753,33.033,117.981C158.947,213.8,169.77,80.188,169.77,80.188c16.3-32.589,9.726-59.911,7.632-66.77a2.485,2.485,0,0,0-2.285-1.708c-12.432-.738-12.432-9.392-12.432-9.392a13.767,13.767,0,0,0-8.18-2.285c-20.226,0-55.532,28.245-55.532,28.245" transform="translate(-0.345 -0.034)" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="0.593" cy="0.449" r="0.435" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.524" stop-color="#7ca34d"/>
+      <stop offset="1" stop-color="#7ca34d"/>
+    </radialGradient>
+    <clipPath id="clip-path-4">
+      <rect id="Rectangle_64" data-name="Rectangle 64" width="11.924" height="28.752" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_147" data-name="Groupe 147" clip-path="url(#clip-path)">
+    <g id="Groupe_141" data-name="Groupe 141" transform="translate(1.987 0.196)">
+      <g id="Groupe_140" data-name="Groupe 140" clip-path="url(#clip-path-2)">
+        <rect id="Rectangle_63" data-name="Rectangle 63" width="234.975" height="213.763" transform="translate(-49.253 0)" fill="url(#radial-gradient)"/>
+      </g>
+    </g>
+    <g id="Groupe_146" data-name="Groupe 146" transform="translate(0 0)">
+      <g id="Groupe_145" data-name="Groupe 145" clip-path="url(#clip-path)">
+        <path id="Tracé_73" data-name="Tracé 73" d="M164.524,2.382A9.44,9.44,0,0,0,171,10.418c2.509,1.385,6,.156,8.013,2.336,7.28,21.836,2.85,48.35-6.859,67.658a209.267,209.267,0,0,1-8.457,41.45c-12.467,42.65-43.884,79.433-92.263,70.474-27.235-5.273-58.584-17.007-68.7-45.546C-5.99,121.078,7.2,85.605,27.7,69a3.358,3.358,0,0,1,3.525.26l-3.2.45c17.013-22.251,47.323-36.177,71.731-42.35,14.711-10.344,46.9-35.1,64.768-24.98m-.387.2c-17.353-8.607-48.69,16.742-62.662,26.929-6.7,2.3-13.615,4.257-20.139,7.107-18.761,7.863-37.181,19.349-49.717,35.5l-3.19.45c1.281.687,1.142.208,1.015.392C10.671,90.134-.976,120.623,6.558,145.5c9.132,26.918,39.569,38.519,65.391,43.717,46.78,9.219,77.367-26.849,89.846-67.958a207.707,207.707,0,0,0,8.89-41.121c9.963-19.661,13.926-42.881,8.578-64.48.144-4.823-5.244-2.988-8.475-4.713-3.525-1.24-6.513-4.661-6.652-8.365" transform="translate(0.001 0.001)" fill="#3e5227"/>
+        <path id="Tracé_74" data-name="Tracé 74" d="M19.286,30.765C33.224,12.65,54.766,5.855,67.417,15.581S79.018,47.887,65.086,66,36.6,82.478,23.959,72.746,5.349,48.88,19.286,30.765" transform="translate(53.725 53.145)" fill="#736357"/>
+        <g id="Groupe_144" data-name="Groupe 144" transform="translate(76.93 87.228)" opacity="0.81">
+          <g id="Groupe_143" data-name="Groupe 143">
+            <g id="Groupe_142" data-name="Groupe 142" clip-path="url(#clip-path-4)">
+              <path id="Tracé_75" data-name="Tracé 75" d="M20.709,15.53c-3.006,4.529-4.252,10.1-2.723,14.544,1.442,3.4,3.906,5.988,5.463,9.438.444.9,2.458,3.554,1.6,4.361C14.848,42.719,10.809,30.287,14.928,21.916a21.03,21.03,0,0,1,5.371-6.8Z" transform="translate(-13.337 -15.121)" fill="#fff"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
