@@ -1,17 +1,14 @@
 <script context="module">
-  import { query } from "./graphqlQuery.js";
-  import { getData } from "$utils/api.js";
-
   export const prerender = true;
 
   export const load = async () => {
-    const data = await getData(
-      query,
-      "https://nutrisportcoach.onrender.com/graphql"
-    );
+    let { data } = await supabase
+      .from("reviews")
+      .select("*")
+      .order("order", { ascending: true });
 
     return {
-      props: { data },
+      props: { reviews: data.filter((review) => review.published) },
     };
   };
 </script>
@@ -19,8 +16,9 @@
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
+  import data from "../../data/index.js";
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
-
+  import supabase from "$lib/db.js";
   import "swiper/css";
   import "swiper/css/pagination";
 
@@ -28,31 +26,19 @@
   import Filters from "$lib/Filters/Filters.svelte";
   import Slider from "$lib/Slider/Slider.svelte";
 
-  export let data = null;
+  export let reviews = [];
 
   let {
     reviewsPage: {
-      data: {
-        attributes: {
-          seo: { metaTitle, metaDescription },
-          title,
-          button: {
-            text: buttonText,
-            url: {
-              data: {
-                attributes: { url: buttonUrl },
-              },
-            },
-          },
-        },
-      },
+      seo: { metaTitle, metaDescription },
+      title,
+      button: { text: buttonText, url: buttonUrl },
     },
-    reviews: { data: reviews },
   } = data;
 
   let mounted = false;
 
-  onMount(() => {
+  onMount(async () => {
     const body = document.querySelector("body");
     body.id = "reviews";
 
@@ -64,12 +50,13 @@
 
 {#if data}
   <Head {metaTitle} {metaDescription} />
+
   {#if mounted}
     <div
       in:fade
       class="reviews"
       style={`--headerHeigth: ${$mainHeaderHeight}px`}
-      class:no-reviews={!reviews.length}
+      class:no-reviews={!reviews?.length}
     >
       <section class="container">
         <header>

@@ -1,27 +1,9 @@
-<script context="module">
-  import { query } from "./graphqlQuery.js";
-  import { getData } from "$utils/api.js";
-
-  export const prerender = true;
-
-  export const load = async () => {
-    const {
-      philosophie: { data },
-    } = await getData(query, "https://nutrisportcoach.onrender.com/graphql");
-
-    return {
-      props: { data },
-    };
-  };
-</script>
-
 <script>
   import { onMount } from "svelte";
+  import data from "../../data/index.js";
   import { fade } from "svelte/transition";
 
   import Head from "$lib/Head/Head.svelte";
-
-  export let data = null;
 
   let mounted = false;
 
@@ -30,7 +12,7 @@
     title,
     description,
     programs,
-  } = data?.attributes;
+  } = data?.philosophie;
 
   onMount(() => {
     const body = document.querySelector("body");
@@ -48,7 +30,7 @@
         <p>{description}</p>
 
         <div class="programs">
-          {#each programs as { title, button: { text: buttonText, url: { data: { attributes: { url: buttonUrl } } } }, image: { data: { attributes: { hash: imageUrl, alternativeText: imageAlt } } } }}
+          {#each programs as { title, button: { text: buttonText, url: buttonUrl }, image: { hash: imageUrl, alternativeText: imageAlt } }}
             <div class="program">
               <a class="program__link" sveltekit:prefetch href={buttonUrl}>
                 <div class="program__card">

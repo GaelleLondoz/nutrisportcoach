@@ -18,19 +18,7 @@
   let checked = false;
   let mounted = false;
 
-  const {
-    items,
-    logoBig: {
-      data: {
-        attributes: { hash: logoBigUrl, alternativeText: logoBigAlt },
-      },
-    },
-    logoSmall: {
-      data: {
-        attributes: { hash: logoSmallUrl, alternativeText: logoSmallAlt },
-      },
-    },
-  } = data?.attributes;
+  const { items, logoBig: logoBigUrl, logoSmall: logoSmallUrl } = data;
 
   const toggleOpen = () => {
     checked = !checked;
@@ -84,7 +72,7 @@
           <img
             in:fade={{ duration: 500 }}
             src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{logoBigUrl}"
-            alt={logoBigAlt}
+            alt="Logo"
             class="logo logo--big"
           />
         </a>
@@ -93,7 +81,7 @@
       {#if !smallViewport}
         <div class="menu-items--desktop">
           <ul>
-            {#each items as { label, page: { data: { attributes: { url } } } }}
+            {#each items as { label, url }}
               <li
                 class:active={!$page.url.pathname.includes("/a-propos")
                   ? $page.url.pathname.includes(url)
@@ -117,13 +105,13 @@
             <img
               in:fade={{ duration: 500 }}
               src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{logoSmallUrl}"
-              alt={logoSmallAlt}
+              alt="Logo"
               class="logo logo--small"
             />
           </a>
 
           <ul>
-            {#each items as { label, page: { data: { attributes: { url } } } }}
+            {#each items as { label, url }}
               <li
                 class:active={$page.url.pathname.includes(url)}
                 on:click={() => {

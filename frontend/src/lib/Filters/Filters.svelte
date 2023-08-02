@@ -14,7 +14,7 @@
     reviews = reviews.sort((a, b) => {
       let first = order === "asc" ? a : b;
       let second = order === "asc" ? b : a;
-      return first.attributes[value] - second.attributes[value];
+      return first[value] - second[value];
     });
   };
 

@@ -1,23 +1,7 @@
-<script context="module">
-  import { query } from "./graphqlQuery.js";
-  import { getData } from "$utils/api.js";
-
-  export const prerender = true;
-
-  export const load = async () => {
-    const {
-      contact: { data },
-    } = await getData(query, "https://nutrisportcoach.onrender.com/graphql");
-
-    return {
-      props: { data },
-    };
-  };
-</script>
-
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
+  import data from "../../data/index.js";
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
   import { Icon, CheckCircle, XCircle } from "svelte-hero-icons";
 
@@ -30,8 +14,6 @@
   import Mail from "$lib/assets/contact/mail.svg";
   import Facebook from "$lib/assets/contact/facebook.svg";
   import Instagram from "$lib/assets/contact/instagram.svg";
-
-  export let data;
 
   let form = null;
   let toast = null;
@@ -49,12 +31,8 @@
     emailAddress,
     buttonText,
     terms,
-    image: {
-      data: {
-        attributes: { hash: imageUrl, alternativeText: imageAlt },
-      },
-    },
-  } = data?.attributes;
+    image: { hash: imageUrl, alternativeText: imageAlt },
+  } = data?.contact;
 
   const handleSubmit = () => {
     let formData = new FormData(form);

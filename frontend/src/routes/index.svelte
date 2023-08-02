@@ -1,30 +1,12 @@
-<script context="module">
-  import { query } from "./graphqlQuery.js";
-  import { getData } from "$utils/api.js";
-
-  export const prerender = true;
-
-  export const load = async () => {
-    const {
-      homepage: { data },
-    } = await getData(query, "https://nutrisportcoach.onrender.com/graphql");
-
-    return {
-      props: { data },
-    };
-  };
-</script>
-
 <script>
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
   import { breakpoint } from "$stores/store-breakpoint";
+  import data from "../data/index.js";
 
   import Head from "$lib/Head/Head.svelte";
   import HTML from "$lib/HTML/HTML.svelte";
-
-  export let data = null;
 
   let animate = false;
   let imageUrl;
@@ -52,30 +34,11 @@
     seo: { metaTitle, metaDescription },
     title,
     description,
-    button: {
-      text: buttonText,
-      url: {
-        data: {
-          attributes: { url: buttonUrl },
-        },
-      },
-    },
-    imageBackgroundMobile: {
-      data: {
-        attributes: { hash: imageMobileUrl },
-      },
-    },
-    imageBackgroundTablet: {
-      data: {
-        attributes: { hash: imageTabletUrl },
-      },
-    },
-    imageBackgroundDesktop: {
-      data: {
-        attributes: { hash: imageDesktopUrl },
-      },
-    },
-  } = data?.attributes;
+    button: { text: buttonText, url: buttonUrl },
+    imageBackgroundMobile: imageMobileUrl,
+    imageBackgroundTablet: imageTabletUrl,
+    imageBackgroundDesktop: imageDesktopUrl,
+  } = data?.homepage;
 
   onMount(() => {
     const body = document.querySelector("body");

@@ -1,30 +1,13 @@
-<script context="module">
-  import { query } from "./graphqlQuery.js";
-  import { getData } from "$utils/api.js";
-
-  export const prerender = true;
-
-  export const load = async () => {
-    const {
-      bienEtre: { data },
-    } = await getData(query, "https://nutrisportcoach.onrender.com/graphql");
-
-    return {
-      props: { data },
-    };
-  };
-</script>
-
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
+
+  import data from "../../../data/index.js";
 
   import Head from "$lib/Head/Head.svelte";
   import HTML from "$lib/HTML/HTML.svelte";
 
   import Tree from "$lib/assets/bien-etre/arbre.png";
-
-  export let data = null;
 
   let mounted = false;
 
@@ -32,7 +15,7 @@
     seo: { metaTitle, metaDescription },
     title,
     description,
-  } = data?.attributes;
+  } = data?.bienEtre;
 
   onMount(() => {
     const body = document.querySelector("body");

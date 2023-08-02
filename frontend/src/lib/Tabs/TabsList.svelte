@@ -12,12 +12,10 @@
         {#each data as tab}
           <TabsItem
             numberOfTabs={data?.length}
-            url={tabsWithImages
-              ? tab?.url?.page?.data?.attributes?.url
-              : tab?.page?.data?.attributes?.url}
+            url={tabsWithImages ? tab?.url?.url : tab?.url}
             label={tabsWithImages ? tab?.url?.label : tab?.label}
-            alternativeText={tab?.image?.data?.attributes?.alternativeText}
-            cloudinaryHash={tab?.image?.data?.attributes?.hash}
+            alternativeText={tab?.image?.alternativeText}
+            cloudinaryHash={tab?.image?.hash}
           />
         {/each}
       </ul>

@@ -1,27 +1,10 @@
-<script context="module">
-  import { query } from "./graphqlQuery.js";
-  import { getData } from "$utils/api.js";
-
-  export const prerender = true;
-
-  export const load = async () => {
-    const data = await getData(
-      query,
-      "https://nutrisportcoach.onrender.com/graphql"
-    );
-
-    return {
-      props: { data },
-    };
-  };
-</script>
-
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
-  import { GraphQLClient, gql } from "graphql-request";
   import { dynamicOffsetHeight as mainHeaderHeight } from "$lib/header/Header.svelte";
   import { Icon, CheckCircle, XCircle } from "svelte-hero-icons";
+  import data from "../../../data/index.js";
+  import supabase from "$lib/db.js";
 
   import Head from "$lib/Head/Head.svelte";
   import Star from "$lib/Star/Star.svelte";
@@ -64,61 +47,27 @@
   };
 
   const handleSubmit = async () => {
-    const endpoint = "https://nutrisportcoach.onrender.com/graphql";
-
-    const graphQLClient = new GraphQLClient(endpoint);
-
-    const mutation = gql`
-      mutation createReview(
-        $firstName: String!
-        $lastName: String!
-        $comment: String!
-        $rating: Int!
-      ) {
-        createReview(
-          data: {
-            firstName: $firstName
-            lastName: $lastName
-            comment: $comment
-            rating: $rating
-          }
-        ) {
-          data {
-            id
-            attributes {
-              rating
-            }
-          }
-        }
-      }
-    `;
-
-    const variables = {
-      firstName: firstName,
-      lastName: lastName,
-      comment: comment,
-      rating: rating,
-    };
-
-    await graphQLClient.request(mutation, variables);
+    const { data, error } = await supabase
+      .from("reviews")
+      .insert([{ firstName, lastName, rating, comment }])
+      .select();
 
     toast.open();
-    formSentSuccess = true;
-    form.reset();
-    rating = 0;
-  };
 
-  export let data = null;
+    if (error) {
+      formSentSuccess = false;
+    } else {
+      formSentSuccess = true;
+      form.reset();
+      rating = 0;
+    }
+  };
 
   const {
     reviewsPageCreation: {
-      data: {
-        attributes: {
-          seo: { metaTitle, metaDescription },
-          title,
-          terms,
-        },
-      },
+      seo: { metaTitle, metaDescription },
+      title,
+      terms,
     },
   } = data;
 

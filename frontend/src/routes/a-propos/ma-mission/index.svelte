@@ -1,31 +1,13 @@
-<script context="module">
-  import { query } from "./graphqlQuery.js";
-  import { getData } from "$utils/api.js";
-
-  export const prerender = true;
-
-  export const load = async () => {
-    const {
-      mission: { data },
-    } = await getData(query, "https://nutrisportcoach.onrender.com/graphql");
-
-    return {
-      props: { data },
-    };
-  };
-</script>
-
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import { breakpoint } from "$stores/store-breakpoint";
+  import data from "../../../data/index.js";
 
   import Head from "$lib/Head/Head.svelte";
   import HTML from "$lib/HTML/HTML.svelte";
 
   import Mission from "$lib/assets/mission/mission.png";
-
-  export let data = null;
 
   let mounted = false;
 
@@ -34,7 +16,7 @@
     title,
     titleVideo,
     description,
-  } = data?.attributes;
+  } = data?.mission;
 
   $: smallViewport = ["xs", "sm", "md", "lg"].includes($breakpoint?.name);
 

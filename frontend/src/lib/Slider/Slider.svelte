@@ -32,7 +32,7 @@
     }}
     modules={[Pagination, Mousewheel]}
   >
-    {#each reviews as { attributes: { firstName, lastName, comment, rating } }}
+    {#each reviews as { firstName, lastName, comment, rating }}
       <Slide {firstName} {lastName} {comment} {rating} />
     {/each}
   </Swiper>

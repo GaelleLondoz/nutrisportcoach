@@ -12,6 +12,11 @@
   $: smallViewport = ["xs", "sm", "md", "lg"].includes($breakpoint?.name);
 </script>
 
+<!-- url: {url}
+label: {label}
+alternativeText: {alternativeText}
+cloudinaryHash: {cloudinaryHash} -->
+
 <li
   class:active={$page.url.pathname.includes(url)}
   class:with-image={cloudinaryHash && alternativeText}
@@ -27,7 +32,7 @@
 
         <img
           src="https://res.cloudinary.com/gaellecloudinary/image/upload/f_auto/{cloudinaryHash}"
-          alt={alternativeText}
+          alt={alternativeText || label}
         />
       </picture>
     {/if}
