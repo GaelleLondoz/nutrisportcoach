@@ -27,7 +27,7 @@ const data = {
       metaDescription: "Des programmes personnalisés en fonction de tes besoins."
     },
     title: '<h1><span style="font-family:Hind, sans-serif;">Des programmes personnalisés</span><br><span style="font-family:Hind, sans-serif;">en fonction de </span><span style="color:#486b3b;font-family:Hind, sans-serif;">TES</span><span style="font-family:Hind, sans-serif;"> besoins</span></h1>',
-    description: "À mon cabinet, à domicile (Bruxelles et alentours) ou à distance (dans le monde entier)",
+    description: "À mon cabinet (Rixensart) ou à distance (dans le monde entier)",
     button: {
       text: "Découvrir",
       url: "/philosophie"
@@ -44,6 +44,17 @@ const data = {
       metaDescription: "Il n’y a rien de plus beau que de me voir oser changer, sans peur et assumer qui je suis pour commencer à vivre."
     },
     programs: [
+      {
+        image: {
+          hash: "prof_bien_e12293eca3",
+          alternativeText: "bien etre"
+        },
+        title: "Coach bien-être",
+        button: {
+          text: "En savoir plus",
+          url: "/philosophie/coach-bien-etre"
+        }
+      },
       {
         image: {
           hash: "prog_nutri_d36a6fe1db",
@@ -65,20 +76,19 @@ const data = {
           text: "En savoir plus",
           url: "/philosophie/coach-sportif"
         }
-      },
+      }
+    ],
+    tabs: [
       {
         image: {
           hash: "prof_bien_e12293eca3",
           alternativeText: "bien etre"
         },
-        title: "Coach bien-être",
-        button: {
-          text: "En savoir plus",
+        url: {
+          label: "Coach bien-être",
           url: "/philosophie/coach-bien-etre"
         }
-      }
-    ],
-    tabs: [
+      },
       {
         image: {
           hash: "prog_nutri_d36a6fe1db",
@@ -98,22 +108,12 @@ const data = {
           label: "Coach sportif",
           url: "/philosophie/coach-sportif"
         }
-      },
-      {
-        image: {
-          hash: "prof_bien_e12293eca3",
-          alternativeText: "bien etre"
-        },
-        url: {
-          label: "Coach bien-être",
-          url: "/philosophie/coach-bien-etre"
-        }
       }
     ]
   },
   nutrition: {
     title: "Prendre du plaisir…",
-    description: "<p>Manger est une activité essentielle à la vie, mais elle doit aussi être un plaisir. Pour trouver cette notion de plaisir dans l’alimentation, tu dois apprendre à te connaitre, apprendre à tester des recettes, des associations et de nouveaux goûts.</p><p>Je me suis basée sur ma propre expérience vu le poids assez impressionnant que j’avais pris. J’ai rencontré pas mal de diététiciennes, fait divers régimes comme WW; il manquait toujours quelque chose dans l’accompagnement et ça me frustrait.</p><p>Il y avait pas mal de petits manquements et j’ai voulu prendre le chemin inverse de la manière dont elles agissent habituellement, à savoir guider mes clients pour éviter qu’ils doivent se prendre la tête avec leur alimentation.</p>",
+    description: "<p>Manger est une activité essentielle à la vie, mais elle doit aussi être un plaisir. Pour trouver cette notion de plaisir dans l’alimentation, tu dois apprendre à te connaitre, apprendre à tester des recettes, des associations et de nouveaux goûts.</p><p>Je me suis basée sur ma propre expérience vu le poids assez impressionnant que j’avais pris. J’ai rencontré pas mal de diététiciennes, fait divers régimes comme WW; il manquait toujours quelque chose dans l’accompagnement et ça me frustrait.</p><p>Il y avait pas mal de petits manquements et j’ai voulu prendre le chemin inverse de la manière dont elles agissent habituellement, à savoir guider mes patients pour éviter qu’ils doivent se prendre la tête avec leur alimentation.</p>",
     seo: {
       metaTitle: "Coach Nutrition - Prendre du plaisir…",
       metaDescription: "Pour trouver la notion de plaisir dans l’alimentation, tu dois apprendre à te connaître, apprendre à tester des recettes, des associations et de nouveaux goûts."
@@ -150,7 +150,7 @@ const data = {
   mission: {
     title: "Profite de mon vécu",
     titleVideo: "Le résumé de mon activité",
-    description: '<p>Me basant sur toute l’expérience que j’ai pu accumuler en matière de coaching sportif, de nutrition, sur base de ma formation en coaching et de mon expérience professionnelle, je me mets à ta disposition pour t’aider à trouver ce qui couve à l’intérieur de toi et à le faire grandir pour en libérer tout le potentiel.</p><p>Il n’y a rien de plus beau que de voir quelqu’un oser changer, sans peur et assumer qui elle/il est pour commencer à vivre.&nbsp;</p><p>T’identifier et aligner ta vie personnelle, familiale et/ou professionnelle.</p><p>Un état d’être présent, une écoute profonde, sensible et bienveillante, intuitive et pragmatique, une façon de voir les choses d’un point de vue différent.&nbsp;</p><p>Je t’aide par un nouveau regard, à ouvrir les champs possibles et t’offre une nouvelle perspective.</p><p>Moins de stress, plus de tranquillité d’esprit, une perception plus profonde de la richesse de la vie.&nbsp;</p><p>Tu mérites de dévoiler ce qui sommeille en toi, même si ce chemin nécessite parfois un peu d’aide et d’accepter ses limites.</p><p>Le secret de la sérénité ne se situe pas au niveau des événements mais de la réponse que tu y apportes.</p><p>Mon meilleur conseil serait : <span style="color:#486b3b;"><strong>OSEZ</strong></span>, <span style="color:#486b3b;"><strong>VIVEZ</strong></span>, <span style="color:#486b3b;"><strong>VIBREZ</strong></span></p><p>Quand nous sommes fatigués, épuisés, nous n’avons pas souvent envie de bouger. Je propose de t’accompagner personnellement (sportif, nutrition, coach de vie, mental) en faisant des séances individuelles sous différentes formes et à ta meilleure convenance :&nbsp;</p><p>- chez toi (Bruxelles et alentours)&nbsp;</p><p>- à mon cabinet (Kraainem)&nbsp;</p><p>- par Teams&nbsp;</p><p>- par mail, whatsapp, tél&nbsp;</p><p>Plusieurs manières sont possibles, en fonction de ton temps, si tu es en vacances, etc… et en fonction du trajet que nous allons suivre.&nbsp;</p><p>Nous allons créer un plan d’action clair et régulier pour te permettre de prendre les meilleures décisions. Economiser du temps et des ressources pour développer une productivité saine et cohérente avec tes objectifs. Grâce à un projet sur mesure, la destination est de redécouvrir ton essence oubliée avec bienveillance et à ton rythme.&nbsp;</p><p>Tu seras alors prêt(e) à exploiter un potentiel extraordinaire déjà présent en toi et te déployer. Je t’accompagne à vivre plus consciemment, sereinement en lien avec tes valeurs, tes désirs.&nbsp;</p><p><span style="color:#486b3b;"><strong>Transformer durablement sa vie et oser tous ses possibles.</strong></span></p>',
+    description: '<p>Me basant sur toute l’expérience que j’ai pu accumuler en matière de coaching sportif, de nutrition, sur base de ma formation en coaching et de mon expérience professionnelle, je me mets à ta disposition pour t’aider à trouver ce qui couve à l’intérieur de toi et à le faire grandir pour en libérer tout le potentiel.</p><p>Il n’y a rien de plus beau que de voir quelqu’un oser changer, sans peur et assumer qui elle/il est pour commencer à vivre.&nbsp;</p><p>T’identifier et aligner ta vie personnelle, familiale et/ou professionnelle.</p><p>Un état d’être présent, une écoute profonde, sensible et bienveillante, intuitive et pragmatique, une façon de voir les choses d’un point de vue différent.&nbsp;</p><p>Je t’aide par un nouveau regard, à ouvrir les champs possibles et t’offre une nouvelle perspective.</p><p>Moins de stress, plus de tranquillité d’esprit, une perception plus profonde de la richesse de la vie.&nbsp;</p><p>Tu mérites de dévoiler ce qui sommeille en toi, même si ce chemin nécessite parfois un peu d’aide et d’accepter ses limites.</p><p>Le secret de la sérénité ne se situe pas au niveau des événements mais de la réponse que tu y apportes.</p><p>Mon meilleur conseil serait : <span style="color:#486b3b;"><strong>OSEZ</strong></span>, <span style="color:#486b3b;"><strong>VIVEZ</strong></span>, <span style="color:#486b3b;"><strong>VIBREZ</strong></span></p><p>Quand nous sommes fatigués, épuisés, nous n’avons pas souvent envie de bouger. Je propose de t’accompagner personnellement (sportif, nutrition, coach de vie, mental) en faisant des séances individuelles sous différentes formes et à ta meilleure convenance :&nbsp;</p><p>- à mon cabinet (Rixensart)&nbsp;</p><p>- par Teams&nbsp;</p><p>- par mail, whatsapp, tél&nbsp;</p><p>Plusieurs manières sont possibles, en fonction de ton temps, si tu es en vacances, etc… et en fonction du trajet que nous allons suivre.&nbsp;</p><p>Nous allons créer un plan d’action clair et régulier pour te permettre de prendre les meilleures décisions. Economiser du temps et des ressources pour développer une productivité saine et cohérente avec tes objectifs. Grâce à un projet sur mesure, la destination est de redécouvrir ton essence oubliée avec bienveillance et à ton rythme.&nbsp;</p><p>Tu seras alors prêt(e) à exploiter un potentiel extraordinaire déjà présent en toi et te déployer. Je t’accompagne à vivre plus consciemment, sereinement en lien avec tes valeurs, tes désirs.&nbsp;</p><p><span style="color:#486b3b;"><strong>Transformer durablement sa vie et oser tous ses possibles.</strong></span></p>',
     seo: {
       metaTitle: "Ma Mission – Profite de mon vécu",
       metaDescription: "Me basant sur ma propre expérience, je me mets à ta disposition pour t’aider à trouver ce qui couve à l’intérieur de toi et à le faire grandir."
