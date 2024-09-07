@@ -199,7 +199,7 @@ const data = {
     },
     title: "Formulaire de contact",
     name: "Isabelle Steurbaut",
-    phoneNumber: "+32 470 63 54 19",
+    phoneNumber: "+32 477 31 49 47",
     emailAddress: "isa@nutrisportcoach.com",
     image: {
       alternativeText: "Isabelle Steurbaut",
