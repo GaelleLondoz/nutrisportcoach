@@ -36,13 +36,10 @@
       <div class="content">
         <h1>{titleVideo}</h1>
         <div class="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/kH3U2Og6F-Y"
-            title={titleVideo}
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
+          <video controls>
+            <source src="/mission-video.MP4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <h2>{title}</h2>
         <HTML text={description} />
