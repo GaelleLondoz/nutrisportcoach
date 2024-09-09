@@ -37,7 +37,7 @@
         <h1>{titleVideo}</h1>
         <div class="video-container">
           <iframe
-            src="https://www.youtube.com/embed/kH3U2Og6F-Y"
+            src="https://res.cloudinary.com/gaellecloudinary/video/upload/v1725871379/sew0gueqpuktpch7mgrj.mp4"
             title={titleVideo}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
