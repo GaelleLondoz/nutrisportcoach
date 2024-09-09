@@ -40,7 +40,7 @@
             src="https://res.cloudinary.com/gaellecloudinary/video/upload/v1725871379/sew0gueqpuktpch7mgrj.mp4"
             title={titleVideo}
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           />
         </div>
