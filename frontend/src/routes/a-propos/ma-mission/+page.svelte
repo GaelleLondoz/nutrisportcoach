@@ -36,10 +36,13 @@
       <div class="content">
         <h1>{titleVideo}</h1>
         <div class="video-container">
-          <video controls>
-            <source src="/mission-video.MP4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <iframe
+            src="https://res.cloudinary.com/gaellecloudinary/video/upload/v1725871379/sew0gueqpuktpch7mgrj.mp4"
+            title={titleVideo}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
         </div>
         <h2>{title}</h2>
         <HTML text={description} />
