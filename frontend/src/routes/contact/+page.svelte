@@ -99,7 +99,7 @@
           <div class="social-media__inner">
             <div class="facebook">
               <a
-                href="https://www.facebook.com/Nutrisport-Coach-Isabelle-Steurbaut-101459936033877"
+                href="https://www.facebook.com/profile.php?id=100084933166918"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   height: calc(100vh - var(--headerHeigth));
+  padding-top: var(--headerHeigth);
 
   &:before {
     content: "";
